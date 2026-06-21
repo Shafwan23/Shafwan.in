@@ -5,8 +5,22 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Environment, Float, Sparkles, Stars, Line } from '@react-three/drei';
 import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
 import { BlendFunction } from 'postprocessing';
-import { Suspense, useRef, useMemo } from 'react';
+import { Suspense, useRef, useMemo, useState, useEffect } from 'react';
 import * as THREE from 'three';
+
+/* ═══════════════════════════════════════════════
+   UTILITY: Mobile Detection
+   ═══════════════════════════════════════════════ */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  return isMobile;
+}
 
 /* ═══════════════════════════════════════════════
    UTILITY: Extract unique icosahedron vertices
@@ -150,10 +164,11 @@ function EnergyCore() {
    inside the artifact
    ═══════════════════════════════════════════════ */
 function InternalGalaxy() {
+  const isMobile = useIsMobile();
   const nebulaRef = useRef<THREE.Mesh>(null);
   const dustRef = useRef<THREE.Points>(null);
 
-  const dustCount = 400;
+  const dustCount = isMobile ? 150 : 400;
   const dustPositions = useMemo(() => {
     const pos = new Float32Array(dustCount * 3);
     for (let i = 0; i < dustCount; i++) {
@@ -166,7 +181,7 @@ function InternalGalaxy() {
       pos[i * 3 + 2] = r * Math.cos(phi);
     }
     return pos;
-  }, []);
+  }, [dustCount]);
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
@@ -214,8 +229,8 @@ function InternalGalaxy() {
       </points>
 
       {/* Brighter core sparkles */}
-      <Sparkles count={60} scale={3} size={4} speed={0.8} opacity={0.6} color="#c4b5fd" />
-      <Sparkles count={30} scale={2} size={6} speed={1.2} opacity={0.8} color="#67e8f9" />
+      <Sparkles count={isMobile ? 20 : 60} scale={3} size={4} speed={0.8} opacity={0.6} color="#c4b5fd" />
+      <Sparkles count={isMobile ? 10 : 30} scale={2} size={6} speed={1.2} opacity={0.8} color="#67e8f9" />
     </group>
   );
 }
@@ -311,10 +326,11 @@ function EnergyConnections() {
    AMBIENT DEPTH PARTICLES — 4 depth layers
    ═══════════════════════════════════════════════ */
 function DepthParticles() {
+  const isMobile = useIsMobile();
   const foregroundRef = useRef<THREE.Points>(null);
 
   // Layer 1: Foreground particles (close to camera)
-  const fgCount = 150;
+  const fgCount = isMobile ? 50 : 150;
   const fgPositions = useMemo(() => {
     const pos = new Float32Array(fgCount * 3);
     for (let i = 0; i < fgCount; i++) {
@@ -323,10 +339,10 @@ function DepthParticles() {
       pos[i * 3 + 2] = (Math.random() - 0.5) * 5 + 4; // closer to camera
     }
     return pos;
-  }, []);
+  }, [fgCount]);
 
   // Layer 4: Deep background dust
-  const bgCount = 600;
+  const bgCount = isMobile ? 150 : 600;
   const bgPositions = useMemo(() => {
     const pos = new Float32Array(bgCount * 3);
     for (let i = 0; i < bgCount; i++) {
@@ -335,7 +351,7 @@ function DepthParticles() {
       pos[i * 3 + 2] = (Math.random() - 0.5) * 40 - 15; // far behind
     }
     return pos;
-  }, []);
+  }, [bgCount]);
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
@@ -399,13 +415,15 @@ function CameraDrift() {
    MAIN CANVAS EXPORT
    ═══════════════════════════════════════════════ */
 export default function AmbientCanvas() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
       <Canvas
         camera={{ position: [0, 0.5, 9], fov: 50 }}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         style={{ background: 'transparent' }}
-        dpr={[1, 1.5]}
+        dpr={isMobile ? [1, 1] : [1, 1.5]}
       >
         <Suspense fallback={null}>
           <Environment preset="night" />
@@ -437,28 +455,30 @@ export default function AmbientCanvas() {
           <DepthParticles />
 
           {/* Layer 3/4: Deep space star field */}
-          <Stars radius={70} depth={80} count={3500} factor={4} saturation={0.15} fade speed={0.4} />
+          <Stars radius={70} depth={80} count={isMobile ? 1000 : 3500} factor={4} saturation={0.15} fade speed={0.4} />
 
           {/* Mid-field sparkles */}
-          <Sparkles count={80} scale={22} size={2} speed={0.15} opacity={0.2} color="#8b5cf6" />
-          <Sparkles count={50} scale={18} size={1.5} speed={0.3} opacity={0.25} color="#06b6d4" />
+          <Sparkles count={isMobile ? 30 : 80} scale={22} size={2} speed={0.15} opacity={0.2} color="#8b5cf6" />
+          <Sparkles count={isMobile ? 20 : 50} scale={18} size={1.5} speed={0.3} opacity={0.25} color="#06b6d4" />
 
           <CameraDrift />
 
           {/* Post-processing */}
-          <EffectComposer>
-            <Bloom
-              intensity={1.8}
-              luminanceThreshold={0.1}
-              luminanceSmoothing={0.95}
-              mipmapBlur
-            />
-            <Vignette
-              offset={0.25}
-              darkness={0.65}
-              blendFunction={BlendFunction.NORMAL}
-            />
-          </EffectComposer>
+          {!isMobile && (
+            <EffectComposer>
+              <Bloom
+                intensity={1.8}
+                luminanceThreshold={0.1}
+                luminanceSmoothing={0.95}
+                mipmapBlur
+              />
+              <Vignette
+                offset={0.25}
+                darkness={0.65}
+                blendFunction={BlendFunction.NORMAL}
+              />
+            </EffectComposer>
+          )}
         </Suspense>
       </Canvas>
     </div>
