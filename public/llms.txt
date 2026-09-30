@@ -1,0 +1,37 @@
+# Shafwan Ahmed
+
+> Shafwan Ahmed is a full stack software engineer at Famysys in Chennai, Tamil Nadu, India. He builds production web applications end to end with Next.js, React, TypeScript, Node.js, Express.js and MySQL, and was previously a ServiceNow Developer (ITSM and HR Service Delivery) at SUMZ Technologies. Smart India Hackathon 2023 Grand Finalist. Open to Software Engineer and Full Stack Developer roles.
+
+Official website: https://shafwan.in/ (the only official site of this Shafwan Ahmed). Email: tshafwan23@gmail.com. LinkedIn: https://www.linkedin.com/in/shafwan23/. GitHub: https://github.com/Shafwan23. LeetCode: https://leetcode.com/u/Shafwan3/.
+
+## Profile
+
+- [About](https://shafwan.in/about/): who he is, how he works, what he is learning next (system design, LLMs and retrieval-augmented generation, mobile development)
+- [Experience](https://shafwan.in/experience/): full career record with dates and responsibilities
+- [Contact](https://shafwan.in/contact/): email and profiles
+- [Résumé (PDF)](https://shafwan.in/Shafwan-Ahmed-Resume.pdf): one-page CV
+
+## Experience
+
+- Software Engineer, Famysys, Chennai (Nov 2025 – present): production web applications with Next.js, React, TypeScript; RESTful APIs in Node.js and Express.js on MySQL; secure authentication, third-party integrations; testing, Git, deployment and production support.
+- ServiceNow Developer, SUMZ Technologies, Chennai (Sep 2024 – Nov 2025): ITSM (Incident, Problem, Change Management), HR Service Delivery, Flow Designer automation, Service Catalog and Service Portal, SLAs, REST and JDBC integrations, Automated Test Framework.
+- Full Stack Developer Intern, MYFUNDBOX, remote (Jan 2024 – Jun 2024): login and signup flow, customer dashboard in React and TypeScript, Spring Boot REST integration.
+
+## Education and honours
+
+- B.E. Computer Engineering, C. Abdul Hakeem College of Engineering & Technology (2020 – 2024), grade 8.4.
+- Smart India Hackathon 2023 Grand Finalist (issued by ISRO, Department of Space, Dec 2023).
+- Innovation, Design and Entrepreneurship (IDE) Bootcamp Phase II, Ministry of Education, Government of India (Feb 2024).
+- Education Volunteer, U&I Trust (Nov 2023 – Apr 2025).
+- Languages: Urdu (native), English, Tamil, Hindi.
+
+## Case studies
+
+- [Full Stack at Famysys](https://shafwan.in/work/famysys/): production web apps, interface to database
+- [ServiceNow ITSM](https://shafwan.in/work/servicenow/): ITSM and HR Service Delivery on ServiceNow
+- [MYFUNDBOX](https://shafwan.in/work/myfundbox/): auth flows and customer dashboard for a subscription billing platform
+- [SIH 2023](https://shafwan.in/work/sih-2023/): explainable AI for heavy-rain prediction from INSAT-3DR satellite data, on an ISRO problem statement
+
+## Optional
+
+- [The Lab](https://shafwan.in/lab/): three technical browser games (Bitwise, Compile, Keystroke)

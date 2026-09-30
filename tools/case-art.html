@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- Case-study plates, rendered to public/img by tools/render-case-art.mjs.
+     One scene per image; the renderer shows a scene, sizes the body to it, and screenshots it. -->
+<style>
+  @font-face { font-family: 'Archivo'; font-weight: 100 900; font-stretch: 62% 125%; src: url('../public/fonts/archivo-var-latin.woff2') format('woff2'); }
+  @font-face { font-family: 'Italiana'; src: url('../public/fonts/italiana-latin.woff2') format('woff2'); }
+  :root {
+    --stage: #0F0E0C; --stage-2: #171511; --stage-3: #23201a; --line: rgba(237,232,223,.12); --line-2: rgba(237,232,223,.22);
+    --cream: #EDE8DF; --stone: #A69F90; --gold: #C9A96A; --gold-2: #E2C78F; --red: #D9826B;
+    --mono: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--stage); color: var(--cream); font-family: 'Archivo', sans-serif; overflow: hidden; }
+  .scene { display: none; position: relative; overflow: hidden; background: var(--stage); }
+  .scene.on { display: block; }
+  .hero { width: 1024px; height: 1024px; }
+  .det { width: 640px; height: 440px; }
+
+  .glow { position: absolute; inset: -20%; pointer-events: none;
+    background: radial-gradient(38% 40% at 78% 20%, rgba(201,169,106,.18), transparent 70%),
+                radial-gradient(30% 34% at 12% 88%, rgba(201,169,106,.10), transparent 70%); }
+  .grain { position: absolute; inset: 0; opacity: .06; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E"); }
+  .caps { font-stretch: 78%; font-weight: 600; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
+  .folio { font-family: 'Italiana', serif; color: var(--gold); }
+  .ghost-word { position: absolute; font-stretch: 125%; font-weight: 800; text-transform: uppercase; line-height: .85;
+    color: transparent; -webkit-text-stroke: 1.5px rgba(237,232,223,.13); white-space: nowrap; letter-spacing: -.01em; }
+  .frame { position: absolute; inset: 56px; display: flex; flex-direction: column; justify-content: space-between; }
+  .rule-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .top { border-bottom: 1.5px solid var(--line-2); padding-bottom: 18px; }
+  .bot { border-top: 1.5px solid var(--line-2); padding-top: 18px; }
+  .card { background: rgba(23,21,17,.92); border: 1px solid var(--line-2); border-radius: 14px;
+    box-shadow: 0 40px 90px -40px rgba(0,0,0,.95), inset 0 0 0 1px rgba(237,232,223,.03); }
+  .dots { display: flex; gap: 7px; } .dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--stage-3); }
+  .dots i:first-child { background: #b0624f; } .dots i:nth-child(2) { background: #b8964f; } .dots i:nth-child(3) { background: #6d8a5a; }
+  .mono { font-family: var(--mono); }
+  .gold { color: var(--gold); } .stone { color: var(--stone); } .red { color: var(--red); }
+
+  /* ── FAMYSYS ── */
+  .gitlog { position: absolute; left: 96px; right: 96px; top: 300px; padding: 0 0 26px; }
+  .gitlog .bar { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border-bottom: 1px solid var(--line); }
+  .gitlog .bar span { margin: 0 auto; font-size: 15px; color: var(--stone); }
+  .gl { display: grid; grid-template-columns: 30px 118px 1fr auto; align-items: center; gap: 14px; padding: 15px 28px; font-size: 21px; }
+  .gl.cur { background: rgba(201,169,106,.08); }
+  .gl .node { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid var(--gold); position: relative; justify-self: center; }
+  .gl .node::after { content: ''; position: absolute; left: 50%; top: 100%; width: 2px; height: 38px; translate: -50% 0; background: rgba(201,169,106,.35); }
+  .gl:last-of-type .node::after { display: none; }
+  .gl.wip .node { border-color: #7fae78; } .gl.wip .hash { color: #7fae78; }
+  .gl .hash { color: var(--gold); } .gl .msg { color: var(--cream); } .gl .age { font-size: 15px; color: var(--stone); }
+  .gitlog .foot { display: flex; gap: 14px; align-items: center; padding: 14px 28px 0; font-size: 15px; color: var(--stone); }
+  .gitlog .foot b { border: 1px solid var(--gold); color: var(--gold); padding: 2px 10px; border-radius: 5px; font-weight: 500; }
+
+  .editor { position: absolute; inset: 34px 30px; }
+  .editor .bar { display: flex; align-items: center; gap: 14px; padding: 11px 16px; border-bottom: 1px solid var(--line); font-size: 12px; }
+  .tab { color: var(--cream); font-size: 12px; padding: 3px 10px; border-radius: 4px; background: var(--stage-3); }
+  .code { padding: 14px 18px; font-size: 13.2px; line-height: 1.62; white-space: pre; }
+  .code .ln { display: inline-block; width: 24px; color: rgba(166,159,144,.45); }
+  .k { color: #c792a0; } .f { color: var(--gold-2); } .s { color: #a8c08a; } .t { color: #86b3c4; } .c { color: rgba(166,159,144,.7); font-style: italic; }
+
+  .arch { position: absolute; inset: 0; display: grid; grid-template-rows: auto 1fr auto; padding: 34px 38px 30px; }
+  .arch-row { display: grid; grid-template-columns: 1fr 38px 1fr 38px 1fr; align-items: center; }
+  .box { padding: 18px 14px; text-align: center; }
+  .box b { display: block; font-stretch: 112%; font-weight: 700; font-size: 17px; }
+  .box span { display: block; margin-top: 6px; font-size: 11.5px; color: var(--stone); letter-spacing: .04em; }
+  .box.hot { border-color: var(--gold); } .box.hot b { color: var(--gold); }
+  .arrow { height: 2px; background: linear-gradient(90deg, rgba(201,169,106,.2), var(--gold)); position: relative; }
+  .arrow::after { content: ''; position: absolute; right: -2px; top: -4px; border: 5px solid transparent; border-left-color: var(--gold); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .chip { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; font-stretch: 85%; font-weight: 600;
+    padding: 6px 11px; border: 1px solid var(--line-2); border-radius: 99px; color: var(--stone); }
+  .chip.g { border-color: rgba(201,169,106,.6); color: var(--gold); }
+
+  /* ── SERVICENOW ── */
+  .cycle { position: absolute; left: 50%; top: 520px; width: 560px; height: 560px; translate: -50% -50%; }
+  .cycle svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .cnode { position: absolute; width: 190px; translate: -50% -50%; padding: 18px 14px; text-align: center; }
+  .cnode b { display: block; font-stretch: 115%; font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: .02em; }
+  .cnode span { display: block; margin-top: 6px; font-size: 13px; color: var(--stone); }
+  .ccore { position: absolute; left: 50%; top: 50%; translate: -50% -50%; text-align: center; }
+  .ccore b { font-family: 'Italiana', serif; font-weight: 400; font-size: 78px; color: var(--gold); line-height: 1; display: block; }
+
+  .flow { position: absolute; inset: 0; padding: 30px 34px; display: grid; grid-template-rows: auto 1fr; gap: 14px; }
+  .steps { display: grid; gap: 9px; align-content: center; }
+  .step { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; align-items: center; padding: 11px 14px; }
+  .step i { width: 26px; height: 26px; border-radius: 7px; border: 1.5px solid var(--gold); display: grid; place-items: center; font-style: normal; font-size: 12px; color: var(--gold); font-family: var(--mono); }
+  .step b { font-weight: 600; font-size: 15px; } .step em { font-style: normal; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--stone); font-stretch: 80%; font-weight: 600; }
+  .step.done em { color: #8fb886; } .step.run { border-color: var(--gold); } .step.run em { color: var(--gold); }
+
+  .scripts { position: absolute; inset: 0; padding: 30px 34px; display: grid; grid-template-rows: auto 1fr; gap: 12px; }
+  .srow { display: grid; grid-template-columns: 148px 1fr 58px; gap: 14px; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .srow:last-child { border-bottom: 0; }
+  .srow b { font-stretch: 105%; font-weight: 700; font-size: 14.5px; }
+  .srow code { font-family: var(--mono); font-size: 12.5px; color: var(--stone); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .srow span { justify-self: end; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; font-stretch: 80%; color: var(--gold); }
+
+  /* ── MYFUNDBOX ── */
+  .login { position: absolute; left: 50%; top: 540px; width: 520px; translate: -50% -50%; padding: 44px 46px 40px; }
+  .login h3 { font-stretch: 118%; font-weight: 800; font-size: 34px; text-transform: uppercase; letter-spacing: .01em; }
+  .login p.sub { margin-top: 8px; color: var(--stone); font-size: 16px; }
+  .field { margin-top: 26px; }
+  .field label { display: block; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--stone); font-stretch: 80%; font-weight: 600; }
+  .input { margin-top: 9px; height: 52px; border: 1.5px solid var(--line-2); border-radius: 9px; padding: 0 16px; display: flex; align-items: center; font-size: 17px; color: var(--cream); }
+  .input.err { border-color: var(--red); } .input.ok { border-color: rgba(201,169,106,.7); }
+  .hint { margin-top: 8px; font-size: 13.5px; color: var(--red); }
+  .caret { width: 2px; height: 22px; background: var(--gold); margin-left: 2px; }
+  .btn { margin-top: 30px; height: 54px; border-radius: 9px; background: var(--gold); color: #1a160e; display: grid; place-items: center; font-weight: 800; font-stretch: 115%; letter-spacing: .12em; text-transform: uppercase; font-size: 15px; }
+  .alt { margin-top: 18px; text-align: center; font-size: 14px; color: var(--stone); } .alt b { color: var(--gold); font-weight: 600; }
+
+  .dash { position: absolute; inset: 0; padding: 26px 30px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr 1fr; gap: 12px; }
+  .dash .hd { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; }
+  .tile { padding: 16px 18px; display: grid; align-content: space-between; gap: 10px; }
+  .sk { height: 10px; border-radius: 99px; background: linear-gradient(90deg, var(--stage-3), #332e25, var(--stage-3)); }
+  .tile.err { border-color: rgba(217,130,107,.6); }
+  .tile.err b { color: var(--red); font-size: 14.5px; font-weight: 600; }
+  .retry { justify-self: start; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; font-stretch: 85%; color: var(--gold); border: 1px solid rgba(201,169,106,.6); padding: 5px 10px; border-radius: 6px; }
+  .spin { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid var(--stage-3); border-top-color: var(--gold); }
+
+  .req { position: absolute; inset: 0; padding: 30px 34px; display: grid; grid-template-rows: auto 1fr; gap: 16px; }
+  .rq { display: grid; grid-template-columns: 58px 1fr auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 14px; }
+  .rq:last-child { border-bottom: 0; }
+  .verb { font-weight: 700; color: var(--gold); } .st { font-size: 12.5px; padding: 3px 9px; border-radius: 5px; border: 1px solid var(--line-2); color: var(--stone); }
+  .st.ok { color: #8fb886; border-color: rgba(143,184,134,.5); } .st.no { color: var(--red); border-color: rgba(217,130,107,.5); } .st.wait { color: var(--gold); border-color: rgba(201,169,106,.5); }
+
+  /* ── SIH 2023 ── */
+  .heat { position: absolute; left: 96px; right: 96px; top: 250px; height: 520px; padding: 22px; }
+  .heat-grid { display: grid; grid-template-columns: repeat(24, 1fr); gap: 4px; height: calc(100% - 44px); }
+  .heat-grid i { border-radius: 3px; background: rgba(201,169,106, var(--a)); }
+  .scan { position: absolute; top: 22px; bottom: 66px; left: 62%; width: 2px; background: var(--gold-2); box-shadow: 0 0 24px 4px rgba(226,199,143,.45); }
+  .heat-foot { display: flex; justify-content: space-between; margin-top: 16px; }
+  .legend { display: flex; align-items: center; gap: 10px; }
+  .legend i { width: 120px; height: 8px; border-radius: 99px; background: linear-gradient(90deg, rgba(201,169,106,.06), var(--gold)); }
+
+  .shap { position: absolute; inset: 0; padding: 30px 34px; display: grid; grid-template-rows: auto 1fr auto; gap: 12px; }
+  .sb { display: grid; grid-template-columns: 170px 1fr; gap: 14px; align-items: center; padding: 7px 0; }
+  .sb b { font-size: 13.5px; font-weight: 500; color: var(--cream); }
+  .sb .track { position: relative; height: 16px; }
+  .sb .track::before { content: ''; position: absolute; left: 40%; top: -6px; bottom: -6px; width: 1px; background: var(--line-2); }
+  .sb .v { position: absolute; top: 0; height: 100%; border-radius: 3px; }
+  .sb .v.pos { left: 40%; background: linear-gradient(90deg, rgba(201,169,106,.5), var(--gold)); }
+  .sb .v.neg { right: 60%; background: rgba(166,159,144,.45); }
+
+  .ens { position: absolute; inset: 0; padding: 30px 34px; display: grid; grid-template-columns: 1fr 44px 1fr 44px 0.8fr; align-items: center; }
+  .ens .col { display: grid; gap: 10px; }
+  .ens .box { padding: 14px 10px; }
+  .ens .out b { font-stretch: 118%; font-weight: 800; font-size: 44px; color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ═════════ FAMYSYS ═════════ -->
+<div class="scene hero" id="famysys-hero">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="ghost-word" style="font-size:250px; left:-18px; top:640px">FAMYSYS</div>
+  <div class="frame">
+    <div class="rule-row top"><span class="caps">Case 01 — Full stack</span><span class="folio" style="font-size:40px">01</span></div>
+    <div class="rule-row bot"><span class="caps">Next.js · React · TypeScript · Node.js · MySQL</span><span class="caps gold">Nov 2025 — now</span></div>
+  </div>
+  <div class="card gitlog">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><span class="mono">shafwan — git log</span></div>
+    <div class="gl wip mono"><i class="node"></i><span class="hash">wip</span><span class="msg">system design · LLM · RAG</span><span class="age">in progress</span></div>
+    <div class="gl cur mono"><i class="node"></i><span class="hash">a3f9c21</span><span class="msg">software engineer @ Famysys</span><span class="age">now</span></div>
+    <div class="gl mono"><i class="node"></i><span class="hash">7b2e410</span><span class="msg">ServiceNow ITSM</span><span class="age">2024</span></div>
+    <div class="gl mono"><i class="node"></i><span class="hash">1c8d573</span><span class="msg">SIH 2023 finalist</span><span class="age">2023</span></div>
+    <div class="gl mono"><i class="node"></i><span class="hash">0a1f7c8</span><span class="msg">computer engineering</span><span class="age">2020</span></div>
+    <div class="foot mono"><b>main</b><span>// ideas to production</span></div>
+  </div>
+</div>
+
+<div class="scene det" id="famysys-d1">
+  <div class="glow"></div>
+  <div class="card editor">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><span class="tab mono">app/orders/page.tsx</span><span class="tab mono" style="background:none;color:var(--stone)">api/orders.ts</span></div>
+<div class="code mono"><span class="ln">1</span><span class="k">import</span> { <span class="t">OrderTable</span> } <span class="k">from</span> <span class="s">'@/components/order-table'</span>
+<span class="ln">2</span><span class="k">import</span> { <span class="f">getOrders</span> } <span class="k">from</span> <span class="s">'@/lib/api'</span>
+<span class="ln">3</span>
+<span class="ln">4</span><span class="c">// server component: data on the server, UI on the edge</span>
+<span class="ln">5</span><span class="k">export default async function</span> <span class="f">OrdersPage</span>() {
+<span class="ln">6</span>  <span class="k">const</span> orders = <span class="k">await</span> <span class="f">getOrders</span>({ status: <span class="s">'open'</span> })
+<span class="ln">7</span>  <span class="k">return</span> (
+<span class="ln">8</span>    &lt;<span class="t">section</span> className=<span class="s">"orders"</span>&gt;
+<span class="ln">9</span>      &lt;<span class="t">OrderTable</span> rows={orders} /&gt;
+<span class="ln">10</span>    &lt;/<span class="t">section</span>&gt;
+<span class="ln">11</span>  )
+<span class="ln">12</span>}</div>
+  </div>
+</div>
+
+<div class="scene det" id="famysys-d2">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="arch">
+    <div class="rule-row"><span class="caps">Request path</span><span class="caps gold">End to end</span></div>
+    <div class="arch-row">
+      <div class="card box"><b>Interface</b><span>Next.js · React · TS</span></div>
+      <div class="arrow"></div>
+      <div class="card box hot"><b>API</b><span>Node.js · Express.js</span></div>
+      <div class="arrow"></div>
+      <div class="card box"><b>Data</b><span>MySQL</span></div>
+    </div>
+    <div class="chips"><span class="chip g">Auth</span><span class="chip g">Validation</span><span class="chip">Third-party APIs</span><span class="chip">Git</span><span class="chip">Deploy</span><span class="chip">Support</span></div>
+  </div>
+</div>
+
+<!-- ═════════ SERVICENOW ═════════ -->
+<div class="scene hero" id="servicenow-hero">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="ghost-word" style="font-size:176px; left:-14px; top:738px">SERVICENOW</div>
+  <div class="frame">
+    <div class="rule-row top"><span class="caps">Case 02 — ITSM &amp; HRSD</span><span class="folio" style="font-size:40px">02</span></div>
+    <div class="rule-row bot"><span class="caps">SUMZ Technologies</span><span class="caps gold">Sep 2024 — Nov 2025</span></div>
+  </div>
+  <div class="cycle">
+    <svg viewBox="0 0 560 560"><circle cx="280" cy="280" r="206" fill="none" stroke="rgba(201,169,106,.45)" stroke-width="1.5" stroke-dasharray="3 9"/><circle cx="280" cy="280" r="150" fill="none" stroke="rgba(237,232,223,.08)" stroke-width="1"/></svg>
+    <div class="card cnode" style="left:280px;top:74px"><b class="gold">Incident</b><span>restore service</span></div>
+    <div class="card cnode" style="left:458px;top:383px"><b>Problem</b><span>find the root cause</span></div>
+    <div class="card cnode" style="left:102px;top:383px"><b>Change</b><span>fix it, safely</span></div>
+    <div class="ccore"><b>ITSM</b><span class="caps">+ HR Service Delivery</span></div>
+  </div>
+</div>
+
+<div class="scene det" id="servicenow-d1">
+  <div class="glow"></div>
+  <div class="flow">
+    <div class="rule-row"><span class="caps">Flow Designer — service request</span><span class="caps gold">SLA · running</span></div>
+    <div class="steps">
+      <div class="card step done"><i>T</i><b>Request submitted from the catalog</b><em>Trigger</em></div>
+      <div class="card step done"><i>1</i><b>Manager approval</b><em>Approved</em></div>
+      <div class="card step run"><i>2</i><b>Fulfilment task assigned to group</b><em>In progress</em></div>
+      <div class="card step"><i>3</i><b>Notify requester, close request</b><em>Waiting</em></div>
+    </div>
+  </div>
+</div>
+
+<div class="scene det" id="servicenow-d2">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="scripts">
+    <div class="rule-row"><span class="caps">Platform logic</span><span class="caps gold">Glide API</span></div>
+    <div>
+      <div class="srow"><b>Client Script</b><code>g_form.setMandatory('assignment_group', true)</code><span>Form</span></div>
+      <div class="srow"><b>Business Rule</b><code>if (current.priority == 1) current.escalate()</code><span>Server</span></div>
+      <div class="srow"><b>Script Include</b><code>new ChangeRiskUtil().score(current)</code><span>Reuse</span></div>
+      <div class="srow"><b>UI Policy</b><code>state == 'resolved' → close_notes visible</code><span>Form</span></div>
+      <div class="srow"><b>ACL</b><code>hr_case.read → hr_agent, case.opened_for</code><span>Security</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════ MYFUNDBOX ═════════ -->
+<div class="scene hero" id="myfundbox-hero">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="ghost-word" style="font-size:178px; left:-12px; top:748px">MYFUNDBOX</div>
+  <div class="frame">
+    <div class="rule-row top"><span class="caps">Case 03 — Subscription billing</span><span class="folio" style="font-size:40px">03</span></div>
+    <div class="rule-row bot"><span class="caps">React · TypeScript · Vite · Spring Boot</span><span class="caps gold">Jan — Jun 2024</span></div>
+  </div>
+  <div class="card login">
+    <h3>Sign in</h3>
+    <p class="sub">Manage your subscriptions and billing.</p>
+    <div class="field"><label>Email</label><div class="input err">shafwan@<span class="caret"></span></div><p class="hint">Enter a complete email address.</p></div>
+    <div class="field"><label>Password</label><div class="input ok" style="letter-spacing:.3em">••••••••••</div></div>
+    <div class="btn">Sign in</div>
+    <p class="alt">New here? <b>Create an account</b></p>
+  </div>
+</div>
+
+<div class="scene det" id="myfundbox-d1">
+  <div class="glow"></div>
+  <div class="dash">
+    <div class="hd"><span class="caps">Customer dashboard</span><span class="caps gold">Reusable components</span></div>
+    <div class="card tile"><span class="caps">Plan</span><div style="display:grid;gap:8px"><div class="sk" style="width:70%"></div><div class="sk" style="width:45%"></div></div></div>
+    <div class="card tile"><span class="caps">Next invoice</span><div style="display:flex;gap:12px;align-items:center"><div class="spin"></div><span class="stone" style="font-size:13px">Loading…</span></div></div>
+    <div class="card tile err"><span class="caps">Payment history</span><b>Couldn’t load payments.</b><span class="retry">Retry</span></div>
+    <div class="card tile"><span class="caps">Payment method</span><div style="display:grid;gap:8px"><div class="sk" style="width:60%"></div><div class="sk" style="width:80%"></div></div></div>
+  </div>
+</div>
+
+<div class="scene det" id="myfundbox-d2">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="req">
+    <div class="rule-row"><span class="caps">Front end ↔ Spring Boot REST</span><span class="caps gold">Every state handled</span></div>
+    <div>
+      <div class="rq"><span class="verb">POST</span><span>/api/auth/signup</span><span class="st ok">201 created</span></div>
+      <div class="rq"><span class="verb">POST</span><span>/api/auth/login</span><span class="st no">401 → inline error</span></div>
+      <div class="rq"><span class="verb">GET</span><span>/api/session</span><span class="st ok">200 restored</span></div>
+      <div class="rq"><span class="verb">GET</span><span>/api/subscriptions</span><span class="st wait">loading…</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════ SIH 2023 ═════════ -->
+<div class="scene hero" id="sih-2023-hero">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="ghost-word" style="font-size:236px; left:-14px; top:762px">SIH 2023</div>
+  <div class="frame">
+    <div class="rule-row top"><span class="caps">Case 04 — Grand Finalist</span><span class="folio" style="font-size:40px">04</span></div>
+    <div class="rule-row bot"><span class="caps">ISRO · PS 1521 · Explainable AI</span><span class="caps gold">Dec 2023</span></div>
+  </div>
+  <div class="card heat">
+    <div class="heat-grid" id="heatGrid"></div>
+    <span class="scan"></span>
+    <div class="heat-foot"><span class="caps">INSAT-3DR — precipitation</span><span class="legend"><span class="caps">Low</span><i></i><span class="caps gold">High impact</span></span></div>
+  </div>
+</div>
+
+<div class="scene det" id="sih-2023-d1">
+  <div class="glow"></div>
+  <div class="shap">
+    <div class="rule-row"><span class="caps">Why: high impact</span><span class="caps gold">SHAP · illustrative</span></div>
+    <div style="display:grid;align-content:center">
+      <div class="sb"><b>Satellite precipitation</b><span class="track"><i class="v pos" style="width:52%"></i></span></div>
+      <div class="sb"><b>Forecast rainfall</b><span class="track"><i class="v pos" style="width:38%"></i></span></div>
+      <div class="sb"><b>Historical rainfall</b><span class="track"><i class="v pos" style="width:24%"></i></span></div>
+      <div class="sb"><b>Cloud cover</b><span class="track"><i class="v pos" style="width:14%"></i></span></div>
+      <div class="sb"><b>Dry spell, prior days</b><span class="track"><i class="v neg" style="width:18%"></i></span></div>
+    </div>
+    <div class="rule-row"><span class="caps">← lowers risk</span><span class="caps">raises risk →</span></div>
+  </div>
+</div>
+
+<div class="scene det" id="sih-2023-d2">
+  <div class="glow"></div><div class="grain"></div>
+  <div class="ens">
+    <div class="col">
+      <div class="card box"><b>Random Forest</b></div>
+      <div class="card box"><b>SVM</b></div>
+      <div class="card box"><b>Deep CNN</b></div>
+    </div>
+    <div class="arrow"></div>
+    <div class="card box hot"><b>Multi-model</b><span>+ SHAP · LIME</span></div>
+    <div class="arrow"></div>
+    <div class="col out" style="text-align:center">
+      <div><b>1</b><span class="caps" style="display:block">High impact</span></div>
+      <div style="opacity:.45"><b>0</b><span class="caps" style="display:block">Low impact</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Deterministic rain field: a diagonal band plus two cells, so every render is identical.
+  const g = document.getElementById('heatGrid');
+  for (let r = 0; r < 16; r++) for (let c = 0; c < 24; c++) {
+    const band = Math.exp(-((c - r * 1.1 - 4) ** 2) / 18);
+    const cell = Math.exp(-(((c - 17) ** 2) + ((r - 5) ** 2)) / 7) + 0.7 * Math.exp(-(((c - 6) ** 2) + ((r - 12) ** 2)) / 5);
+    const noise = (Math.sin(r * 12.9898 + c * 78.233) * 43758.5453) % 1;
+    const a = Math.min(0.95, 0.05 + 0.55 * band + 0.6 * cell + 0.08 * Math.abs(noise));
+    const i = document.createElement('i'); i.style.setProperty('--a', a.toFixed(3)); g.appendChild(i);
+  }
+  window.show = (id) => {
+    document.querySelectorAll('.scene').forEach((s) => s.classList.toggle('on', s.id === id));
+    return document.getElementById(id).getBoundingClientRect().toJSON();
+  };
+</script>
+</body>
+</html>

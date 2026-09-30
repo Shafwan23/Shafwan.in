@@ -1,0 +1,62 @@
+# Render Blueprint for shafwan.in: a static site built by Vite into dist/.
+# The live domain currently runs the old Next.js app as a Render web service;
+# switch it to this static site (runtime: static) when deploying.
+services:
+  - type: web
+    name: shafwan-in
+    runtime: static
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=()
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains
+      # Vite fingerprints everything under /assets, so it can be cached forever.
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /fonts/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    # Canonical URLs end in a slash; send the slash-less forms there with a 301.
+    routes:
+      - type: redirect
+        source: /work
+        destination: /work/
+      - type: redirect
+        source: /work/famysys
+        destination: /work/famysys/
+      - type: redirect
+        source: /work/servicenow
+        destination: /work/servicenow/
+      - type: redirect
+        source: /work/myfundbox
+        destination: /work/myfundbox/
+      - type: redirect
+        source: /work/sih-2023
+        destination: /work/sih-2023/
+      - type: redirect
+        source: /experience
+        destination: /experience/
+      - type: redirect
+        source: /about
+        destination: /about/
+      - type: redirect
+        source: /contact
+        destination: /contact/
+      - type: redirect
+        source: /lab
+        destination: /lab/

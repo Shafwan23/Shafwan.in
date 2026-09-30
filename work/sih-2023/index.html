@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SIH 2023 — Case Study — Shafwan Ahmed</title>
+  <meta name="description" content="Case study: Smart India Hackathon 2023 Grand Finalist — explainable AI to predict heavy rain from INSAT-3DR data, on an ISRO problem statement." />
+  <link rel="canonical" href="https://shafwan.in/work/sih-2023/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Shafwan Ahmed" />
+  <meta name="theme-color" content="#0F0E0C" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Shafwan Ahmed" />
+  <meta property="og:title" content="SIH 2023 — Case Study" />
+  <meta property="og:description" content="Smart India Hackathon 2023 Grand Finalist — explainable AI for heavy-rain prediction, on an ISRO problem statement." />
+  <meta property="og:url" content="https://shafwan.in/work/sih-2023/" />
+  <meta property="og:image" content="https://shafwan.in/og-sih-2023.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="SIH 2023 case study — Shafwan Ahmed" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SIH 2023 — Case Study — Shafwan Ahmed" />
+  <meta name="twitter:description" content="Smart India Hackathon 2023 Grand Finalist — explainable AI for heavy-rain prediction, on an ISRO problem statement." />
+  <meta name="twitter:image" content="https://shafwan.in/og-sih-2023.png" />
+  <meta name="twitter:image:alt" content="SIH 2023 case study — Shafwan Ahmed" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" href="/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/italiana-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/styles.css" />
+
+  <script type="speculationrules">
+  { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://shafwan.in/#person",
+        "name": "Shafwan Ahmed",
+        "url": "https://shafwan.in/",
+        "image": "https://shafwan.in/img/me-900.webp",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Famysys"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/shafwan23/",
+          "https://github.com/Shafwan23",
+          "https://leetcode.com/u/Shafwan3/"
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "SIH 2023",
+        "url": "https://shafwan.in/work/sih-2023/",
+        "image": "https://shafwan.in/img/sih-2023-1280.webp",
+        "description": "Case study: Smart India Hackathon 2023 Grand Finalist — an explainable AI approach to predicting heavy and high-impact rain events from INSAT-3DR satellite data, on ISRO problem statement 1521. Shafwan Ahmed.",
+        "creator": {
+          "@id": "https://shafwan.in/#person"
+        },
+        "keywords": "Explainable AI, SHAP, LIME, Random Forest, SVM, CNN, INSAT-3DR, Python, JavaScript",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://shafwan.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Work",
+            "item": "https://shafwan.in/work/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SIH 2023",
+            "item": "https://shafwan.in/work/sih-2023/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-head" id="top">
+    <span class="head-progress" aria-hidden="true"></span>
+    <div class="head-inner">
+      <a class="brand" href="/" aria-label="Shafwan — home">
+        <span class="brand-dot" aria-hidden="true"></span>SHAFWAN<sup>®</sup>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="head-end">
+        <a class="status-pill" href="/contact/" data-magnet><i aria-hidden="true"></i>Open to roles — <span data-year>2026</span></a>
+        <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="siteMenu">
+          <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="siteMenu" hidden>
+    <nav class="menu-nav" aria-label="Site">
+      <a href="/"><span class="menu-no" aria-hidden="true">01</span><span class="menu-word">Home</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/work/"><span class="menu-no" aria-hidden="true">02</span><span class="menu-word">Work</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/experience/"><span class="menu-no" aria-hidden="true">03</span><span class="menu-word">Experience</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/about/"><span class="menu-no" aria-hidden="true">04</span><span class="menu-word">About</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/lab/"><span class="menu-no" aria-hidden="true">05</span><span class="menu-word">Lab</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/contact/"><span class="menu-no" aria-hidden="true">06</span><span class="menu-word">Contact</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+    <div class="menu-foot">
+      <a class="menu-mail" href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+      <div class="menu-social">
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <section class="case-hero" aria-labelledby="case-title">
+      <div class="case-folio-row">
+        <p class="folio" aria-hidden="true">04 / 04</p>
+        <p class="caps">Case Study</p>
+      </div>
+      <h1 class="case-title" id="case-title">
+        <span class="sr-only">SIH 2023</span>
+        <span aria-hidden="true" data-split>SIH 2023</span>
+      </h1>
+      <dl class="case-meta" data-reveal-group>
+        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>Smart India Hackathon 2023, Grand Finalist</dd></div>
+        <div data-reveal style="--i:1"><dt class="caps">Problem</dt><dd>ISRO · PS 1521 · Space Technology</dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>Python · JavaScript · Random Forest · SVM · CNN · SHAP · LIME</dd></div>
+      </dl>
+      <figure class="case-hero-media case-hero-media--slat" data-reveal>
+        <img src="/img/sih-2023-1280.webp" alt="Illustration: a satellite precipitation grid with a scan line marking high-impact rain" width="1024" height="1024" fetchpriority="high" decoding="async" data-distort />
+        <span class="slats" aria-hidden="true"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></span>
+      </figure>
+    </section>
+
+    <div class="case-body">
+      <aside class="case-side">
+        <p class="folio" aria-hidden="true">04</p>
+        <p class="caps">Specification</p>
+        <ul class="case-spec">
+          <li style="--i:0"><span class="spec-no">01</span><span class="spec-text">ISRO problem statement 1521</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:1"><span class="spec-no">02</span><span class="spec-text">INSAT-3DR precipitation data</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:2"><span class="spec-no">03</span><span class="spec-text">Random Forest, SVM &amp; deep CNN</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:3"><span class="spec-no">04</span><span class="spec-text">SHAP &amp; LIME explanations</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:4"><span class="spec-no">05</span><span class="spec-text">Grand Finalist, December 2023</span><span class="spec-leader" aria-hidden="true"></span></li>
+        </ul>
+      </aside>
+      <div class="case-prose">
+        <h2 data-reveal>The brief</h2>
+        <p data-reveal>The Smart India Hackathon is a national-level competition where student teams build solutions to real problems posed by government ministries and industry. Our college team took on an <strong>ISRO problem statement</strong>: develop an Explainable AI (XAI) based model to predict heavy and high-impact rain events using satellite data.</p>
+        <h2 data-reveal>The approach</h2>
+        <p data-reveal>The plan: take precipitation data from the INSAT-3DR satellite, clean and pre-process it for learning, and combine it with weather forecasts and historical data to raise accuracy. A multi-model approach (Random Forest, Support Vector Machine and a deep Convolutional Neural Network) would classify each event as high impact (1) or low impact (0).</p>
+        <p data-reveal>The point was trust. Each prediction would carry an explanation from SHAP (Shapley Additive Explanations) and LIME, so the people acting on it can see <em>why</em> the model called a storm, delivered through a web application in Python and JavaScript. By submission the product was about 60% built, with testing and validation next.</p>
+        <h2 data-reveal>The result</h2>
+        <p data-reveal><strong>Grand Finalist, Smart India Hackathon 2023</strong>, issued by ISRO, Department of Space, in December 2023, with a certificate and memento from the Grand Finale.</p>
+      </div>
+    </div>
+
+
+    <!-- ═══ INSTRUMENT — the rain band ═══ -->
+    <section class="instrument inst-wave" aria-labelledby="inst-title" data-reveal="fade">
+      <div class="inst-head">
+        <h2 class="inst-title" id="inst-title">The rain band</h2>
+        <p class="caps">INSAT-3DR — precipitation</p>
+      </div>
+      <div class="wave-stage" aria-hidden="true">
+        <div class="wave-bars"><i style="--h:0.140;--d:1.10s;--o:0.00"></i><i style="--h:0.200;--d:1.64s;--o:0.19"></i><i style="--h:0.155;--d:2.11s;--o:0.38"></i><i style="--h:0.196;--d:2.44s;--o:0.57"></i><i style="--h:0.171;--d:2.59s;--o:0.76"></i><i style="--h:0.191;--d:2.54s;--o:0.95"></i><i style="--h:0.189;--d:2.29s;--o:1.14"></i><i style="--h:0.191;--d:1.89s;--o:1.33"></i><i style="--h:0.220;--d:1.37s;--o:1.52"></i><i style="--h:0.218;--d:1.38s;--o:1.71"></i><i style="--h:0.292;--d:1.89s;--o:1.90"></i><i style="--h:0.305;--d:2.30s;--o:0.00"></i><i style="--h:0.441;--d:2.54s;--o:0.19"></i><i style="--h:0.494;--d:2.59s;--o:0.38"></i><i style="--h:0.668;--d:2.44s;--o:0.57"></i><i style="--h:0.754;--d:2.10s;--o:0.76"></i><i style="--h:0.893;--d:1.63s;--o:0.95"></i><i style="--h:0.949;--d:1.11s;--o:1.14"></i><i style="--h:0.980;--d:1.65s;--o:1.33"></i><i style="--h:0.960;--d:2.12s;--o:1.52"></i><i style="--h:0.872;--d:2.45s;--o:1.71"></i><i style="--h:0.787;--d:2.59s;--o:1.90"></i><i style="--h:0.627;--d:2.54s;--o:0.00"></i><i style="--h:0.547;--d:2.29s;--o:0.19"></i><i style="--h:0.383;--d:1.88s;--o:0.38"></i><i style="--h:0.356;--d:1.36s;--o:0.57"></i><i style="--h:0.248;--d:1.39s;--o:0.76"></i><i style="--h:0.250;--d:1.90s;--o:0.95"></i><i style="--h:0.196;--d:2.31s;--o:1.14"></i><i style="--h:0.204;--d:2.55s;--o:1.33"></i><i style="--h:0.189;--d:2.59s;--o:1.52"></i><i style="--h:0.187;--d:2.43s;--o:1.71"></i><i style="--h:0.206;--d:2.10s;--o:1.90"></i><i style="--h:0.201;--d:1.62s;--o:0.00"></i><i style="--h:0.270;--d:1.12s;--o:0.19"></i><i style="--h:0.290;--d:1.66s;--o:0.38"></i><i style="--h:0.441;--d:2.13s;--o:0.57"></i><i style="--h:0.522;--d:2.45s;--o:0.76"></i><i style="--h:0.734;--d:2.60s;--o:0.95"></i><i style="--h:0.847;--d:2.54s;--o:1.14"></i><i style="--h:0.980;--d:2.28s;--o:1.33"></i><i style="--h:0.980;--d:1.87s;--o:1.52"></i><i style="--h:0.980;--d:1.35s;--o:1.71"></i><i style="--h:0.873;--d:1.40s;--o:1.90"></i><i style="--h:0.709;--d:1.91s;--o:0.00"></i><i style="--h:0.571;--d:2.31s;--o:0.19"></i><i style="--h:0.401;--d:2.55s;--o:0.38"></i><i style="--h:0.338;--d:2.59s;--o:0.57"></i><i style="--h:0.217;--d:2.43s;--o:0.76"></i><i style="--h:0.234;--d:2.09s;--o:0.95"></i><i style="--h:0.165;--d:1.61s;--o:1.14"></i><i style="--h:0.203;--d:1.13s;--o:1.33"></i><i style="--h:0.167;--d:1.67s;--o:1.52"></i><i style="--h:0.191;--d:2.13s;--o:1.71"></i><i style="--h:0.179;--d:2.46s;--o:1.90"></i><i style="--h:0.181;--d:2.60s;--o:0.00"></i></div>
+        <span class="wave-play"></span>
+        <div class="wave-foot">
+          <span class="caps">Earlier</span>
+          <span class="caps">High impact = 1 · Low impact = 0</span>
+          <span class="caps">Now</span>
+        </div>
+      </div>
+      <p class="inst-note">A forecast nobody trusts is a forecast nobody acts on. The explanation, which signals pushed a prediction over the line, was the product, not an extra.</p>
+    </section>
+    <div class="case-gallery case-gallery--drift" aria-label="Details">
+      <figure data-reveal="img"><img src="/img/sih-2023-d1.webp" alt="Illustration: SHAP-style feature contributions explaining a high-impact rain prediction" width="640" height="440" loading="lazy" decoding="async" /></figure>
+      <figure data-reveal="img" style="--i:1"><img src="/img/sih-2023-d2.webp" alt="Illustration: Random Forest, SVM and CNN combined into a multi-model classifier with SHAP and LIME" width="640" height="440" loading="lazy" decoding="async" /></figure>
+    </div>
+
+    <a class="case-next" href="/work/famysys/" data-cursor="Next">
+      <span class="caps">Next case — 01</span>
+      <span class="case-next-title">Full Stack at Famysys</span>
+      <span class="case-next-media" aria-hidden="true"><img src="/img/famysys-1280.webp" alt="" width="1024" height="1024" loading="lazy" decoding="async" /></span>
+    </a>
+
+  </main>
+
+  <footer class="site-foot">
+    <a class="foot-cta" href="/contact/" data-cursor="Talk" data-spot>
+      <span class="caps foot-cta-kicker">The inbox is open — <span data-year>2026</span></span>
+      <span class="foot-cta-word">Let's Talk<span class="fill" aria-hidden="true">Let's Talk</span></span>
+      <span class="foot-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M11 29 29 11M13 11h16v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <div class="foot-body">
+      <div class="foot-brand">
+        <p class="foot-mark">SHAFWAN<sup>®</sup></p>
+        <p class="foot-line">Full stack software engineer in Chennai. The interface people use, the services behind it, and the systems that keep both running.</p>
+        <p class="foot-clock"><i class="live-dot" aria-hidden="true"></i><span class="caps">Chennai</span><b data-clock>—</b></p>
+      </div>
+
+      <nav class="foot-col" aria-label="Sitemap">
+        <span class="caps">Sitemap</span>
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+
+      <nav class="foot-col" aria-label="Elsewhere">
+        <span class="caps">Elsewhere</span>
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+        <a href="/Shafwan-Ahmed-Resume.pdf" download>Résumé (PDF)</a>
+      </nav>
+
+      <div class="foot-col" data-foot-settings>
+        <span class="caps">Settings</span>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <p class="foot-note">© <span data-year>2026</span> Shafwan Ahmed · designed &amp; built by hand. HTML, CSS and a little vanilla JavaScript. No frameworks.</p>
+      <a class="foot-top" href="#top">
+        <span class="caps">Back to top</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <p class="foot-water" aria-hidden="true">SHAFWAN</p>
+  </footer>
+
+  <script type="module" src="/src/js/app.js"></script>
+  <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/gl-hover.js"></script>
+</body>
+</html>

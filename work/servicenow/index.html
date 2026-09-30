@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ServiceNow ITSM — Case Study — Shafwan Ahmed</title>
+  <meta name="description" content="Case study: ServiceNow ITSM and HR Service Delivery at SUMZ Technologies — Flow Designer, Service Catalog, SLAs, REST and JDBC. By Shafwan Ahmed." />
+  <link rel="canonical" href="https://shafwan.in/work/servicenow/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Shafwan Ahmed" />
+  <meta name="theme-color" content="#0F0E0C" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Shafwan Ahmed" />
+  <meta property="og:title" content="ServiceNow ITSM — Case Study" />
+  <meta property="og:description" content="ITSM and HR Service Delivery on ServiceNow — built to fit how people actually work." />
+  <meta property="og:url" content="https://shafwan.in/work/servicenow/" />
+  <meta property="og:image" content="https://shafwan.in/og-servicenow.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ServiceNow ITSM case study — Shafwan Ahmed" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ServiceNow ITSM — Case Study — Shafwan Ahmed" />
+  <meta name="twitter:description" content="ITSM and HR Service Delivery on ServiceNow — built to fit how people actually work." />
+  <meta name="twitter:image" content="https://shafwan.in/og-servicenow.png" />
+  <meta name="twitter:image:alt" content="ServiceNow ITSM case study — Shafwan Ahmed" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" href="/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/italiana-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/styles.css" />
+
+  <script type="speculationrules">
+  { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://shafwan.in/#person",
+        "name": "Shafwan Ahmed",
+        "url": "https://shafwan.in/",
+        "image": "https://shafwan.in/img/me-900.webp",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Famysys"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/shafwan23/",
+          "https://github.com/Shafwan23",
+          "https://leetcode.com/u/Shafwan3/"
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "ServiceNow ITSM",
+        "url": "https://shafwan.in/work/servicenow/",
+        "image": "https://shafwan.in/img/servicenow-1280.webp",
+        "description": "Case study: ServiceNow platform development at SUMZ Technologies — ITSM (Incident, Problem, Change), HR Service Delivery, Flow Designer automation, Service Catalog, SLAs and REST/JDBC integrations. By Shafwan Ahmed.",
+        "creator": {
+          "@id": "https://shafwan.in/#person"
+        },
+        "keywords": "ServiceNow, ITSM, HR Service Delivery, JavaScript, Glide API, Flow Designer, Service Catalog, ATF",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://shafwan.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Work",
+            "item": "https://shafwan.in/work/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "ServiceNow ITSM",
+            "item": "https://shafwan.in/work/servicenow/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-head" id="top">
+    <span class="head-progress" aria-hidden="true"></span>
+    <div class="head-inner">
+      <a class="brand" href="/" aria-label="Shafwan — home">
+        <span class="brand-dot" aria-hidden="true"></span>SHAFWAN<sup>®</sup>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="head-end">
+        <a class="status-pill" href="/contact/" data-magnet><i aria-hidden="true"></i>Open to roles — <span data-year>2026</span></a>
+        <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="siteMenu">
+          <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="siteMenu" hidden>
+    <nav class="menu-nav" aria-label="Site">
+      <a href="/"><span class="menu-no" aria-hidden="true">01</span><span class="menu-word">Home</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/work/"><span class="menu-no" aria-hidden="true">02</span><span class="menu-word">Work</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/experience/"><span class="menu-no" aria-hidden="true">03</span><span class="menu-word">Experience</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/about/"><span class="menu-no" aria-hidden="true">04</span><span class="menu-word">About</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/lab/"><span class="menu-no" aria-hidden="true">05</span><span class="menu-word">Lab</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/contact/"><span class="menu-no" aria-hidden="true">06</span><span class="menu-word">Contact</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+    <div class="menu-foot">
+      <a class="menu-mail" href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+      <div class="menu-social">
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <section class="case-hero" aria-labelledby="case-title">
+      <div class="case-folio-row">
+        <p class="folio" aria-hidden="true">02 / 04</p>
+        <p class="caps">Case Study</p>
+      </div>
+      <h1 class="case-title" id="case-title">
+        <span class="sr-only">ServiceNow ITSM</span>
+        <span aria-hidden="true" data-split>ServiceNow ITSM</span>
+      </h1>
+      <dl class="case-meta" data-reveal-group>
+        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>ITSM &amp; HR Service Delivery</dd></div>
+        <div data-reveal style="--i:1"><dt class="caps">Role</dt><dd>ServiceNow Developer, SUMZ Technologies · Sep 2024 to Nov 2025</dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>ServiceNow · JavaScript · Glide API · Flow Designer · ATF</dd></div>
+      </dl>
+      <figure class="case-hero-media case-hero-media--slat" data-reveal>
+        <img src="/img/servicenow-1280.webp" alt="Illustration: the ITSM cycle of Incident, Problem and Change, with HR Service Delivery" width="1024" height="1024" fetchpriority="high" decoding="async" data-distort />
+        <span class="slats" aria-hidden="true"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></span>
+      </figure>
+    </section>
+
+    <div class="case-body">
+      <aside class="case-side">
+        <p class="folio" aria-hidden="true">02</p>
+        <p class="caps">Specification</p>
+        <ul class="case-spec">
+          <li style="--i:0"><span class="spec-no">01</span><span class="spec-text">Incident, Problem &amp; Change Management</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:1"><span class="spec-no">02</span><span class="spec-text">HR Service Delivery case management</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:2"><span class="spec-no">03</span><span class="spec-text">Client Scripts, Business Rules, ACLs</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:3"><span class="spec-no">04</span><span class="spec-text">Flow Designer &amp; Workflow Editor</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:4"><span class="spec-no">05</span><span class="spec-text">Service Catalog &amp; Service Portal</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:5"><span class="spec-no">06</span><span class="spec-text">SLAs, REST &amp; JDBC, ATF</span><span class="spec-leader" aria-hidden="true"></span></li>
+        </ul>
+      </aside>
+      <div class="case-prose">
+        <h2 data-reveal>The brief</h2>
+        <p data-reveal>At SUMZ Technologies the work was ServiceNow platform development across <strong>IT Service Management and HR Service Delivery</strong>: building and customising modules so the platform fits each client&rsquo;s business processes and enforces their governance.</p>
+        <h2 data-reveal>The build</h2>
+        <p data-reveal>ITSM modules (Incident, Problem and Change Management) configured and customised to align with client workflows. HR Service Delivery solutions that extend case management and service delivery for HR processes. Underneath, the platform logic: Client Scripts, Business Rules, Script Includes, UI Policies and ACLs that enforce business rules and platform security.</p>
+        <p data-reveal>Service requests were automated with Flow Designer and Workflow Editor, cutting manual intervention and improving turnaround time. Service Catalog items and Service Portal pages improved the end-user request experience; SLAs and scheduled jobs backed service commitments and recurring platform tasks. ServiceNow was integrated with external systems over REST APIs and JDBC, and releases were validated with the Automated Test Framework.</p>
+        <h2 data-reveal>The lesson</h2>
+        <p data-reveal>Working that close to business process changed how I approach problems. <strong>A technically correct solution still fails if it doesn&rsquo;t fit how people actually work.</strong></p>
+      </div>
+    </div>
+
+
+    <!-- ═══ INSTRUMENT — the queue ═══ -->
+    <section class="instrument inst-book" aria-labelledby="inst-title" data-reveal="fade">
+      <div class="inst-head">
+        <h2 class="inst-title" id="inst-title">The queue</h2>
+        <p class="caps"><i class="live-dot" aria-hidden="true"></i>SLA clock — running</p>
+      </div>
+      <div class="book-grid" aria-hidden="true">
+        <div class="book-side book-side--ask">
+          <p class="caps">Incidents</p>
+          <span style="--d:0.82"><b>INC-0481</b><em>P1</em></span>
+          <span style="--d:0.55"><b>INC-0479</b><em>P2</em></span>
+          <span style="--d:0.34"><b>INC-0476</b><em>P3</em></span>
+          <span style="--d:0.21"><b>INC-0472</b><em>P3</em></span>
+        </div>
+        <div class="book-mid">
+          <p class="caps">SLA remaining</p>
+          <b class="book-price">03:42:<span class="book-flicker">17</span></b>
+          <p class="caps book-vol">Incident · Problem · Change</p>
+        </div>
+        <div class="book-side book-side--bid">
+          <p class="caps">Changes</p>
+          <span style="--d:0.74"><b>CHG-0213</b><em>Approved</em></span>
+          <span style="--d:0.52"><b>CHG-0211</b><em>Scheduled</em></span>
+          <span style="--d:0.38"><b>PRB-0098</b><em>RCA</em></span>
+          <span style="--d:0.26"><b>HRC-0342</b><em>HR case</em></span>
+        </div>
+      </div>
+      <p class="inst-note">Every ticket carries a clock. The work was getting the platform to keep those promises on its own: SLAs, scheduled jobs, and flows that route without anyone chasing them.</p>
+    </section>
+    <div class="case-gallery case-gallery--drift" aria-label="Details">
+      <figure data-reveal="img"><img src="/img/servicenow-d1.webp" alt="Illustration: a Flow Designer service request moving from catalog submission through approval to fulfilment" width="640" height="440" loading="lazy" decoding="async" /></figure>
+      <figure data-reveal="img" style="--i:1"><img src="/img/servicenow-d2.webp" alt="Illustration: ServiceNow platform logic — Client Script, Business Rule, Script Include, UI Policy and ACL" width="640" height="440" loading="lazy" decoding="async" /></figure>
+    </div>
+
+    <a class="case-next" href="/work/myfundbox/" data-cursor="Next">
+      <span class="caps">Next case — 03</span>
+      <span class="case-next-title">MYFUNDBOX</span>
+      <span class="case-next-media" aria-hidden="true"><img src="/img/myfundbox-1280.webp" alt="" width="1024" height="1024" loading="lazy" decoding="async" /></span>
+    </a>
+
+  </main>
+
+  <footer class="site-foot">
+    <a class="foot-cta" href="/contact/" data-cursor="Talk" data-spot>
+      <span class="caps foot-cta-kicker">The inbox is open — <span data-year>2026</span></span>
+      <span class="foot-cta-word">Let's Talk<span class="fill" aria-hidden="true">Let's Talk</span></span>
+      <span class="foot-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M11 29 29 11M13 11h16v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <div class="foot-body">
+      <div class="foot-brand">
+        <p class="foot-mark">SHAFWAN<sup>®</sup></p>
+        <p class="foot-line">Full stack software engineer in Chennai. The interface people use, the services behind it, and the systems that keep both running.</p>
+        <p class="foot-clock"><i class="live-dot" aria-hidden="true"></i><span class="caps">Chennai</span><b data-clock>—</b></p>
+      </div>
+
+      <nav class="foot-col" aria-label="Sitemap">
+        <span class="caps">Sitemap</span>
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+
+      <nav class="foot-col" aria-label="Elsewhere">
+        <span class="caps">Elsewhere</span>
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+        <a href="/Shafwan-Ahmed-Resume.pdf" download>Résumé (PDF)</a>
+      </nav>
+
+      <div class="foot-col" data-foot-settings>
+        <span class="caps">Settings</span>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <p class="foot-note">© <span data-year>2026</span> Shafwan Ahmed · designed &amp; built by hand. HTML, CSS and a little vanilla JavaScript. No frameworks.</p>
+      <a class="foot-top" href="#top">
+        <span class="caps">Back to top</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <p class="foot-water" aria-hidden="true">SHAFWAN</p>
+  </footer>
+
+  <script type="module" src="/src/js/app.js"></script>
+  <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/gl-hover.js"></script>
+</body>
+</html>

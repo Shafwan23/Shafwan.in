@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Lab — Shafwan Ahmed</title>
+  <meta name="description" content="The Lab — three technical brain games by Shafwan Ahmed: Bitwise binary drills, Compile engineering recall and the Keystroke typing test. Built with no libraries. High scores kept." />
+  <link rel="canonical" href="https://shafwan.in/lab/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Shafwan Ahmed" />
+  <meta name="theme-color" content="#0F0E0C" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Shafwan Ahmed" />
+  <meta property="og:title" content="The Lab — Shafwan Ahmed" />
+  <meta property="og:description" content="Three technical brain games: Bitwise, Compile &amp; Keystroke. Beat a board, sign it." />
+  <meta property="og:url" content="https://shafwan.in/lab/" />
+  <meta property="og:image" content="https://shafwan.in/og-lab.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Lab — technical brain games, shafwan.in" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Lab — Shafwan Ahmed" />
+  <meta name="twitter:description" content="Three technical brain games: Bitwise, Compile &amp; Keystroke. Beat a board, sign it." />
+  <meta name="twitter:image" content="https://shafwan.in/og-lab.png" />
+  <meta name="twitter:image:alt" content="The Lab — technical brain games, shafwan.in" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" href="/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/italiana-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/styles.css" />
+
+  <script type="speculationrules">
+  { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://shafwan.in/#website",
+        "url": "https://shafwan.in/",
+        "name": "Shafwan Ahmed"
+      },
+      {
+        "@type": "WebPage",
+        "url": "https://shafwan.in/lab/",
+        "name": "The Lab — Shafwan Ahmed",
+        "description": "Three technical brain games by Shafwan Ahmed: Bitwise, Compile and Keystroke.",
+        "isPartOf": {
+          "@id": "https://shafwan.in/#website"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://shafwan.in/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Lab",
+            "item": "https://shafwan.in/lab/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-head" id="top">
+    <span class="head-progress" aria-hidden="true"></span>
+    <div class="head-inner">
+      <a class="brand" href="/" aria-label="Shafwan — home">
+        <span class="brand-dot" aria-hidden="true"></span>SHAFWAN<sup>®</sup>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/" aria-current="page">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="head-end">
+        <a class="status-pill" href="/contact/" data-magnet><i aria-hidden="true"></i>Open to roles — <span data-year>2026</span></a>
+        <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="siteMenu">
+          <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="siteMenu" hidden>
+    <nav class="menu-nav" aria-label="Site">
+      <a href="/"><span class="menu-no" aria-hidden="true">01</span><span class="menu-word">Home</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/work/"><span class="menu-no" aria-hidden="true">02</span><span class="menu-word">Work</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/experience/"><span class="menu-no" aria-hidden="true">03</span><span class="menu-word">Experience</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/about/"><span class="menu-no" aria-hidden="true">04</span><span class="menu-word">About</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/lab/" aria-current="page"><span class="menu-no" aria-hidden="true">05</span><span class="menu-word">Lab</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/contact/"><span class="menu-no" aria-hidden="true">06</span><span class="menu-word">Contact</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+    <div class="menu-foot">
+      <a class="menu-mail" href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+      <div class="menu-social">
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1" class="page-pad">
+
+    <!-- ═══ HERO — the terminal ═══ -->
+    <section class="lab-top" aria-labelledby="lab-title">
+      <div class="console" data-boot>
+        <div class="console-bar" aria-hidden="true">
+          <span class="console-dots"><i></i><i></i><i></i></span>
+          <span class="caps">shafwan.in / lab &middot; testbench</span>
+          <span class="caps console-live"><i class="live-dot"></i>online</span>
+        </div>
+        <div class="console-body">
+          <span class="console-scan" aria-hidden="true"></span>
+          <p class="console-line" aria-hidden="true"><b>&gt;</b> <span data-type="mounting testbench · 3 modules">mounting testbench &middot; 3 modules</span></p>
+          <h1 class="lab-head" id="lab-title">
+            <span class="sr-only">The Lab — three technical brain games with high score boards</span>
+            <span aria-hidden="true">Prove <em>it</em><span class="caret"></span></span>
+          </h1>
+          <p class="console-note">Three drills for the part of an engineer a r&eacute;sum&eacute; cannot show: binary fluency, recall under a clock, and raw typing speed. Beat a board and it asks for your name.</p>
+          <dl class="hud-strip">
+            <div><dt class="caps">Modules</dt><dd>03</dd></div>
+            <div><dt class="caps">Records set</dt><dd data-hs-held>0</dd></div>
+            <div><dt class="caps">Board leader</dt><dd data-hs-top>&mdash;</dd></div>
+            <div><dt class="caps">Session</dt><dd data-clock>&mdash;</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <div class="section lab-grid">
+
+      <section class="game-frame cabinet" id="bitwise" aria-labelledby="bitwise-title" data-reveal="fade">
+        <span class="cab-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="cab-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <p class="cab-no" aria-hidden="true">01</p>
+        <div class="game-hud">
+          <div class="hud-name">
+            <h2 id="bitwise-title">Bitwise<span class="dot" aria-hidden="true">.</span></h2>
+            <p class="caps">Binary fluency &middot; sixty seconds</p>
+          </div>
+          <div class="scores"><span>Score<b id="bwScore">0</b></span><span>Chain<b id="bwStreak">&times;1</b></span><span>Left<b id="bwTime">60</b></span></div>
+        </div>
+        <div class="cab-body">
+          <div class="game-stage bw-stage">
+            <div class="bw-panel">
+              <p class="caps bw-task" id="bwTask">Standby</p>
+              <p class="bw-prompt" id="bwPrompt">0 0 0 0 0 0 0 0</p>
+              <span class="bw-meter" aria-hidden="true"><i id="bwMeter"></i></span>
+            </div>
+
+            <div class="bw-bits" id="bwBits" role="group" aria-label="Eight bit switches, most significant bit first"></div>
+
+            <dl class="bw-read">
+              <div><dt class="caps">Dec</dt><dd id="bwDec">0</dd></div>
+              <div><dt class="caps">Hex</dt><dd id="bwHex">0x00</dd></div>
+              <div><dt class="caps">Bin</dt><dd id="bwBin">00000000</dd></div>
+            </dl>
+
+            <p class="type-note" id="bwNote">Keys <b>1</b>&ndash;<b>8</b> toggle a bit, <b>R</b> clears the register. It locks in the moment the value matches.</p>
+            <p class="sr-only" role="status" id="bwLive"></p>
+
+            <div class="game-overlay" id="bwOverlay">
+              <div class="inner">
+                <p class="folio" aria-hidden="true">01</p>
+                <p id="bwMsg">Read the target, build it in binary. Decimal, hex, AND, OR, XOR and shifts, on eight switches.</p>
+                <button class="btn btn--solid" type="button" id="bwStart" data-magnet>Boot the register</button>
+              </div>
+            </div>
+          </div>
+          <aside class="hs" aria-label="Bitwise hall of records">
+            <div class="hs-top">
+              <span class="caps">Hall of records</span>
+              <span class="caps hs-unit">pts</span>
+            </div>
+            <ol class="hs-list" data-hs-list="bitwise"></ol>
+            <div class="hs-foot">
+              <p class="caps hs-note" data-hs-note="bitwise">Kept in this browser only</p>
+              <button class="hs-reset" type="button" data-hs-reset="bitwise">Clear</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section class="game-frame cabinet" id="compile" aria-labelledby="compile-title" data-reveal="fade">
+        <span class="cab-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="cab-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <p class="cab-no" aria-hidden="true">02</p>
+        <div class="game-hud">
+          <div class="hud-name">
+            <h2 id="compile-title">Compile<span class="dot" aria-hidden="true">.</span></h2>
+            <p class="caps">Engineering recall &middot; three lives</p>
+          </div>
+          <div class="scores"><span>Score<b id="cpScore">0</b></span><span>Chain<b id="cpStreak">&times;1</b></span><span>Solved<b id="cpSolved">0</b></span></div>
+        </div>
+        <div class="cab-body">
+          <div class="game-stage cp-stage">
+            <div class="cp-top">
+              <span class="caps cp-cat" id="cpCat">Standby</span>
+              <span class="cp-lives" id="cpLives"><span class="sr-only">Lives left: 3</span><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i></span>
+            </div>
+
+            <div class="cp-head">
+              <span class="cp-ring" aria-hidden="true">
+                <svg viewBox="0 0 44 44"><circle class="cp-ring-bg" cx="22" cy="22" r="19"/><circle class="cp-arc" id="cpArc" cx="22" cy="22" r="19"/></svg>
+                <b id="cpCount">12</b>
+              </span>
+              <p class="cp-q" id="cpQ">Twelve seconds a question. A wrong answer costs a life; a chain of right ones multiplies everything.</p>
+            </div>
+
+            <div class="cp-opts" id="cpOpts" role="group" aria-label="Answers"></div>
+
+            <div class="cp-rail-wrap">
+              <div class="cp-rail" id="cpRail" aria-hidden="true"></div>
+              <p class="caps cp-rail-note">Deck &middot; <span id="cpProgress">48 questions</span></p>
+            </div>
+
+            <p class="type-note" id="cpNote">Keys <b>1</b>&ndash;<b>4</b> answer. Categories run from complexity to HTTP, git, CSS, SQL and the wire.</p>
+            <p class="sr-only" role="status" id="cpLive"></p>
+
+            <div class="game-overlay" id="cpOverlay">
+              <div class="inner">
+                <p class="folio" aria-hidden="true">02</p>
+                <p id="cpMsg">Forty-eight questions from the parts of the job you either know cold or don't. Answer fast; the clock is worth points.</p>
+                <button class="btn btn--solid" type="button" id="cpStart" data-magnet>Start the run</button>
+              </div>
+            </div>
+          </div>
+          <aside class="hs" aria-label="Compile hall of records">
+            <div class="hs-top">
+              <span class="caps">Hall of records</span>
+              <span class="caps hs-unit">pts</span>
+            </div>
+            <ol class="hs-list" data-hs-list="compile"></ol>
+            <div class="hs-foot">
+              <p class="caps hs-note" data-hs-note="compile">Kept in this browser only</p>
+              <button class="hs-reset" type="button" data-hs-reset="compile">Clear</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <section class="game-frame cabinet" id="keystroke" aria-labelledby="keystroke-title" data-reveal="fade">
+        <span class="cab-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="cab-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <p class="cab-no" aria-hidden="true">03</p>
+        <div class="game-hud">
+          <div class="hud-name">
+            <h2 id="keystroke-title">Keystroke<span class="dot" aria-hidden="true">.</span></h2>
+            <p class="caps">Raw typing speed &middot; live WPM</p>
+          </div>
+          <div class="scores"><span>WPM<b id="typeWpm">0</b></span><span>Accuracy<b id="typeAcc">100%</b></span><span>Best<b id="typeBest">0</b></span></div>
+        </div>
+        <div class="cab-body">
+          <div class="game-stage type-stage">
+            <div class="type-text" id="typeText" tabindex="0" aria-label="Typing test. Focus this area and type the shown code line. Backspace corrects mistakes."></div>
+            <div class="type-actions">
+              <button class="btn" type="button" id="typeNew" data-magnet>New line</button>
+              <p class="type-note" id="typeNote">Click the line and start typing. The clock starts on your first key.</p>
+            </div>
+          </div>
+          <aside class="hs" aria-label="Keystroke hall of records">
+            <div class="hs-top">
+              <span class="caps">Hall of records</span>
+              <span class="caps hs-unit">wpm</span>
+            </div>
+            <ol class="hs-list" data-hs-list="keystroke"></ol>
+            <div class="hs-foot">
+              <p class="caps hs-note" data-hs-note="keystroke">Kept in this browser only</p>
+              <button class="hs-reset" type="button" data-hs-reset="keystroke">Clear</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <!-- the high-score prompt -->
+    <dialog class="hs-dialog" id="hsDialog" aria-labelledby="hsDialogTitle">
+      <form method="dialog" class="hs-form" id="hsForm">
+        <span class="hs-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <p class="caps hs-kicker">Record broken</p>
+        <h2 class="hs-title" id="hsDialogTitle">New high <em>score</em></h2>
+        <p class="hs-line">You are <b id="hsRank">#1</b> on <b id="hsGame">Bitwise</b> with <b id="hsScore">0</b>.</p>
+        <label class="hs-label" for="hsName">Name for the board</label>
+        <input class="hs-input" id="hsName" name="name" type="text" maxlength="14" autocomplete="off"
+               spellcheck="false" placeholder="SHAFWAN" required />
+        <p class="hs-hint">Up to 14 characters. Saved in this browser only.</p>
+        <div class="hs-actions">
+          <button class="btn" type="button" id="hsSkip" value="skip">Stay anonymous</button>
+          <button class="btn btn--solid" type="submit" id="hsSave" value="save">Put me on the board</button>
+        </div>
+      </form>
+    </dialog>
+
+  </main>
+
+  <footer class="site-foot">
+    <a class="foot-cta" href="/contact/" data-cursor="Talk" data-spot>
+      <span class="caps foot-cta-kicker">The inbox is open — <span data-year>2026</span></span>
+      <span class="foot-cta-word">Let's Talk<span class="fill" aria-hidden="true">Let's Talk</span></span>
+      <span class="foot-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M11 29 29 11M13 11h16v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <div class="foot-body">
+      <div class="foot-brand">
+        <p class="foot-mark">SHAFWAN<sup>®</sup></p>
+        <p class="foot-line">Full stack software engineer in Chennai. The interface people use, the services behind it, and the systems that keep both running.</p>
+        <p class="foot-clock"><i class="live-dot" aria-hidden="true"></i><span class="caps">Chennai</span><b data-clock>—</b></p>
+      </div>
+
+      <nav class="foot-col" aria-label="Sitemap">
+        <span class="caps">Sitemap</span>
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+
+      <nav class="foot-col" aria-label="Elsewhere">
+        <span class="caps">Elsewhere</span>
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+        <a href="/Shafwan-Ahmed-Resume.pdf" download>Résumé (PDF)</a>
+      </nav>
+
+      <div class="foot-col" data-foot-settings>
+        <span class="caps">Settings</span>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <p class="foot-note">© <span data-year>2026</span> Shafwan Ahmed · designed &amp; built by hand. HTML, CSS and a little vanilla JavaScript. No frameworks.</p>
+      <a class="foot-top" href="#top">
+        <span class="caps">Back to top</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <p class="foot-water" aria-hidden="true">SHAFWAN</p>
+  </footer>
+
+  <script type="module" src="/src/js/app.js"></script>
+  <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/lab.js"></script>
+</body>
+</html>

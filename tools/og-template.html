@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @font-face {
+    font-family: 'Archivo';
+    font-weight: 100 900;
+    font-stretch: 62% 125%;
+    src: url('../public/fonts/archivo-var-latin.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Italiana';
+    src: url('../public/fonts/italiana-latin.woff2') format('woff2');
+  }
+  * { margin: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; background: #0F0E0C; color: #EDE8DF;
+         font-family: 'Archivo', sans-serif; overflow: hidden; position: relative; }
+  .glow { position: absolute; inset: -20%;
+    background: radial-gradient(40% 45% at 75% 18%, rgba(201,169,106,0.16), transparent 70%),
+                radial-gradient(32% 36% at 10% 85%, rgba(201,169,106,0.09), transparent 70%); }
+  .grain { position: absolute; inset: 0; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E"); }
+  .card { position: relative; width: 100%; height: 100%; padding: 60px 72px;
+          display: flex; flex-direction: column; justify-content: space-between; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .top { border-bottom: 2px solid rgba(237,232,223,.3); padding-bottom: 22px; }
+  .brand { font-stretch: 125%; font-weight: 800; font-size: 30px; letter-spacing: .06em; }
+  .brand sup { color: #C9A96A; font-size: .6em; }
+  .label { font-stretch: 78%; font-weight: 600; font-size: 20px; letter-spacing: .22em;
+           text-transform: uppercase; color: #A69F90; }
+  .mid { display: flex; flex-direction: column; gap: 18px; }
+  .folio { font-family: 'Italiana', serif; font-size: 40px; color: #C9A96A; }
+  .title { font-stretch: 125%; font-weight: 800; text-transform: uppercase;
+           font-size: 108px; line-height: .9; letter-spacing: -0.015em; }
+  .title em { font-family: 'Italiana', serif; font-style: normal; font-weight: 400;
+              color: #C9A96A; text-transform: none; letter-spacing: 0; }
+  .sub { font-size: 30px; font-weight: 500; color: #A69F90; }
+  .bot { border-top: 2px solid rgba(237,232,223,.3); padding-top: 22px; }
+  .url { font-stretch: 110%; font-weight: 700; font-size: 26px; letter-spacing: .1em;
+         text-transform: uppercase; color: #C9A96A; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="grain"></div>
+  <div class="card">
+    <div class="row top">
+      <span class="brand">SHAFWAN<sup>®</sup></span>
+      <span class="label" id="ogLabel">Portfolio — 2026</span>
+    </div>
+    <div class="mid">
+      <div class="folio" id="ogFolio"></div>
+      <div class="title" id="ogTitle">SHAFWAN<em>.</em></div>
+      <div class="sub" id="ogSub">Full-stack developer &amp; creative engineer</div>
+    </div>
+    <div class="row bot">
+      <span class="url">shafwan.in</span>
+      <span class="label">Shafwan Ahmed</span>
+    </div>
+  </div>
+</body>
+</html>
