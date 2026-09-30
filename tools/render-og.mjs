@@ -18,7 +18,7 @@ const PAGES = [
   { file: "og-experience.png", label: "Experience", folio: "2024 — now", title: "The <em>Record</em>", sub: "Famysys, SUMZ Technologies, MYFUNDBOX" },
   { file: "og-about.png", label: "About", folio: "", title: "End <em>to</em> End", sub: "Shafwan Ahmed — the person behind the work" },
   { file: "og-contact.png", label: "Contact", folio: "", title: "Let's <em>Talk</em>", sub: "tshafwan23@gmail.com — open to SWE roles" },
-  { file: "og-lab.png", label: "The Lab", folio: "03 games", title: "Play<em>able</em>", sub: "Bitwise, Compile & Keystroke" },
+  { file: "og-lab.png", label: "The Lab", folio: "03 games", title: "Play<em>able</em>", sub: "Stack, Compile & Keystroke" },
 ];
 
 const browser = await pw.chromium.launch();

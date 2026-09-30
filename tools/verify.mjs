@@ -52,32 +52,11 @@ await p.waitForTimeout(1200);
 console.log('LAB:', await p.evaluate(() => document.documentElement.className));
 console.log('  cabinets:', JSON.stringify(await p.evaluate(() => ({
   frames: document.querySelectorAll('.game-frame').length,
-  bits: document.querySelectorAll('.bw-bit').length,
+  tiles: document.querySelectorAll('.st-tile').length,
   boards: document.querySelectorAll('.hs-list').length,
   rows: document.querySelectorAll('.hs-row').length,
   dialog: !!document.getElementById('hsDialog'),
 }))));
-/* play bitwise until the register matches, so the board takes a record */
-await p.click('#bwStart');
-await p.waitForTimeout(300);
-const solvedOne = await p.evaluate(async () => {
-  const bits = [...document.querySelectorAll('.bw-bit')];
-  const target = +document.getElementById('bwDec').textContent;
-  const want = document.getElementById('bwBin');
-  /* read the prompt's answer by brute force: flip toward the goal one bit at a time */
-  for (let n = 0; n < 256; n++) {
-    const W = [128, 64, 32, 16, 8, 4, 2, 1];
-    const cur = +document.getElementById('bwDec').textContent;
-    if (cur === n) continue;
-    for (let i = 0; i < 8; i++) {
-      const on = (cur & W[i]) !== 0, need = (n & W[i]) !== 0;
-      if (on !== need) bits[i].click();
-    }
-    if (+document.getElementById('bwScore').textContent > 0) return { hit: n, score: +document.getElementById('bwScore').textContent };
-  }
-  return { hit: -1, score: +document.getElementById('bwScore').textContent, target, want: want.textContent };
-});
-console.log('  bitwise solved:', JSON.stringify(solvedOne));
 /* compile: answer the first question by clicking option one */
 await p.click('#cpStart');
 await p.waitForTimeout(400);

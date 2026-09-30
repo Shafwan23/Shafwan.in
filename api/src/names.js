@@ -55,6 +55,20 @@ const squeeze = (s) => s.replace(/(.)\1{2,}/g, '$1$1');
 const collapse = (s) => s.replace(/(.)\1+/g, '$1');
 const hasDouble = (s) => /(.)\1/.test(s);
 
+/*
+ * One name is not allowed on the site at all, in any spelling that reads the
+ * same: compared with every run of a letter shrunk to one, so "Sabeeha",
+ * "Sabeha" and "Sabeeeha" all match, alone or as a word of a fuller name.
+ */
+const RESERVED = ['sabeha'];
+
+/** True when the name is the reserved one, in any spelling. */
+export function isReserved(name) {
+  const whole = collapse(lettersOf(name));
+  if (RESERVED.includes(whole)) return true;
+  return name.split(/[\s.'’-]+/).map((w) => collapse(lettersOf(w))).some((w) => w && RESERVED.includes(w));
+}
+
 /** True when the name contains a blocked word, however it is spaced or stretched. */
 export function isOffensive(name) {
   const whole = lettersOf(name);
@@ -94,6 +108,10 @@ export function cleanName(raw) {
   }
   if (!allowedShape(name)) {
     throw new ApiError(422, 'name', 'Letters and spaces only, please. No numbers or symbols.');
+  }
+  /* the reserved name is refused before the softer checks, so its own message always wins */
+  if (isReserved(name)) {
+    throw new ApiError(422, 'name_reserved', 'That name is not allowed to stay on this website. Please choose another name.');
   }
   if (lettersOf(name).length < NAME_MIN) {
     throw new ApiError(422, 'name', 'A name needs at least two letters.');

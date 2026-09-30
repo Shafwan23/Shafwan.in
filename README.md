@@ -8,6 +8,7 @@ Static multi-page site built with Vite 5, plain JavaScript and a hand-written We
 npm ci
 npm run dev      # local dev server
 npm run build    # production build into dist/
+npm run indexnow # after a deploy: tell Bing/Yandex/Naver the sitemap URLs changed (Google: Search Console)
 ```
 
 Deploys to Render as a static site; see `render.yaml`.

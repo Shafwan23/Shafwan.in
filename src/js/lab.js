@@ -2,12 +2,12 @@
 
 import { warmSession } from './api.js';
 import { refreshBoards } from './lab/board.js';
-import { initBitwise } from './lab/bitwise.js';
+import { initStack } from './lab/stack.js';
 import { initCompile } from './lab/compile.js';
 import { initKeystroke } from './lab/keystroke.js';
 
 refreshBoards();
-initBitwise();
+initStack();
 initCompile();
 initKeystroke();
 

@@ -6,7 +6,7 @@
 
 import { ApiFailure, apiReady, play } from '../api.js';
 import { offer } from './board.js';
-import { FOCUS, tick, typing } from './shared.js';
+import { FOCUS, flash, tick, typing } from './shared.js';
 
 const PER_Q = 12000;
 const LEN = 119.4; /* 2πr, r = 19 */
@@ -17,19 +17,21 @@ function safeHtml(text) {
   const escaped = String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   return escaped.replace(/&lt;(\/?)(code|em)&gt;/g, '<$1$2>');
 }
+const escapeText = (text) => String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 export function initCompile() {
   const optsEl = document.getElementById('cpOpts');
   if (!optsEl) return;
 
+  const stage = optsEl.closest('.cp-stage');
   const qEl = document.getElementById('cpQ');
   const catEl = document.getElementById('cpCat');
   const livesEl = document.getElementById('cpLives');
   const arc = document.getElementById('cpArc');
   const countEl = document.getElementById('cpCount');
   const scoreEl = document.getElementById('cpScore');
-  const streakEl = document.getElementById('cpStreak');
   const solvedEl = document.getElementById('cpSolved');
+  const numberEl = document.getElementById('cpNumber');
   const overlay = document.getElementById('cpOverlay');
   const msg = document.getElementById('cpMsg');
   const startBtn = document.getElementById('cpStart');
@@ -37,9 +39,10 @@ export function initCompile() {
   const railEl = document.getElementById('cpRail');
   const progEl = document.getElementById('cpProgress');
   const live = document.getElementById('cpLive');
+  const verdict = document.getElementById('cpVerdict');
 
   let state = 'idle', runId = null, question = null, qT0 = 0, raf = 0, locked = false;
-  let lives = 3, solved = 0, total = 48;
+  let lives = 3, solved = 0, total = 20;
 
   function buildRail(n) {
     railEl.replaceChildren(...Array.from({ length: n }, () => document.createElement('i')));
@@ -55,10 +58,20 @@ export function initCompile() {
     livesEl.querySelector('.sr-only').textContent = `Lives left: ${lives}`;
   }
 
+  function setCategory(name) {
+    stage.dataset.cat = name;
+    catEl.replaceChildren();
+    const b = document.createElement('b');
+    b.textContent = name;
+    catEl.append(b);
+  }
+
   function show(q) {
     question = q;
     locked = false;
-    catEl.textContent = `${q.category} — ${pad(q.number)} of ${pad(q.total)}`;
+    setCategory(q.category);
+    catEl.append(` — ${pad(q.number)} of ${pad(q.total)}`);
+    numberEl.textContent = `${q.number}/${q.total}`;
     progEl.textContent = `question ${q.number} of ${q.total}`;
     railEl.children[q.number - 1]?.classList.add('now');
     qEl.innerHTML = safeHtml(q.html);
@@ -90,21 +103,28 @@ export function initCompile() {
     raf = requestAnimationFrame(clock);
   }
 
-  function verdict(reply, picked) {
+  function verdictOf(reply, picked) {
     [...optsEl.children].forEach((b, n) => {
       if (n === reply.rightIndex) b.classList.add('right');
       else if (n === picked) b.classList.add('wrong');
+      else b.classList.add('dim');
     });
     solved = reply.solved;
     lives = reply.lives;
     tick(scoreEl, reply.score);
-    streakEl.textContent = '×' + reply.chain;
     solvedEl.textContent = solved;
     paintLives();
-    noteEl.textContent = reply.right ? 'Correct.'
-      : picked === -1 || reply.late ? `Out of time — it was ${reply.rightText}.` : `No — it was ${reply.rightText}.`;
-    live.textContent = reply.right ? `Correct. ${reply.score} points.` : noteEl.textContent;
+    const timedOut = picked === -1 || reply.late;
+    noteEl.textContent = reply.right ? `Correct, +${reply.points}.`
+      : timedOut ? `Out of time — it was ${reply.rightText}.` : `No — it was ${reply.rightText}.`;
+    live.textContent = reply.right ? `Correct. ${reply.points} points, ${reply.score} total.` : noteEl.textContent;
     markRail(question.number - 1, reply.right);
+    flash(verdict, stage, {
+      right: reply.right,
+      word: reply.right ? (reply.points >= 180 ? 'Fast!' : 'Correct') : timedOut ? 'Time' : 'Wrong',
+      points: `+${reply.points}`,
+      note: reply.right ? '' : `The answer was <b>${escapeText(reply.rightText)}</b>.${lives > 0 ? ` ${lives} ${lives === 1 ? 'life' : 'lives'} left.` : ''}`,
+    });
   }
 
   async function answer(i) {
@@ -119,12 +139,12 @@ export function initCompile() {
       stop(`The run stopped: ${err.message}`);
       return;
     }
-    verdict(reply, i);
+    verdictOf(reply, i);
     setTimeout(() => {
       if (state !== 'run') return;
       if (reply.final) end(reply.final);
       else show(reply.next);
-    }, reply.right ? 700 : 1500);
+    }, reply.right ? 1400 : 2200);
   }
 
   async function start() {
@@ -136,13 +156,12 @@ export function initCompile() {
       if (!apiReady) throw new ApiFailure(0, 'offline', 'The question server is not connected yet.');
       const r = await play('/runs', { game: 'compile' });
       runId = r.runId;
-      total = r.question.total;
+      total = r.total;
       lives = r.lives;
       solved = 0;
       buildRail(total);
       paintLives();
       scoreEl.textContent = '0';
-      streakEl.textContent = '×1';
       solvedEl.textContent = '0';
       state = 'run';
       FOCUS.claim('compile');
@@ -151,7 +170,7 @@ export function initCompile() {
       show(r.question);
     } catch (err) {
       state = 'idle';
-      msg.textContent = `${err.message} Bitwise and Keystroke still run as practice.`;
+      msg.textContent = `${err.message} Stack and Keystroke still run as practice.`;
       startBtn.textContent = 'Try again';
     } finally {
       startBtn.disabled = false;
@@ -165,6 +184,7 @@ export function initCompile() {
     arc.style.strokeDashoffset = LEN;
     countEl.textContent = '0';
     catEl.textContent = 'Halted';
+    delete stage.dataset.cat;
     optsEl.replaceChildren();
     startBtn.textContent = 'Run it back';
     overlay.hidden = false;
@@ -183,7 +203,6 @@ export function initCompile() {
     msg.textContent = final.place
       ? `${solved} correct for ${final.score} points. That is rank #${final.place}.`
       : `${solved} correct for ${final.score} points. The board holds.`;
-    if (!final.place) return;
     const signed = await offer('compile', runId, final);
     if (signed) {
       msg.textContent = signed.place

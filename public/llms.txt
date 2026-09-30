@@ -34,4 +34,4 @@ Official website: https://shafwan.in/ (the only official site of this Shafwan Ah
 
 ## Optional
 
-- [The Lab](https://shafwan.in/lab/): three technical browser games (Bitwise, Compile, Keystroke)
+- [The Lab](https://shafwan.in/lab/): three technical browser games (Stack, Compile, Keystroke) with global, server-verified leaderboards

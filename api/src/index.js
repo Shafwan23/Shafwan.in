@@ -6,11 +6,11 @@ import { GAMES, placeFor, pruneBoard, readBoard, readBoards } from './boards.js'
 import { createRun, loadRun, saveRun } from './runs.js';
 import { cleanName } from './names.js';
 import { retryUndelivered, submitNote } from './contact.js';
-import { bitwise } from './games/bitwise.js';
+import { stack } from './games/stack.js';
 import { compile, answerRun } from './games/compile.js';
 import { keystroke } from './games/keystroke.js';
 
-const HANDLERS = { bitwise, compile, keystroke };
+const HANDLERS = { stack, compile, keystroke };
 const HOUR = 60 * 60 * 1000;
 const SESSION_LIMIT = { limit: 30, windowMs: HOUR, message: 'Too many sessions from here. Try again later.' };
 const RUN_LIMIT = { limit: 150, windowMs: HOUR, message: 'That is a lot of runs. Take a breather and try again later.' };
@@ -63,7 +63,7 @@ async function finish(request, env, ctx, runId) {
   const body = await readJson(request);
   const now = Date.now();
   const game = body.game;
-  if (game !== 'bitwise' && game !== 'keystroke') throw new ApiError(400, 'bad_game', 'Unknown game.');
+  if (game !== 'stack' && game !== 'keystroke') throw new ApiError(400, 'bad_game', 'Unknown game.');
   const run = await loadRun(env, runId, { game, status: 'live' }, now);
   const { score, detail } = HANDLERS[game].finish(run.state, body, { serverElapsedMs: now - run.created_at });
   return json({ ...detail, final: await settle(env, run, run.state, score) });

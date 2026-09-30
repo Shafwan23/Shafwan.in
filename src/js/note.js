@@ -38,6 +38,26 @@ if (section && form && apiReady) {
     else send.innerHTML = sendLabel;
   };
 
+  /* arriving from the Lab: start the note for them */
+  const params = new URLSearchParams(location.search);
+  if (params.get('from') === 'lab' && !msg.value) {
+    const game = params.get('game') || 'the Lab';
+    const score = params.get('score');
+    const unit = params.get('unit') || 'points';
+    const name = (params.get('name') || '').trim().slice(0, 14);
+    const scored = score && /^\d{1,6}$/.test(score) ? ` and scored ${score} ${unit}` : '';
+    msg.value = `Hi Shafwan, I just played ${game} in the Lab${scored}. `;
+    if (name) msg.value += `
+
+— ${name}`;
+    msg.dispatchEvent(new Event('input'));
+    requestAnimationFrame(() => {
+      section.scrollIntoView({ block: 'start' });
+      msg.focus();
+      msg.setSelectionRange(msg.value.indexOf('. ') + 2, msg.value.indexOf('. ') + 2);
+    });
+  }
+
   msg.addEventListener('input', () => {
     const n = msg.value.trim().length;
     count.textContent = `${n} / ${MAX}`;

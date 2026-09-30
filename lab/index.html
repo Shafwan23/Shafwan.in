@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>The Lab — Shafwan Ahmed</title>
-  <meta name="description" content="The Lab — three technical brain games by Shafwan Ahmed: Bitwise binary drills, Compile engineering recall and the Keystroke typing test. Built with no libraries. Global, server-verified high scores." />
+  <meta name="description" content="The Lab — three technical brain games by Shafwan Ahmed: the Stack memory game, Compile engineering recall and the Keystroke typing test. Built with no libraries. Global, server-verified high scores." />
   <link rel="canonical" href="https://shafwan.in/lab/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Shafwan Ahmed" />
@@ -14,7 +14,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Shafwan Ahmed" />
   <meta property="og:title" content="The Lab — Shafwan Ahmed" />
-  <meta property="og:description" content="Three technical brain games: Bitwise, Compile &amp; Keystroke. Beat the global board, sign it." />
+  <meta property="og:description" content="Three technical brain games: Stack, Compile &amp; Keystroke. Beat the global board, sign it." />
   <meta property="og:url" content="https://shafwan.in/lab/" />
   <meta property="og:image" content="https://shafwan.in/og-lab.png" />
   <meta property="og:image:width" content="1200" />
@@ -22,7 +22,7 @@
   <meta property="og:image:alt" content="The Lab — technical brain games, shafwan.in" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Lab — Shafwan Ahmed" />
-  <meta name="twitter:description" content="Three technical brain games: Bitwise, Compile &amp; Keystroke. Beat the global board, sign it." />
+  <meta name="twitter:description" content="Three technical brain games: Stack, Compile &amp; Keystroke. Beat the global board, sign it." />
   <meta name="twitter:image" content="https://shafwan.in/og-lab.png" />
   <meta name="twitter:image:alt" content="The Lab — technical brain games, shafwan.in" />
 
@@ -51,7 +51,7 @@
         "@type": "WebPage",
         "url": "https://shafwan.in/lab/",
         "name": "The Lab — Shafwan Ahmed",
-        "description": "Three technical brain games by Shafwan Ahmed: Bitwise, Compile and Keystroke.",
+        "description": "Three technical brain games by Shafwan Ahmed: Stack, Compile and Keystroke.",
         "isPartOf": {
           "@id": "https://shafwan.in/#website"
         },
@@ -81,11 +81,11 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-head" id="top">
+  <header class="site-head">
     <span class="head-progress" aria-hidden="true"></span>
     <div class="head-inner">
       <a class="brand" href="/" aria-label="Shafwan — home">
-        <span class="brand-dot" aria-hidden="true"></span>SHAFWAN<sup>®</sup>
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span><span class="brand-word">SHAFWAN<sup>®</sup></span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         <span class="nav-pill" aria-hidden="true"></span>
@@ -141,7 +141,7 @@
             <span class="sr-only">The Lab — three technical brain games with high score boards</span>
             <span aria-hidden="true">Prove <em>it</em><span class="caret"></span></span>
           </h1>
-          <p class="console-note">Three drills for the part of an engineer a r&eacute;sum&eacute; cannot show: binary fluency, recall under a clock, and raw typing speed. Every score is checked by the server. Beat the global board and it asks for your name.</p>
+          <p class="console-note">Three drills for the part of an engineer a r&eacute;sum&eacute; cannot show: working memory, recall under a clock, and raw typing speed. Every score is checked by the server. Beat the global board and it asks for your name.</p>
           <dl class="hud-strip">
             <div><dt class="caps">Modules</dt><dd>03</dd></div>
             <div><dt class="caps">Records set</dt><dd data-hs-held>0</dd></div>
@@ -154,52 +154,50 @@
 
     <div class="section lab-grid">
 
-      <section class="game-frame cabinet" id="bitwise" aria-labelledby="bitwise-title" data-reveal="fade">
+      <section class="game-frame cabinet" id="stack" aria-labelledby="stack-title" data-reveal="fade">
         <span class="cab-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span class="cab-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <p class="cab-no" aria-hidden="true">01</p>
         <div class="game-hud">
           <div class="hud-name">
-            <h2 id="bitwise-title">Bitwise<span class="dot" aria-hidden="true">.</span></h2>
-            <p class="caps">Binary fluency &middot; sixty seconds</p>
+            <h2 id="stack-title">Stack<span class="dot" aria-hidden="true">.</span></h2>
+            <p class="caps">Working memory &middot; how deep does yours go</p>
           </div>
-          <div class="scores"><span>Score<b id="bwScore">0</b></span><span>Chain<b id="bwStreak">&times;1</b></span><span>Left<b id="bwTime">60</b></span></div>
+          <div class="scores"><span>Score<b id="stScore">0</b></span><span>Level<b id="stLevel">0/15</b></span><span>Best depth<b id="stBest">0</b></span></div>
         </div>
         <div class="cab-body">
-          <div class="game-stage bw-stage">
-            <div class="bw-panel">
-              <p class="caps bw-task" id="bwTask">Standby</p>
-              <p class="bw-prompt" id="bwPrompt">0 0 0 0 0 0 0 0</p>
-              <span class="bw-meter" aria-hidden="true"><i id="bwMeter"></i></span>
+          <div class="game-stage st-stage">
+            <div class="st-panel">
+              <p class="caps st-task" id="stTask">Standby</p>
+              <p class="st-depth" id="stDepth">Depth 1 &mdash; 3 tiles</p>
+              <div class="st-steps" id="stSteps" aria-hidden="true"></div>
             </div>
-
-            <div class="bw-bits" id="bwBits" role="group" aria-label="Eight bit switches, most significant bit first"></div>
-
-            <dl class="bw-read">
-              <div><dt class="caps">Dec</dt><dd id="bwDec">0</dd></div>
-              <div><dt class="caps">Hex</dt><dd id="bwHex">0x00</dd></div>
-              <div><dt class="caps">Bin</dt><dd id="bwBin">00000000</dd></div>
-            </dl>
-
-            <p class="type-note" id="bwNote">Keys <b>1</b>&ndash;<b>8</b> toggle a bit, <b>R</b> clears the register. It locks in the moment the value matches.</p>
-            <p class="sr-only" role="status" id="bwLive"></p>
-
-            <div class="game-overlay" id="bwOverlay">
+            <div class="st-grid" id="stGrid" role="group" aria-label="Four tiles"></div>
+            <p class="type-note" id="stNote">Watch the tiles light up, then tap them back in the same order. Keys <b>1</b>&ndash;<b>4</b> work too. <b>100</b> points a level, up to <b>+50</b> for speed.</p>
+            <p class="sr-only" role="status" id="stLive"></p>
+            <div class="verdict" id="stVerdict" hidden aria-hidden="true">
+              <div class="verdict-inner">
+                <p class="verdict-word" data-word>Cleared</p>
+                <p class="verdict-points" data-points>+150</p>
+                <p class="verdict-note" data-note></p>
+              </div>
+            </div>
+            <div class="game-overlay" id="stOverlay">
               <div class="inner">
                 <p class="folio" aria-hidden="true">01</p>
-                <p id="bwMsg">Read the target, build it in binary. Decimal, hex, AND, OR, XOR and shifts, on eight switches.</p>
-                <button class="btn btn--solid" type="button" id="bwStart" data-magnet>Boot the register</button>
+                <p id="stMsg">Four tiles light up in order. Tap them back. Every level adds one; a wrong tap ends the run.</p>
+                <button class="btn btn--solid" type="button" id="stStart" data-magnet>Start the run</button>
               </div>
             </div>
           </div>
-          <aside class="hs" aria-label="Bitwise hall of records">
+          <aside class="hs" aria-label="Stack hall of records">
             <div class="hs-top">
               <span class="caps">Hall of records</span>
               <span class="caps hs-unit">pts</span>
             </div>
-            <ol class="hs-list" data-hs-list="bitwise"></ol>
+            <ol class="hs-list" data-hs-list="stack"></ol>
             <div class="hs-foot">
-              <p class="caps hs-note" data-hs-note="bitwise">Loading the board…</p>
+              <p class="caps hs-note" data-hs-note="stack">Loading the board…</p>
             </div>
           </aside>
         </div>
@@ -211,9 +209,9 @@
         <div class="game-hud">
           <div class="hud-name">
             <h2 id="compile-title">Compile<span class="dot" aria-hidden="true">.</span></h2>
-            <p class="caps">Engineering recall &middot; three lives</p>
+            <p class="caps">Engineering recall &middot; 20 questions &middot; three lives</p>
           </div>
-          <div class="scores"><span>Score<b id="cpScore">0</b></span><span>Chain<b id="cpStreak">&times;1</b></span><span>Solved<b id="cpSolved">0</b></span></div>
+          <div class="scores"><span>Score<b id="cpScore">0</b></span><span>Correct<b id="cpSolved">0</b></span><span>Question<b id="cpNumber">0/20</b></span></div>
         </div>
         <div class="cab-body">
           <div class="game-stage cp-stage">
@@ -227,23 +225,29 @@
                 <svg viewBox="0 0 44 44"><circle class="cp-ring-bg" cx="22" cy="22" r="19"/><circle class="cp-arc" id="cpArc" cx="22" cy="22" r="19"/></svg>
                 <b id="cpCount">12</b>
               </span>
-              <p class="cp-q" id="cpQ">Twelve seconds a question. A wrong answer costs a life; a chain of right ones multiplies everything.</p>
+              <p class="cp-q" id="cpQ">Twenty questions, twelve seconds each. Three wrong answers end the run. Answer fast: the clock is worth points.</p>
             </div>
 
             <div class="cp-opts" id="cpOpts" role="group" aria-label="Answers"></div>
 
             <div class="cp-rail-wrap">
               <div class="cp-rail" id="cpRail" aria-hidden="true"></div>
-              <p class="caps cp-rail-note">Deck &middot; <span id="cpProgress">48 questions</span></p>
+              <p class="caps cp-rail-note">Deck &middot; <span id="cpProgress">20 questions</span></p>
             </div>
 
-            <p class="type-note" id="cpNote">Keys <b>1</b>&ndash;<b>4</b> answer. Categories run from complexity to HTTP, git, CSS, SQL and the wire.</p>
+            <p class="type-note" id="cpNote">Keys <b>1</b>&ndash;<b>4</b> answer. <b>100</b> points a right answer, up to <b>+100</b> more for speed. JavaScript, CSS, HTML, Git, HTTP, SQL, React, Node.js and the basics.</p>
             <p class="sr-only" role="status" id="cpLive"></p>
-
+            <div class="verdict" id="cpVerdict" hidden aria-hidden="true">
+              <div class="verdict-inner">
+                <p class="verdict-word" data-word>Correct</p>
+                <p class="verdict-points" data-points>+200</p>
+                <p class="verdict-note" data-note></p>
+              </div>
+            </div>
             <div class="game-overlay" id="cpOverlay">
               <div class="inner">
                 <p class="folio" aria-hidden="true">02</p>
-                <p id="cpMsg">Forty-eight questions from the parts of the job you either know cold or don't. Answer fast; the clock is worth points.</p>
+                <p id="cpMsg">Twenty questions from the parts of the job you meet every week. Three lives. Answer fast; the clock is worth points.</p>
                 <button class="btn btn--solid" type="button" id="cpStart" data-magnet>Start the run</button>
               </div>
             </div>
@@ -273,10 +277,21 @@
         </div>
         <div class="cab-body">
           <div class="game-stage type-stage">
-            <div class="type-text" id="typeText" tabindex="0" aria-label="Typing test. Focus this area and type the shown code line. Backspace corrects mistakes."></div>
+            <div class="type-langs" role="group" aria-label="Pick a language">
+              <span class="caps">Language</span>
+              <button class="type-lang" type="button" data-lang="java" aria-pressed="false">Java</button>
+              <button class="type-lang" type="button" data-lang="javascript" aria-pressed="false">JavaScript</button>
+              <button class="type-lang" type="button" data-lang="python" aria-pressed="false">Python</button>
+              <button class="type-lang" type="button" data-lang="cpp" aria-pressed="false">C++</button>
+            </div>
+            <div class="type-box">
+              <div class="type-text waiting" id="typeText" aria-hidden="true"></div>
+              <label class="sr-only" for="typeInput">Typing test. Pick a language, then type the shown code line here. Backspace corrects mistakes.</label>
+              <input class="type-input" id="typeInput" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" enterkeyhint="done" aria-describedby="typeNote" />
+            </div>
             <div class="type-actions">
               <button class="btn" type="button" id="typeNew" data-magnet>New line</button>
-              <p class="type-note" id="typeNote">Click the line and start typing. The clock starts on your first key.</p>
+              <p class="type-note" id="typeNote">Pick a language above to get a line.</p>
             </div>
           </div>
           <aside class="hs" aria-label="Keystroke hall of records">
@@ -299,7 +314,7 @@
         <span class="hs-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         <p class="caps hs-kicker">Record broken</p>
         <h2 class="hs-title" id="hsDialogTitle">New high <em>score</em></h2>
-        <p class="hs-line">You are <b id="hsRank">#1</b> on <b id="hsGame">Bitwise</b> with <b id="hsScore">0</b>.</p>
+        <p class="hs-line">You are <b id="hsRank">#1</b> on <b id="hsGame">Stack</b> with <b id="hsScore">0</b>.</p>
         <label class="hs-label" for="hsName">Name for the board</label>
         <input class="hs-input" id="hsName" name="name" type="text" minlength="2" maxlength="14" autocomplete="nickname" aria-describedby="hsError"
                spellcheck="false" placeholder="SHAFWAN" required />
@@ -310,6 +325,57 @@
           <button class="btn btn--solid" type="submit" id="hsSave" value="save">Put me on the board</button>
         </div>
       </form>
+    </dialog>
+
+    <!-- the prize: only for a new number one -->
+    <dialog class="hs-dialog prize-dialog" id="prizeDialog" aria-labelledby="prizeTitle">
+      <div class="prize">
+        <div class="prize-flecks" id="prizeFlecks" aria-hidden="true"></div>
+        <p class="caps prize-kicker" id="prizeKicker">Sealed for the record holder</p>
+        <h2 class="hs-title prize-title" id="prizeTitle">You hold <em>the record</em></h2>
+        <button class="prize-envelope" type="button" id="prizeOpen" aria-expanded="false" aria-controls="prizeLetter">
+          <span class="prize-flap" aria-hidden="true"></span>
+          <span class="prize-pocket" aria-hidden="true"></span>
+          <span class="prize-seal" id="prizeSeal" aria-hidden="true">2026</span>
+          <span class="caps prize-tap" aria-hidden="true">Tap to open</span>
+          <span class="sr-only">Open your prize</span>
+        </button>
+        <div class="prize-letter" id="prizeLetter">
+          <span class="hs-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <p class="prize-line" id="prizeLine"></p>
+          <p class="prize-sign">&mdash; Shafwan</p>
+          <p class="caps prize-who" id="prizeWho"></p>
+          <button class="btn btn--solid prize-done" type="button" id="prizeDone">Keep it</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- two names get a word of their own before the board (src/js/lab/special.js) -->
+    <dialog class="hs-dialog name-dialog" id="nameDialog" aria-labelledby="nameDialogTitle">
+      <div class="hs-form">
+        <span class="hs-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <p class="caps hs-kicker" id="nameKicker">Hold on</p>
+        <h2 class="hs-title" id="nameDialogTitle">Not <em>that name</em></h2>
+        <p class="hs-line" id="nameLine">The name you entered is not allowed to stay on this website. Please choose another name for the board.</p>
+        <div class="hs-actions">
+          <button class="btn btn--solid" type="button" id="nameOk">Choose another name</button>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- after the board: a word for Shafwan? -->
+    <dialog class="hs-dialog" id="sayDialog" aria-labelledby="sayDialogTitle">
+      <div class="hs-form">
+        <span class="hs-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <p class="caps hs-kicker">One more thing</p>
+        <h2 class="hs-title" id="sayDialogTitle">Say <em>something?</em></h2>
+        <p class="hs-line say-score" id="sayLine">Anything to tell Shafwan about the game, or anything else? It goes straight to his inbox.</p>
+        <div class="hs-actions hs-actions--stack">
+          <button class="btn btn--solid" type="button" id="sayNamed">Yes, with my name</button>
+          <button class="btn" type="button" id="sayAnon">Yes, anonymously</button>
+          <button class="btn" type="button" id="sayNo">No, thanks</button>
+        </div>
+      </div>
     </dialog>
 
   </main>
@@ -325,7 +391,7 @@
 
     <div class="foot-body">
       <div class="foot-brand">
-        <p class="foot-mark">SHAFWAN<sup>®</sup></p>
+        <p class="foot-mark"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span>SHAFWAN<sup>®</sup></p>
         <p class="foot-line">Full stack software engineer in Chennai. The interface people use, the services behind it, and the systems that keep both running.</p>
         <p class="foot-clock"><i class="live-dot" aria-hidden="true"></i><span class="caps">Chennai</span><b data-clock>—</b></p>
       </div>

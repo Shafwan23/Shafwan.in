@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { ANONYMOUS, cleanName, isOffensive } from '../src/names.js';
+import { ANONYMOUS, cleanName, isOffensive, isReserved } from '../src/names.js';
 
 const rejects = (raw) => assert.throws(() => cleanName(raw), (e) => e.status === 422 && e.code === 'name');
 
@@ -66,4 +66,13 @@ test('"Anonymous." and friends are treated as anonymous, not a shared name', () 
 test('isOffensive is exported for reuse', () => {
   assert.equal(isOffensive('good name'), false);
   assert.equal(isOffensive('shithead'), true);
+});
+
+test('the reserved name is refused in any spelling, with its own error code', () => {
+  for (const raw of ['Sabeeha', 'SABEEHA', 'sa beeha', 'Sa-bee-ha', 'Sabeeeha', 'Sabeha', 'Sabeeha Khan', 'Miss Sabeeha']) {
+    assert.throws(() => cleanName(raw), (e) => e.status === 422 && e.code === 'name_reserved', raw);
+  }
+  for (const raw of ['Sabeena', 'Sabina', 'Saba', 'Shafwan', 'Shafwan Ahmed']) assert.doesNotThrow(() => cleanName(raw), raw);
+  assert.equal(isReserved('Sabeeha'), true);
+  assert.equal(isReserved('Sabeena'), false);
 });

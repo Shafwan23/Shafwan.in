@@ -110,11 +110,11 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-head" id="top">
+  <header class="site-head">
     <span class="head-progress" aria-hidden="true"></span>
     <div class="head-inner">
       <a class="brand" href="/" aria-label="Shafwan — home">
-        <span class="brand-dot" aria-hidden="true"></span>SHAFWAN<sup>®</sup>
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span><span class="brand-word">SHAFWAN<sup>®</sup></span>
       </a>
       <nav class="site-nav" aria-label="Primary">
         <span class="nav-pill" aria-hidden="true"></span>
@@ -174,12 +174,14 @@
           <div data-reveal style="--i:3"><dt class="caps">Speaks</dt><dd>Urdu (native), English, Tamil, Hindi</dd></div>
         </dl>
       </div>
-      <figure class="sheet" data-reveal="fade">
-        <span class="sheet-holes" aria-hidden="true"></span>
-        <span class="sheet-frame sheet-frame--ghost" aria-hidden="true"><img src="/img/me-900.webp" alt="" width="900" height="1107" loading="lazy" decoding="async" /></span>
-        <span class="sheet-frame sheet-frame--live"><img src="/img/me-900.webp" alt="Portrait of Shafwan Ahmed" width="900" height="1107" fetchpriority="high" decoding="async" /><span class="sheet-tag caps">Frame 02 — selected</span></span>
-        <span class="sheet-frame sheet-frame--ghost" aria-hidden="true"><img src="/img/me-900.webp" alt="" width="900" height="1107" loading="lazy" decoding="async" /></span>
-        <span class="sheet-holes" aria-hidden="true"></span>
+      <!-- the portrait, rebuilt from dots (src/js/portrait.js); the cut-out photo underneath is the fallback -->
+      <figure class="dots" data-reveal="fade" data-dot-portrait>
+        <div class="dots-frame">
+          <img class="dots-src" src="/img/me-dots.webp" alt="Portrait of Shafwan Ahmed" width="960" height="960" fetchpriority="high" decoding="async" />
+          <canvas class="dots-canvas" aria-hidden="true"></canvas>
+          <span class="hs-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </div>
+        <figcaption class="caps dots-cap"><span><span data-dot-count>—</span> dots</span><span>Portrait · 2026</span></figcaption>
       </figure>
     </section>
 
@@ -255,7 +257,7 @@
 
     <div class="foot-body">
       <div class="foot-brand">
-        <p class="foot-mark">SHAFWAN<sup>®</sup></p>
+        <p class="foot-mark"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span>SHAFWAN<sup>®</sup></p>
         <p class="foot-line">Full stack software engineer in Chennai. The interface people use, the services behind it, and the systems that keep both running.</p>
         <p class="foot-clock"><i class="live-dot" aria-hidden="true"></i><span class="caps">Chennai</span><b data-clock>—</b></p>
       </div>
@@ -297,5 +299,6 @@
 
   <script type="module" src="/src/js/app.js"></script>
   <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/portrait.js"></script>
 </body>
 </html>

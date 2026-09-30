@@ -57,13 +57,13 @@ async function call(path, { body, auth = session, origin = ORIGIN, method = 'POS
 test('health and empty boards are public', async () => {
   assert.equal((await call('/', { method: 'GET' })).data.ok, true);
   const boards = await call('/boards', { method: 'GET', origin: null });
-  assert.deepEqual(boards.data, { bitwise: [], compile: [], keystroke: [] });
+  assert.deepEqual(boards.data, { stack: [], compile: [], keystroke: [] });
 });
 
 test('writes need the site origin and a play session', async () => {
-  assert.equal((await call('/runs', { body: { game: 'bitwise' }, origin: 'https://evil.example', auth: null })).status, 403);
-  assert.equal((await call('/runs', { body: { game: 'bitwise' }, auth: null })).status, 401);
-  assert.equal((await call('/runs', { body: { game: 'bitwise' }, auth: 'forged.token' })).status, 401);
+  assert.equal((await call('/runs', { body: { game: 'stack' }, origin: 'https://evil.example', auth: null })).status, 403);
+  assert.equal((await call('/runs', { body: { game: 'stack' }, auth: null })).status, 401);
+  assert.equal((await call('/runs', { body: { game: 'stack' }, auth: 'forged.token' })).status, 401);
 });
 
 test('a Turnstile pass buys a session; a bad token does not', async () => {
@@ -74,47 +74,48 @@ test('a Turnstile pass buys a session; a bad token does not', async () => {
   assert.ok(session.includes('.'));
 });
 
-test('bitwise: server scores the run; a name is checked; a run is claimed once', async () => {
-  const start = await call('/runs', { body: { game: 'bitwise' } });
+test('stack: server scores the run; a name is checked; a run is claimed once', async () => {
+  const start = await call('/runs', { body: { game: 'stack' } });
   assert.equal(start.status, 200);
-  assert.equal(start.data.rounds.length, 160);
+  assert.equal(start.data.sequence.length, 17);
   const id = start.data.runId;
-  await new Promise((r) => setTimeout(r, 2500)); // two rounds' floor time must really pass
+  const seq = start.data.sequence;
+  await new Promise((r) => setTimeout(r, 3200)); // level one's show phase and taps must really pass
 
-  const fin = await call(`/runs/${id}/finish`, { body: { game: 'bitwise', solves: [120, 240], score: 999999 } });
+  const taps = [{ k: seq[0], t: 2600 }, { k: seq[1], t: 2900 }, { k: seq[2], t: 3200 }];
+  const fin = await call(`/runs/${id}/finish`, { body: { game: 'stack', taps, score: 999999 } });
   assert.equal(fin.status, 200, JSON.stringify(fin.data));
-  assert.ok(fin.data.final.score > 0 && fin.data.final.score < 999999, 'the sent score is ignored');
-  assert.equal(fin.data.final.place, 1);
+  assert.equal(fin.data.depth, 1);
+  assert.ok(fin.data.final.score >= 100 && fin.data.final.score <= 150, 'the sent score is ignored');
 
-  assert.equal((await call(`/runs/${id}/finish`, { body: { game: 'bitwise', solves: [] } })).status, 409, 'no re-finishing');
+  assert.equal((await call(`/runs/${id}/finish`, { body: { game: 'stack', taps: [] } })).status, 409, 'no re-finishing');
   const rude = await call(`/runs/${id}/claim`, { body: { name: 'F.U.C.K' } });
   assert.equal(rude.status, 422);
   const ok = await call(`/runs/${id}/claim`, { body: { name: 'Ada Lovelace' } });
   assert.equal(ok.status, 200, JSON.stringify(ok.data));
-  assert.equal(ok.data.place, 1);
   assert.equal(ok.data.board[0].name, 'Ada Lovelace');
   assert.equal((await call(`/runs/${id}/claim`, { body: { name: 'Again' } })).status, 409, 'no double claims');
 });
 
-test('bitwise: cannot claim time the server has not seen pass', async () => {
-  const burst = await call('/runs', { body: { game: 'bitwise' } });
-  const instant = await call(`/runs/${burst.data.runId}/finish`, { body: { game: 'bitwise', solves: Array.from({ length: 160 }, (_, i) => i) } });
-  assert.equal(instant.status, 400, 'a full run posted instantly is refused');
-  const { data } = await call('/runs', { body: { game: 'bitwise' } });
-  const res = await call(`/runs/${data.runId}/finish`, { body: { game: 'bitwise', solves: [30000, 59000] } });
-  assert.equal(res.status, 400);
+test('stack: a whole run posted instantly is refused', async () => {
+  const { data } = await call('/runs', { body: { game: 'stack' } });
+  const burst = [];
+  let t = 0;
+  for (let level = 1; level <= 6; level++) for (let i = 0; i < level + 2; i++) burst.push({ k: data.sequence[i], t: ++t });
+  assert.equal((await call(`/runs/${data.runId}/finish`, { body: { game: 'stack', taps: burst } })).status, 400);
 });
 
 test('keystroke: over-fast reports are capped, impossible ones refused', async () => {
-  const a = await call('/runs', { body: { game: 'keystroke', line: 0 } });
+  const a = await call('/runs', { body: { game: 'keystroke', lang: 'python', line: 0 } });
   const fast = await call(`/runs/${a.data.runId}/finish`, { body: { game: 'keystroke', elapsedMs: 300, typed: 90, errors: 0 } });
   assert.equal(fast.status, 200, JSON.stringify(fast.data));
   assert.equal(fast.data.final.score, 180);
 
-  const b = await call('/runs', { body: { game: 'keystroke', line: 1 } });
+  const b = await call('/runs', { body: { game: 'keystroke', lang: 'python', line: 1 } });
   const slow = await call(`/runs/${b.data.runId}/finish`, { body: { game: 'keystroke', elapsedMs: 90000, typed: 95, errors: 0 } });
   assert.equal(slow.status, 400);
-  assert.equal((await call('/runs', { body: { game: 'keystroke', line: 99 } })).status, 400);
+  assert.equal((await call('/runs', { body: { game: 'keystroke', lang: 'python', line: 99 } })).status, 400);
+  assert.equal((await call('/runs', { body: { game: 'keystroke', lang: 'rust', line: 0 } })).status, 400);
 });
 
 test('compile: answers judged server-side; a doubled answer counts once', async () => {
@@ -132,7 +133,7 @@ test('compile: answers judged server-side; a doubled answer counts once', async 
 
   let reply = (one.status === 200 ? one : two).data;
   let guard = 0;
-  while (!reply.final && guard++ < 60) {
+  while (!reply.final && guard++ < 30) {
     reply = (await call(`/runs/${id}/answer`, { body: { choice: (reply.rightIndex + 1) % 4, number: reply.next.number } })).data;
   }
   assert.ok(reply.final, 'three misses end the run');
@@ -166,7 +167,7 @@ test('contact: validated, mailed as plain text, honeypot dropped, rate limited',
 
 test('boards show one best entry per name', async () => {
   for (const score of [1, 2]) {
-    const { data } = await call('/runs', { body: { game: 'keystroke', line: score } });
+    const { data } = await call('/runs', { body: { game: 'keystroke', lang: 'python', line: score } });
     await call(`/runs/${data.runId}/finish`, { body: { game: 'keystroke', elapsedMs: 300, typed: 200, errors: 0 } });
     await call(`/runs/${data.runId}/claim`, { body: { name: 'Grace Hopper' } });
   }

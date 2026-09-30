@@ -11,7 +11,7 @@ Everything runs on free tiers. D1 databases on the free plan don't pause or expi
 
 | Game | What the browser sends | What the server checks and does |
 |------|------------------------|---------------------------------|
-| Bitwise | The time of each solve | Deals the rounds itself. Counts any solve faster than a human floor time as if it took the floor time. Rejects reported time that hasn't actually passed on the server's clock. |
+| Stack | Which tile was tapped and when | Deals the whole sequence itself. Replays the taps level by level; the first wrong tap ends the run. Taps faster than a human pace count at that pace, and a run cannot report more time than has really passed on the server's clock. |
 | Compile | One answer at a time | Keeps the answer key; the browser never receives it. Judges and times each answer itself. Answers faster than 1 second get no extra bonus. |
 | Keystroke | Elapsed time and key counts | Starts its own clock when the line is dealt, so the browser can't claim to have finished faster than real time allows. Caps scores at 180 WPM. |
 

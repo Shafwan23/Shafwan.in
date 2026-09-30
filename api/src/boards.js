@@ -1,6 +1,6 @@
 /* The public boards: best claimed score per name, top eight per game. */
 
-export const GAMES = ['bitwise', 'compile', 'keystroke'];
+export const GAMES = ['stack', 'compile', 'keystroke'];
 export const BOARD_SIZE = 8;
 const KEEP_PER_GAME = 60;      /* rows kept per game; every board read touches only these */
 const CACHE_MS = 10000;

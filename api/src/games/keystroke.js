@@ -1,11 +1,12 @@
 /*
- * Keystroke: type one line of code. The server starts the clock when the line
- * is dealt, so a reported time can never be shorter than the time that really
- * passed, and anything past a human ceiling is counted at the ceiling.
+ * Keystroke: type one line of code in the language you picked. The server
+ * starts the clock when the line is dealt, so a reported time can never be
+ * shorter than the time that really passed, and anything past a human ceiling
+ * is counted at the ceiling.
  */
 
 import { ApiError } from '../http.js';
-import { TEXTS, wpmOf } from '../shared/keystroke-texts.js';
+import { LANGS, LINES, wpmOf } from '../shared/keystroke-texts.js';
 
 export const WPM_CEILING = 180;
 const CLOCK_SLACK_MS = 1500;
@@ -35,14 +36,15 @@ export function scoreLine(text, report, serverElapsedMs) {
 
 export const keystroke = {
   start(body) {
-    const line = body.line;
-    if (!Number.isInteger(line) || line < 0 || line >= TEXTS.length) {
+    const { lang, line } = body;
+    if (!LANGS.includes(lang)) throw new ApiError(400, 'bad_lang', 'Unknown language.');
+    if (!Number.isInteger(line) || line < 0 || line >= LINES[lang].length) {
       throw new ApiError(400, 'bad_line', 'Unknown line.');
     }
-    return { state: { line }, reply: { line } };
+    return { state: { lang, line }, reply: { lang, line } };
   },
   finish(state, body, { serverElapsedMs }) {
-    const { wpm, accuracy } = scoreLine(TEXTS[state.line], body, serverElapsedMs);
+    const { wpm, accuracy } = scoreLine(LINES[state.lang][state.line], body, serverElapsedMs);
     return { score: wpm, detail: { accuracy } };
   },
 };

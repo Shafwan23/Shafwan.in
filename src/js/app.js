@@ -212,6 +212,14 @@ if (fine && !rmq.matches && !motionUserOff()) {
   });
 }
 
+/* ---------- Dialogs hide the custom cursor (they sit in the top layer above it) ---------- */
+{
+  const sync = () => document.documentElement.classList.toggle('dialog-open', !!document.querySelector('dialog[open]'));
+  const watch = new MutationObserver(sync);
+  document.querySelectorAll('dialog').forEach((d) => watch.observe(d, { attributes: true, attributeFilter: ['open'] }));
+  sync();
+}
+
 /* ---------- Magnetic elements ---------- */
 if (fine && !rmq.matches && !motionUserOff()) {
   document.querySelectorAll('[data-magnet]').forEach((el) => {
@@ -532,3 +540,14 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     if (!raf) raf = requestAnimationFrame(frame);
   }, { passive: true });
 })();
+
+/* ---------- Back to top ----------
+   The header is fixed, so an anchor on it never moved the page. The link keeps
+   its "#top" href (which the browser treats as the document top) and we scroll
+   it, smoothly unless motion is off. */
+document.querySelectorAll('.foot-top').forEach((a) => a.addEventListener('click', (e) => {
+  e.preventDefault();
+  const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches && !document.documentElement.classList.contains('motion-off');
+  scrollTo({ top: 0, left: 0, behavior: smooth ? 'smooth' : 'auto' });
+  history.replaceState(null, '', location.pathname + location.search);
+}));
