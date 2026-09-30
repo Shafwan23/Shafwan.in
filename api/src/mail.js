@@ -30,7 +30,11 @@ export function composeMail(env, note) {
 
 /** @returns {Promise<boolean>} true when the provider accepted the mail */
 export async function sendMail(env, note, fetchImpl = fetch) {
-  if (!env.RESEND_API_KEY || !env.MAIL_TO || !env.MAIL_FROM) return false;
+  const missing = ['RESEND_API_KEY', 'MAIL_TO', 'MAIL_FROM'].filter((name) => !String(env[name] || '').trim());
+  if (missing.length) {
+    console.error('mail not configured, missing or empty:', missing.join(', '));
+    return false;
+  }
   try {
     const res = await fetchImpl(env.MAIL_ENDPOINT || 'https://api.resend.com/emails', {
       method: 'POST',
