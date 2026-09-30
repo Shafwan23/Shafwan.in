@@ -1,0 +1,7 @@
+# Local development only. Copy to .dev.vars (gitignored); never use these in production.
+SESSION_SECRET=local-dev-secret-local-dev-secret-0123456789
+# Cloudflare's public Turnstile test secret: accepts the test widget's dummy token.
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+RESEND_API_KEY=re_local_stub
+MAIL_ENDPOINT=http://127.0.0.1:8799/emails
+ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173

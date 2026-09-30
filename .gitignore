@@ -7,3 +7,7 @@ legacy/
 .DS_Store
 Thumbs.db
 src/assets/projects/
+.dev.vars
+.wrangler/
+!.env.development
+!.env.production

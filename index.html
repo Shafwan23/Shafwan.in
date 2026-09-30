@@ -36,7 +36,7 @@
   <link rel="preload" href="/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/italiana-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/src/styles.css" />
-  <script>try{if(sessionStorage.getItem("sf-intro"))document.documentElement.classList.add("no-intro");sessionStorage.setItem("sf-intro","1");}catch(e){}</script>
+  <script>try{var n=performance.getEntriesByType("navigation")[0],t=n?n.type:"navigate",r=document.referrer;if(t==="back_forward"||(t!=="reload"&&r&&new URL(r).origin===location.origin))document.documentElement.classList.add("no-intro");}catch(e){}</script>
 
   <script type="speculationrules">
   { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
@@ -147,12 +147,19 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
 -->
 
   <div class="intro" aria-hidden="true">
-    <span class="intro-panels"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    <div class="intro-inner">
-      <span class="intro-mark">SHAFWAN<sup>&reg;</sup></span>
-      <span class="intro-count"><i>0<br>5<br>10<br>15<br>20<br>25<br>30<br>35<br>40<br>45<br>50<br>55<br>60<br>65<br>70<br>75<br>80<br>85<br>90<br>95<br>100<br></i></span>
+    <div class="intro-half intro-half--top">
+      <span class="intro-glow"></span>
+      <span class="intro-name"><i style="--d:3">S</i><i style="--d:2">H</i><i style="--d:1">A</i><i style="--d:0">F</i><i style="--d:1">W</i><i style="--d:2">A</i><i style="--d:3">N</i><sup>&reg;</sup></span>
+      <span class="intro-meta intro-meta--tl">Shafwan Ahmed<br>Portfolio &middot; MMXXVI</span>
+      <span class="intro-meta intro-meta--tr">Software Engineer<br>Chennai, IN</span>
     </div>
-    <span class="intro-bar"></span>
+    <div class="intro-half intro-half--bottom">
+      <span class="intro-glow"></span>
+      <span class="intro-name"><i style="--d:3">S</i><i style="--d:2">H</i><i style="--d:1">A</i><i style="--d:0">F</i><i style="--d:1">W</i><i style="--d:2">A</i><i style="--d:3">N</i><sup>&reg;</sup></span>
+      <span class="intro-role">Full Stack Software Engineer</span>
+      <span class="intro-meta intro-meta--bl">Next.js &middot; React &middot; Node.js</span>
+      <span class="intro-meta intro-meta--br"><em class="intro-count"></em><b>%</b></span>
+    </div>
   </div>
 
   <a class="skip-link" href="#main">Skip to content</a>

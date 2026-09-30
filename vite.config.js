@@ -3,7 +3,10 @@ import { resolve } from 'path';
 
 export default defineConfig({
   server: {
-    port: 3000,
+    /* 3000 is taken by other local Next.js apps; sharing it made Chrome send
+       some requests (often the stylesheet) to the wrong server */
+    port: 5173,
+    strictPort: true,
     open: true,
   },
   build: {

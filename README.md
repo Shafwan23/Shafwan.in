@@ -11,3 +11,5 @@ npm run build    # production build into dist/
 ```
 
 Deploys to Render as a static site; see `render.yaml`.
+
+The Lab leaderboards and the anonymous contact note run on a small Cloudflare Worker in [`api/`](api/README.md). Scores there are computed server-side, not trusted from the browser.

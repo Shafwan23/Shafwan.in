@@ -1,0 +1,18 @@
+{
+  "name": "shafwan-api",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cloudflare Worker behind shafwan.in: verified Lab leaderboards and the anonymous contact form.",
+  "scripts": {
+    "dev": "wrangler dev --local --port 8787",
+    "db:local": "wrangler d1 migrations apply shafwan --local",
+    "db:remote": "wrangler d1 migrations apply shafwan --remote",
+    "deploy": "wrangler deploy",
+    "test": "node --test \"test/*.test.js\"",
+    "test:int": "node --test \"test/integration/*.int.js\""
+  },
+  "devDependencies": {
+    "wrangler": "^4.44.0"
+  }
+}

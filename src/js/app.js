@@ -7,7 +7,12 @@ const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 /* ---------- Site-level motion switch (WCAG 2.2.2 pause mechanism) ---------- */
 const MOTION_KEY = 'shafwan-motion';
-const motionUserOff = () => localStorage.getItem(MOTION_KEY) === 'off';
+/* storage can throw (blocked site data, some private modes); motion then just stays on */
+const readMotion = () => { try { return localStorage.getItem(MOTION_KEY); } catch { return null; } };
+const writeMotion = (value) => {
+  try { if (value === null) localStorage.removeItem(MOTION_KEY); else localStorage.setItem(MOTION_KEY, value); } catch { /* not persisted */ }
+};
+const motionUserOff = () => readMotion() === 'off';
 if (motionUserOff()) document.documentElement.classList.add('motion-off');
 
 document.querySelectorAll('[data-foot-settings]').forEach((slot) => {
@@ -18,10 +23,10 @@ document.querySelectorAll('[data-foot-settings]').forEach((slot) => {
   btn.textContent = motionUserOff() ? 'Motion: off' : 'Motion: on';
   btn.addEventListener('click', () => {
     if (motionUserOff()) {
-      localStorage.removeItem(MOTION_KEY);
+      writeMotion(null);
       location.reload(); /* clean reboot of the effect engines */
     } else {
-      localStorage.setItem(MOTION_KEY, 'off');
+      writeMotion('off');
       document.documentElement.classList.add('motion-off');
       btn.setAttribute('aria-pressed', 'true');
       btn.textContent = 'Motion: off';
@@ -47,6 +52,7 @@ document.querySelectorAll('[data-split]').forEach((el) => {
             const c = document.createElement('span');
             c.className = 'ch';
             c.style.setProperty('--ci', ci++);
+            c.dataset.c = chr; /* lets CSS redraw the glyph in halves (hero rebuild) */
             c.textContent = chr;
             w.appendChild(c);
           }
@@ -456,14 +462,13 @@ document.querySelectorAll('[data-year]').forEach((el) => {
 
 /* ═══════════════════════════════════════════════════════════════════════
    v10 · The page reacts to how fast you move through it.
-   One rAF loop writes two numbers on <html>: --vel (signed, -1..1) and
-   --speed (its magnitude). CSS does the rest — the sections skew, the
-   display type narrows, and champagne streaks surface at speed. The loop
-   parks itself the moment you stop, so an idle page costs nothing.
+   One rAF loop writes --speed (0..1) on the streak layer alone, so the
+   rest of the document never restyles while you scroll. Headings and
+   sections stay still; only the champagne streaks surface at speed. The
+   loop parks itself the moment you stop, so an idle page costs nothing.
    ═══════════════════════════════════════════════════════════════════════ */
 (() => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const root = document.documentElement;
 
   const rush = document.createElement('div');
   rush.className = 'rush';
@@ -476,11 +481,9 @@ document.querySelectorAll('[data-year]').forEach((el) => {
     vel += (raw - vel) * 0.16;
     raw *= 0.80;
     const v = Math.max(-1, Math.min(1, vel / 105));
-    root.style.setProperty('--vel', v.toFixed(3));
-    root.style.setProperty('--speed', Math.abs(v).toFixed(3));
+    rush.style.setProperty('--speed', Math.abs(v).toFixed(3));
     if (Math.abs(vel) < 0.4 && Math.abs(raw) < 0.4) {
-      root.style.setProperty('--vel', '0');
-      root.style.setProperty('--speed', '0');
+      rush.style.setProperty('--speed', '0');
       raf = 0;
       return;
     }
@@ -496,19 +499,17 @@ document.querySelectorAll('[data-year]').forEach((el) => {
   /* motion toggle: stop writing, and clear what was written */
   addEventListener('shafwan:motion-off', () => {
     cancelAnimationFrame(raf); raf = -1;
-    root.style.setProperty('--vel', '0');
-    root.style.setProperty('--speed', '0');
     rush.remove();
   });
 })();
 
-/* the curtain is CSS-driven; this only takes it out of the DOM afterwards */
+/* the opening seam is CSS-driven; this only takes it out of the DOM afterwards */
 (() => {
   const intro = document.querySelector('.intro');
   if (!intro) return;
   const kill = () => intro.remove();
   if (document.documentElement.classList.contains('motion-off')) return kill();
-  setTimeout(kill, 2600);
+  setTimeout(kill, 2100);
   addEventListener('shafwan:motion-off', kill);
 })();
 

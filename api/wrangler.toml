@@ -1,0 +1,28 @@
+# Cloudflare Worker for shafwan.in: server-verified Lab leaderboards and the
+# anonymous contact form. Free plan: D1 databases never pause or expire.
+name = "shafwan-api"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "shafwan"
+# From `wrangler d1 create shafwan` (APAC region).
+database_id = "968ef05e-55b1-47db-a2dc-914e2a2f6e07"
+migrations_dir = "migrations"
+
+[vars]
+ALLOWED_ORIGINS = "https://shafwan.in,https://www.shafwan.in"
+MAIL_TO = "tshafwan23@gmail.com"
+MAIL_FROM = "shafwan.in <onboarding@resend.dev>"
+MAIL_ENDPOINT = "https://api.resend.com/emails"
+
+# Every 15 minutes: prune stale runs and rate-limit rows, retry undelivered mail.
+[triggers]
+crons = ["*/15 * * * *"]
+
+# Secrets (never committed), set with `wrangler secret put <NAME>`:
+#   SESSION_SECRET    random string, signs play sessions and hashes IPs
+#   TURNSTILE_SECRET  from the Cloudflare Turnstile widget
+#   RESEND_API_KEY    from resend.com, sends the contact mail

@@ -8,9 +8,11 @@
    motion toggle, or missing WebGL → nothing changes, DOM text stays. */
 
 const rmq = matchMedia('(prefers-reduced-motion: reduce)');
+/* storage can throw when site data is blocked; treat that as motion on */
+const storedMotionOff = () => { try { return localStorage.getItem('shafwan-motion') === 'off'; } catch { return false; } };
 const motionOff = () =>
   rmq.matches || navigator.connection?.saveData ||
-  localStorage.getItem('shafwan-motion') === 'off';
+  storedMotionOff();
 
 /* boot after the page has painted and gone idle: shader compiles and the
    text sampling are one long task, and running them before first paint held
@@ -355,11 +357,27 @@ function boot() {
 
   /* --- particle text --- */
   const textEl = document.querySelector('[data-scene-text]');
+  const FORM_MS = 1900;
   let particles = null;
   let formAt = 0;
 
+  /* On a load that plays the opening seam, CSS first rebuilds the DOM name
+     from its two halves. The particles wait for the last letter to land,
+     then take over already formed, so the name never jumps or re-forms. */
+  const heroJoin = document.getAnimations().filter((a) => /^hero-join-/.test(a.animationName));
+  let heroJoining = heroJoin.length > 0;
+  if (heroJoining) {
+    Promise.all(heroJoin.map((a) => a.finished)).catch(() => {}).then(() => {
+      heroJoining = false;
+      if (killed) return;
+      formAt = performance.now() - FORM_MS;
+      buildParticles();
+      schedule();
+    });
+  }
+
   function buildParticles() {
-    if (!textEl || !partProg || killed) return;
+    if (!textEl || !partProg || killed || heroJoining) return;
     const r = textEl.getBoundingClientRect();
     if (r.width < 10) return;
     const box = { x: r.left, y: r.top + scrollY, w: r.width, h: r.height };
@@ -582,7 +600,7 @@ function boot() {
       gl.uniform4f(pu.box, b.x, b.y, b.w, b.h);
       gl.uniform1f(pu.scrollY, scrollY);
       gl.uniform1f(pu.time, t);
-      gl.uniform1f(pu.form, formAt ? Math.min(1, (now - formAt) / 1900) : 0);
+      gl.uniform1f(pu.form, formAt ? Math.min(1, (now - formAt) / FORM_MS) : 0);
       gl.uniform1f(pu.scatter, scatter);
       gl.uniform2f(pu.mouse, mouse.x, mouse.y);
       gl.uniform1f(pu.energy, fine ? energy : 0.0);

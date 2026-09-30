@@ -170,11 +170,45 @@
       </div>
     </section>
 
+    <!-- ═══ THE NOTE — anonymous, straight to the inbox (shown once the API is live) ═══ -->
+    <section class="section" aria-labelledby="note-title" data-ghost="01" id="note" hidden>
+      <div class="kicker-row" data-rule>
+        <h2 class="h-display" id="note-title" data-reveal>Leave a <em>note</em></h2>
+        <p class="caps" data-reveal style="--i:2">01 — Anonymous, straight to my inbox</p>
+      </div>
+      <form class="note" id="noteForm" novalidate data-reveal="fade">
+        <span class="hs-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <div class="note-field note-field--msg">
+          <label class="note-label" for="noteMsg">Your note</label>
+          <textarea class="note-input" id="noteMsg" name="message" rows="6" minlength="10" maxlength="2000" required
+                    aria-describedby="noteHelp noteCount noteMsgError" placeholder="Say hello, ask about a role, or tell me what to fix."></textarea>
+          <p class="note-meta"><span id="noteHelp">No name needed. 10 to 2,000 characters.</span><span class="note-count" id="noteCount">0 / 2000</span></p>
+          <p class="note-error" id="noteMsgError" hidden></p>
+        </div>
+        <div class="note-field">
+          <label class="note-label" for="noteReply">Where to reply <span>(optional)</span></label>
+          <input class="note-input" id="noteReply" name="reply" type="text" maxlength="120" autocomplete="email"
+                 spellcheck="false" placeholder="Email, LinkedIn, anything" aria-describedby="noteReplyHelp" />
+          <p class="note-meta" id="noteReplyHelp">Leave it empty to stay fully anonymous.</p>
+        </div>
+        <div class="note-trap" aria-hidden="true">
+          <label for="noteWebsite">Leave this empty</label>
+          <input id="noteWebsite" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="note-foot">
+          <div class="note-check" id="noteCheck"></div>
+          <button class="btn btn--solid" type="submit" id="noteSend" data-magnet>Send the note <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <p class="note-status" id="noteStatus" role="status" aria-live="polite"></p>
+        </div>
+        <p class="note-fine">Checked by Cloudflare Turnstile against spam. No IP address, name or tracking is stored with your note.</p>
+      </form>
+    </section>
+
     <!-- ═══ THE BOARD — a departure board that flips into place ═══ -->
-    <section class="section" aria-labelledby="board-title" data-ghost="01">
+    <section class="section" aria-labelledby="board-title" data-ghost="02">
       <div class="kicker-row" data-rule>
         <h2 class="h-display" id="board-title" data-reveal>The <em>board</em></h2>
-        <p class="caps" data-reveal style="--i:2">01 — Current standing</p>
+        <p class="caps" data-reveal style="--i:2">02 — Current standing</p>
       </div>
       <div class="board" data-reveal="fade">
           <div class="board-row" style="--i:0">
@@ -211,10 +245,10 @@
     </section>
 
     <!-- ═══ DIRECT LINES ═══ -->
-    <section class="section" aria-labelledby="lines-title" data-ghost="02">
+    <section class="section" aria-labelledby="lines-title" data-ghost="03">
       <div class="kicker-row" data-rule>
         <h2 class="h-display" id="lines-title" data-reveal>Direct <em>lines</em></h2>
-        <p class="caps" data-reveal style="--i:2">02 — Elsewhere</p>
+        <p class="caps" data-reveal style="--i:2">03 — Elsewhere</p>
       </div>
       <div class="lines" data-reveal-group>
         <a class="line" href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank" data-reveal style="--i:0">
@@ -289,6 +323,7 @@
   </footer>
 
   <script type="module" src="/src/js/app.js"></script>
+  <script type="module" src="/src/js/note.js"></script>
   <script type="module" src="/src/js/scene.js"></script>
 </body>
 </html>

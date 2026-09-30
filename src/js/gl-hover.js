@@ -4,9 +4,11 @@
 
 const rmq = matchMedia('(prefers-reduced-motion: reduce)');
 const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+/* storage can throw when site data is blocked; treat that as motion on */
+const storedMotionOff = () => { try { return localStorage.getItem('shafwan-motion') === 'off'; } catch { return false; } };
 const motionOff = () =>
   rmq.matches || navigator.connection?.saveData ||
-  localStorage.getItem('shafwan-motion') === 'off';
+  storedMotionOff();
 
 let killed = false;
 if (!motionOff()) init();
