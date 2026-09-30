@@ -1,9 +1,9 @@
 # Render Blueprint for shafwan.in: a static site built by Vite into dist/.
-# The live domain currently runs the old Next.js app as a Render web service;
-# switch it to this static site (runtime: static) when deploying.
+# A new service beside the old Next.js web service (shafwan-in); move the
+# shafwan.in and www.shafwan.in custom domains here, then suspend the old one.
 services:
   - type: web
-    name: shafwan-in
+    name: shafwan-site
     runtime: static
     buildCommand: npm ci && npm run build
     staticPublishPath: ./dist
