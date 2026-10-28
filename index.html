@@ -36,7 +36,7 @@
   <link rel="preload" href="/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/italiana-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/src/styles.css" />
-  <script>try{var n=performance.getEntriesByType("navigation")[0],t=n?n.type:"navigate",r=document.referrer;if(t==="back_forward"||(t!=="reload"&&r&&new URL(r).origin===location.origin))document.documentElement.classList.add("no-intro");}catch(e){}</script>
+  <script src="/no-intro.js"></script>
 
   <script type="speculationrules">
   { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
@@ -216,7 +216,7 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
       <div class="hero-head">
         <div class="hero-top">
           <p class="caps" data-reveal="fade">Shafwan Ahmed · Full Stack Software Engineer</p>
-          <p class="caps" data-reveal="fade" style="--i:1">Chennai — <span data-year>2026</span></p>
+          <p class="caps hero-where" data-reveal="fade" style="--i:1"><span>Chennai · 13.08° N 80.27° E</span><b class="hero-clock" data-clock>—</b><span>IST</span></p>
         </div>
 
         <h1 class="hero-title">
@@ -257,6 +257,10 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
             <dt class="caps">Shipping since</dt>
             <dd>2024: three companies, intern to engineer</dd>
           </div>
+          <div data-reveal="fade" style="--i:2">
+            <dt class="caps">Latest</dt>
+            <dd><a class="hero-latest" href="/work/famysys-ems/">Famysys EMS, the employee platform <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></dd>
+          </div>
         </dl>
         <a class="hero-scroll" href="#statement-title" data-reveal="fade" style="--i:3">
           <span class="caps">Scroll</span>
@@ -295,6 +299,7 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
         <p class="caps" data-reveal style="--i:2">02 — The count</p>
       </div>
       <div class="figures" data-reveal-group>
+        <span class="fig-pass" aria-hidden="true"></span>
         <div class="figure" data-reveal style="--i:0">
           <p class="fig-folio" aria-hidden="true">01</p>
           <b class="fig-value"><span class="fig-ring" aria-hidden="true"><svg viewBox="0 0 120 120"><circle class="fig-ring-bg" cx="60" cy="60" r="55"/><circle class="fig-ring-arc" cx="60" cy="60" r="55"/></svg></span><span class="sr-only">2+</span><span class="odo" data-odo="2+" aria-hidden="true"></span></b>
@@ -309,9 +314,9 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
         </div>
         <div class="figure" data-reveal style="--i:2">
           <p class="fig-folio" aria-hidden="true">03</p>
-          <b class="fig-value"><span class="fig-ring" aria-hidden="true"><svg viewBox="0 0 120 120"><circle class="fig-ring-bg" cx="60" cy="60" r="55"/><circle class="fig-ring-arc" cx="60" cy="60" r="55"/></svg></span><span class="sr-only">8.4</span><span class="odo" data-odo="8.4" aria-hidden="true"></span></b>
-          <span class="caps fig-label">B.E. grade</span>
-          <span class="fig-note" aria-hidden="true">Computer Engineering, 2024</span>
+          <b class="fig-value"><span class="fig-ring" aria-hidden="true"><svg viewBox="0 0 120 120"><circle class="fig-ring-bg" cx="60" cy="60" r="55"/><circle class="fig-ring-arc" cx="60" cy="60" r="55"/></svg></span><span class="sr-only">7</span><span class="odo" data-odo="07" aria-hidden="true"></span></b>
+          <span class="caps fig-label">Products on record</span>
+          <span class="fig-note" aria-hidden="true">five live, two private</span>
         </div>
         <div class="figure" data-reveal style="--i:3">
           <p class="fig-folio" aria-hidden="true">04</p>
@@ -352,6 +357,14 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
           <div class="disc-track" style="animation-duration:27s"><span>ITSM</span><em>✦</em><span>HR Service Delivery</span><em>✦</em><span>Flow Designer</span><em>✦</em><span>Glide API</span><em>✦</em><span>Service Catalog</span><em>✦</em><span>Service Portal</span><em>✦</em><span>SLAs</span><em>✦</em><span>ATF</span><em>✦</em><span>ITSM</span><em>✦</em><span>HR Service Delivery</span><em>✦</em><span>Flow Designer</span><em>✦</em><span>Glide API</span><em>✦</em><span>Service Catalog</span><em>✦</em><span>Service Portal</span><em>✦</em><span>SLAs</span><em>✦</em><span>ATF</span><em>✦</em></div>
         </div>
         <ul class="sr-only"><li>IT Service Management</li><li>HR Service Delivery</li><li>Flow Designer</li><li>Glide API</li><li>Service Catalog</li><li>Service Portal</li><li>SLAs</li><li>Automated Test Framework</li></ul>
+      </div>
+      <div class="disc disc--next">
+        <p class="disc-no" aria-hidden="true">04</p>
+        <h3 class="disc-name">Next <small class="disc-tag">building toward</small></h3>
+        <div class="disc-marq" aria-hidden="true">
+          <div class="disc-track" style="animation-duration:38s"><span>System design</span><em>✦</em><span>LLMs &amp; RAG</span><em>✦</em><span>Infrastructure</span><em>✦</em><span>Observability</span><em>✦</em><span>Mobile</span><em>✦</em><span>System design</span><em>✦</em><span>LLMs &amp; RAG</span><em>✦</em><span>Infrastructure</span><em>✦</em><span>Observability</span><em>✦</em><span>Mobile</span><em>✦</em></div>
+        </div>
+        <ul class="sr-only"><li>System design</li><li>LLMs and retrieval-augmented generation</li><li>Infrastructure</li><li>Observability</li><li>Mobile development</li></ul>
       </div>
       </div>
     </section>
@@ -439,6 +452,7 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
           <h2 class="h-display" id="about-teaser-title" data-reveal>End <em>to</em> end</h2>
           <p data-reveal style="--i:1">I&rsquo;m Shafwan Ahmed, a Software Engineer at Famysys in Chennai. I design interfaces, build the APIs behind them, shape the data layer, and own the work through testing, deployment and production support. Next: deeper into system design, and AI built into how a system works rather than added on top.</p>
           <a class="btn" href="/about/" data-reveal data-magnet style="--i:2">About me <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="sign" data-reveal="fade" style="--i:3" aria-hidden="true"><svg viewBox="0 0 560 110"><text class="sign-text" x="2" y="82">Shafwan Ahmed</text></svg></span>
         </div>
       </div>
     </section>
@@ -522,8 +536,13 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
       <span class="doorway-title"><span class="ghost" aria-hidden="true">Selected Work</span><span class="base">Selected Work</span><span class="fill" aria-hidden="true">Selected Work</span></span>
       <span class="doorway-rule" aria-hidden="true"></span>
       <span class="doorway-foot">
-        <span class="caps">05 live products — a studio, a bookshop, a catalogue, a store, a dashboard</span>
+        <span class="caps">07 products — two private platforms and five live sites</span>
         <span class="link-arrow">Enter <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </span>
+      <span class="door-peek" aria-hidden="true">
+        <img src="/img/live-studio-desk.webp" alt="" width="1280" height="800" loading="lazy" decoding="async" style="--k:0" />
+        <img src="/img/ems-portal-desk.webp" alt="" width="1200" height="750" loading="lazy" decoding="async" style="--k:1" />
+        <img src="/img/live-miniminds-desk.webp" alt="" width="1280" height="800" loading="lazy" decoding="async" style="--k:2" />
       </span>
     </a>
 
@@ -544,16 +563,19 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
             <span class="folio" aria-hidden="true">01</span>
             <span class="lab-name">Stack</span>
             <span class="caps">Memory, one level deeper</span>
+            <span class="lab-holder" data-top="stack"></span>
           </a></li>
           <li><a href="/lab/#compile" data-cursor="Play">
             <span class="folio" aria-hidden="true">02</span>
             <span class="lab-name">Compile</span>
             <span class="caps">20 questions, 3 lives</span>
+            <span class="lab-holder" data-top="compile"></span>
           </a></li>
           <li><a href="/lab/#keystroke" data-cursor="Play">
             <span class="folio" aria-hidden="true">03</span>
             <span class="lab-name">Keystroke</span>
             <span class="caps">Live WPM &amp; accuracy</span>
+            <span class="lab-holder" data-top="keystroke"></span>
           </a></li>
         </ol>
       </div>
@@ -613,5 +635,6 @@ FINISH: reviewed against the craft floor; documented in DESIGN.md.
   </footer>
   <script type="module" src="/src/js/app.js"></script>
   <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/home.js"></script>
 </body>
 </html>

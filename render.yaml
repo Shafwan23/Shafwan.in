@@ -12,6 +12,14 @@ services:
       - path: /*
         name: X-Content-Type-Options
         value: nosniff
+      # Scripts and fonts come only from this origin; the one inline script moved to /no-intro.js so no hash is needed.
+      # Turnstile (the human check) and the score Worker are the only outside origins the browser may talk to.
+      - path: /*
+        name: Content-Security-Policy
+        value: default-src 'self'; script-src 'self' 'inline-speculation-rules' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://shafwan-api.shafwan.workers.dev https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+      - path: /*
+        name: Cross-Origin-Opener-Policy
+        value: same-origin
       - path: /*
         name: X-Frame-Options
         value: DENY
@@ -42,6 +50,12 @@ services:
       - type: redirect
         source: /work/servicenow
         destination: /work/servicenow/
+      - type: redirect
+        source: /work/famysys-ems
+        destination: /work/famysys-ems/
+      - type: redirect
+        source: /work/ferrobid
+        destination: /work/ferrobid/
       - type: redirect
         source: /work/myfundbox
         destination: /work/myfundbox/

@@ -390,12 +390,20 @@ document.querySelectorAll('[data-flap]').forEach((el) => {
   label.className = 'sr-only';
   label.textContent = text;
   frag.appendChild(label);
+  /* cells are grouped by word so the board wraps between words, never inside one */
+  let word = null;
   [...text].forEach((chr, i) => {
+    if (chr === ' ') { word = null; return; }
+    if (!word) {
+      word = document.createElement('span');
+      word.className = 'flap-word';
+      frag.appendChild(word);
+    }
     const cell = document.createElement('span');
     cell.style.setProperty('--c', i);
     cell.setAttribute('aria-hidden', 'true');
-    cell.textContent = chr === ' ' ? ' ' : chr;
-    frag.appendChild(cell);
+    cell.textContent = chr;
+    word.appendChild(cell);
   });
   el.replaceChildren(frag);
 });

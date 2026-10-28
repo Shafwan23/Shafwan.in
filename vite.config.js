@@ -35,6 +35,16 @@ export default defineConfig({
     strictPort: true,
     open: true,
   },
+  preview: {
+    port: 4173,
+    strictPort: true,
+    /* the production headers from render.yaml, so `vite preview` exercises the Content Security Policy */
+    headers: {
+      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'inline-speculation-rules' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://shafwan-api.shafwan.workers.dev https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+    },
+  },
   build: {
     target: 'es2020',
     minify: 'esbuild',

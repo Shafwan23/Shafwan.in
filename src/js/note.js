@@ -62,6 +62,7 @@ if (section && form && apiReady) {
     const n = msg.value.trim().length;
     count.textContent = `${n} / ${MAX}`;
     count.dataset.over = String(n > MAX);
+    form.style.setProperty('--fill', String(Math.min(1, n / MAX)));
     if (n >= MIN) showMsgError('');
   });
 
@@ -79,6 +80,7 @@ if (section && form && apiReady) {
       await sendNote({ message, reply: reply.value.trim(), website: trap.value, turnstileToken });
       form.reset();
       count.textContent = `0 / ${MAX}`;
+      form.style.setProperty('--fill', '0');
       setStatus('Sent. Thank you, it is on its way to my inbox.', 'ok');
     } catch (err) {
       if (err.code === 'message') { showMsgError(err.message); msg.focus(); }
@@ -86,5 +88,21 @@ if (section && form && apiReady) {
     } finally {
       setBusy(false);
     }
+  });
+  /* the postcards: pick a reason and the note starts itself instead of opening mail */
+  document.querySelectorAll('[data-reason]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      msg.value = card.dataset.reason;
+      msg.dispatchEvent(new Event('input'));
+      card.classList.remove('is-picked');
+      void card.offsetWidth; /* restart the animation when the same card is picked twice */
+      card.classList.add('is-picked');
+      section.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      setTimeout(() => {
+        msg.focus({ preventScroll: true });
+        msg.setSelectionRange(msg.value.length, msg.value.length);
+      }, 450);
+    });
   });
 }

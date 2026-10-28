@@ -155,10 +155,19 @@
 
   <main id="main" tabindex="-1" class="page-pad">
 
-    <!-- ═══ HERO — a contact sheet, one frame alive ═══ -->
+    <!-- ═══ HERO — a greeting in four scripts taking turns, the headline from behind its mask, the dot portrait ═══ -->
     <section class="ab-hero" aria-labelledby="about-title">
       <div class="ab-copy">
         <p class="caps" data-reveal="fade">About — the person behind the work</p>
+        <p class="ab-greet" data-reveal="fade" style="--i:1">
+          <span class="sr-only">Hello, in Urdu, English, Tamil and Hindi.</span>
+          <span class="greet-stack" aria-hidden="true">
+            <span class="greet" style="--k:0"><b lang="ur" dir="rtl">السلام علیکم</b><i>Urdu · native</i></span>
+            <span class="greet" style="--k:1"><b lang="en">Hello</b><i>English · full professional</i></span>
+            <span class="greet" style="--k:2"><b lang="ta">வணக்கம்</b><i>Tamil · professional</i></span>
+            <span class="greet" style="--k:3"><b lang="hi">नमस्ते</b><i>Hindi · professional</i></span>
+          </span>
+        </p>
         <h1 class="ab-head" id="about-title" data-mask>
           <span class="sr-only">End to end</span>
           <span aria-hidden="true">
@@ -167,12 +176,6 @@
           </span>
         </h1>
         <p class="ab-manifesto" data-reveal>I&rsquo;m Shafwan Ahmed, a Software Engineer at Famysys in Chennai. I work across the full stack with Next.js, React, TypeScript, Node.js and MySQL: designing <em>interfaces</em>, building the <em>APIs</em> behind them, shaping the data layer, and owning the work through testing, deployment and production support. What I care about most is the full path from a business requirement to something running reliably in production.</p>
-        <dl class="ab-facts" data-reveal-group>
-          <div data-reveal style="--i:0"><dt class="caps">Based</dt><dd>Chennai, Tamil Nadu, India</dd></div>
-          <div data-reveal style="--i:1"><dt class="caps">Doing</dt><dd>Software Engineer, Famysys</dd></div>
-          <div data-reveal style="--i:2"><dt class="caps">Studied</dt><dd>B.E. Computer Engineering, CAHCET &rsquo;24</dd></div>
-          <div data-reveal style="--i:3"><dt class="caps">Speaks</dt><dd>Urdu (native), English, Tamil, Hindi</dd></div>
-        </dl>
       </div>
       <!-- the portrait, rebuilt from dots (src/js/portrait.js); the cut-out photo underneath is the fallback -->
       <figure class="dots" data-reveal="fade" data-dot-portrait>
@@ -183,53 +186,159 @@
         </div>
         <figcaption class="caps dots-cap"><span><span data-dot-count>—</span> dots</span><span>Portrait · 2026</span></figcaption>
       </figure>
+      <dl class="ab-strip" data-reveal-group>
+        <div data-reveal style="--i:1"><dt class="caps">Based</dt><dd>Chennai, Tamil Nadu, India</dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Doing</dt><dd>Software Engineer, Famysys</dd></div>
+        <div data-reveal style="--i:3"><dt class="caps">Studied</dt><dd>B.E. Computer Engineering, CAHCET &rsquo;24</dd></div>
+        <div data-reveal style="--i:4"><dt class="caps">Reach</dt><dd><a href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a></dd></div>
+      </dl>
     </section>
 
-    <!-- ═══ CONVICTIONS — an accordion, one open at a time ═══ -->
-    <section class="section" aria-labelledby="philosophy-title" data-ghost="01">
+    <!-- ═══ 01 THE DESK — a clock that is actually running in Chennai, and what is on the desk ═══ -->
+    <section class="section" aria-labelledby="desk-title" data-ghost="01">
+      <div class="kicker-row" data-rule>
+        <h2 class="h-display" id="desk-title" data-reveal>The <em>desk</em></h2>
+        <p class="caps" data-reveal style="--i:2">01 — Chennai, live</p>
+      </div>
+      <div class="desk">
+        <div class="clock" data-desk-clock data-reveal="fade" role="group" aria-label="The time in Chennai">
+          <svg class="clock-ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="clock-ring-bg" cx="50" cy="50" r="47" />
+            <circle class="clock-ring-arc" cx="50" cy="50" r="47" pathLength="60" data-ring />
+          </svg>
+          <p class="clock-time"><b data-hm>--:--</b><span class="clock-sec" data-ss>--</span></p>
+          <p class="clock-word" data-word>Chennai</p>
+          <p class="caps clock-zone"><span data-date>—</span><span>IST · UTC+5:30</span></p>
+        </div>
+        <ol class="now" data-reveal-group>
+          <li class="now-row" data-reveal style="--i:1">
+            <span class="caps now-k">Building</span>
+            <span class="now-v"><b>Famysys EMS</b> — the company&rsquo;s employee platform: hiring, HR, projects and a console, one identity across all four. In production inside Famysys; five more products live on the web.</span>
+            <a class="now-go" href="/work/famysys-ems/" aria-label="Famysys EMS case study"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </li>
+          <li class="now-row" data-reveal style="--i:2">
+            <span class="caps now-k">On the side</span>
+            <span class="now-v"><b>FerroBid</b> — my own project: a national auction platform for scrap and metals, thirteen roles, the whole lifecycle from site inspection to settlement. Marketplace built, the rest in progress.</span>
+            <a class="now-go" href="/work/ferrobid/" aria-label="FerroBid case study"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </li>
+          <li class="now-row" data-reveal style="--i:3">
+            <span class="caps now-k">Practising</span>
+            <span class="now-v"><b>LeetCode</b> — the daily problem, for the habit more than the count. Also three brain games I built for this site&rsquo;s Lab, with no libraries.</span>
+            <a class="now-go" href="/lab/" aria-label="The Lab"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </li>
+          <li class="now-row is-open" data-reveal style="--i:4">
+            <span class="caps now-k">Status</span>
+            <span class="now-v"><b><i class="live-dot" aria-hidden="true"></i>Open to roles</b> — Software Engineer and Full Stack Developer, Chennai or remote. Hire me, or just say hello.</span>
+            <a class="now-go" href="/contact/" aria-label="Contact"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </li>
+        </ol>
+      </div>
+      <p class="caps desk-stamp" data-reveal="fade">Last updated — <time datetime="2026-10">October 2026</time></p>
+    </section>
+
+    <!-- ═══ 02 CONVICTIONS — a hand of three cards, dealt as you arrive ═══ -->
+    <section class="section" aria-labelledby="philosophy-title" data-ghost="02">
       <div class="kicker-row" data-rule>
         <h2 class="h-display" id="philosophy-title" data-reveal>Three <em>convictions</em></h2>
-        <p class="caps" data-reveal style="--i:2">01 — How I work</p>
+        <p class="caps" data-reveal style="--i:2">02 — How I work</p>
       </div>
-      <div class="beliefs" data-reveal="fade">
-        <details class="belief" open name="belief">
-          <summary>
-            <span class="belief-no" aria-hidden="true">01</span>
-            <span class="belief-claim">A technically correct solution still fails if it doesn&rsquo;t fit how people actually work.</span>
-            <span class="belief-mark" aria-hidden="true"></span>
-          </summary>
-          <div class="belief-body"><p>I spent over a year as a ServiceNow Developer, delivering ITSM and HR Service Delivery: configuring Incident, Problem and Change Management, automating service requests with Flow Designer, building Service Catalog and Service Portal experiences. Working that close to business process changed how I approach problems.</p></div>
-        </details>
-        <details class="belief" name="belief">
-          <summary>
-            <span class="belief-no" aria-hidden="true">02</span>
-            <span class="belief-claim">The job is the whole path, from requirement to production.</span>
-            <span class="belief-mark" aria-hidden="true"></span>
-          </summary>
-          <div class="belief-body"><p>Interface, API, data layer, tests, deployment, and the support after launch. I work across all of it because a feature is only finished when it is running reliably in front of the people it was built for.</p></div>
-        </details>
-        <details class="belief" name="belief">
-          <summary>
-            <span class="belief-no" aria-hidden="true">03</span>
-            <span class="belief-claim">AI belongs inside the system, not bolted on top.</span>
-            <span class="belief-mark" aria-hidden="true"></span>
-          </summary>
-          <div class="belief-body"><p>Right now I&rsquo;m going deeper into scalable system design and the infrastructure side of delivery, and into AI-integrated products where LLMs and retrieval-augmented generation are built into how a system works rather than added on top. I&rsquo;m also extending into mobile development.</p></div>
-        </details>
+      <ol class="hand" data-reveal="fade">
+        <li class="card" style="--n:0; --r:-4deg; --y:0.9rem">
+          <span class="card-folio" aria-hidden="true">I</span>
+          <h3 class="card-claim">A technically correct solution still fails if it doesn&rsquo;t fit how people actually work.</h3>
+          <p class="card-body">I spent over a year as a ServiceNow Developer, delivering ITSM and HR Service Delivery: configuring Incident, Problem and Change Management, automating service requests with Flow Designer, building Service Catalog and Service Portal experiences. Working that close to business process changed how I approach problems.</p>
+          <a class="card-foot" href="/work/servicenow/"><span class="caps">Where I learned it</span><span class="link-arrow">ServiceNow at SUMZ <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        </li>
+        <li class="card" style="--n:1; --r:0deg; --y:0rem">
+          <span class="card-folio" aria-hidden="true">II</span>
+          <h3 class="card-claim">The job is the whole path, from requirement to production.</h3>
+          <p class="card-body">Interface, API, data layer, tests, deployment, and the support after launch. I work across all of it because a feature is only finished when it is running reliably in front of the people it was built for.</p>
+          <a class="card-foot" href="/work/famysys-ems/"><span class="caps">Where it shows</span><span class="link-arrow">Famysys EMS <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        </li>
+        <li class="card" style="--n:2; --r:4deg; --y:0.9rem">
+          <span class="card-folio" aria-hidden="true">III</span>
+          <h3 class="card-claim">AI belongs inside the system, not bolted on top.</h3>
+          <p class="card-body">LLMs and retrieval-augmented generation earn their place when they are part of how a system works: fed by its data, bound by its permissions, measured like any other service. Added on top as a chat box, they are a demo. That is the direction I am building toward.</p>
+          <a class="card-foot" href="#heading-title"><span class="caps">Where it leads</span><span class="link-arrow">The heading <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ═══ 03 THE HEADING — a compass whose needle swings between the three things being built toward ═══ -->
+    <section class="section" aria-labelledby="heading-title" data-ghost="03">
+      <div class="kicker-row" data-rule>
+        <h2 class="h-display" id="heading-title" data-reveal>Building <em>toward</em></h2>
+        <p class="caps" data-reveal style="--i:2">03 — The heading</p>
+      </div>
+      <div class="heading" data-reveal="fade">
+        <div class="compass" aria-hidden="true">
+          <span class="compass-ticks"></span>
+          <span class="compass-ring"></span>
+          <span class="compass-needle"><i></i></span>
+          <span class="compass-pin"></span>
+          <span class="compass-mark" style="--b:-52deg; --k:0"><b>01</b></span>
+          <span class="compass-mark" style="--b:28deg; --k:1"><b>02</b></span>
+          <span class="compass-mark" style="--b:142deg; --k:2"><b>03</b></span>
+        </div>
+        <ol class="bearings">
+          <li class="bearing" style="--k:0">
+            <span class="caps bearing-no">01 — Systems</span>
+            <h3 class="bearing-title">Scalable systems and the infrastructure under them</h3>
+            <p>Queues, caches, observability, deployments that survive a bad day: the part of delivery that decides whether a product stays up when it starts to matter.</p>
+          </li>
+          <li class="bearing" style="--k:1">
+            <span class="caps bearing-no">02 — AI inside</span>
+            <h3 class="bearing-title">Products with LLMs and retrieval built in</h3>
+            <p>Retrieval-augmented generation over a system&rsquo;s own data, behind its own access rules, with the same tests, logs and limits as everything else in the stack.</p>
+          </li>
+          <li class="bearing" style="--k:2">
+            <span class="caps bearing-no">03 — Mobile</span>
+            <h3 class="bearing-title">The same stack, in the hand</h3>
+            <p>Extending into mobile development so the products I build do not stop at the browser.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- ═══ ORBIT — what keeps circling ═══ -->
-    <section class="section" aria-labelledby="orbit-title" data-ghost="02">
+    <!-- ═══ 04 OFF THE CLOCK — a shelf of spines; pull one out to read it ═══ -->
+    <section class="section" aria-labelledby="shelf-title" data-ghost="04">
       <div class="kicker-row" data-rule>
-        <h2 class="h-display" id="orbit-title" data-reveal>In <em>orbit</em></h2>
-        <p class="caps" data-reveal style="--i:2">02 — What keeps circling</p>
+        <h2 class="h-display" id="shelf-title" data-reveal>Off the <em>clock</em></h2>
+        <p class="caps" data-reveal style="--i:2">04 — Where else to find me</p>
       </div>
-      <div class="orbit" data-reveal="fade">
-        <span class="orbit-core" aria-hidden="true">✦</span>
-        <span class="orbit-ring orbit-ring--1" aria-hidden="true"></span>
-        <span class="orbit-ring orbit-ring--2" aria-hidden="true"></span>
-        <ul class="orbit-items"><li style="--o:0">System design</li><li style="--o:1">Urdu</li><li style="--o:2">LLMs &amp; RAG</li><li style="--o:3">English</li><li style="--o:4">Mobile dev</li><li style="--o:5">Tamil</li><li style="--o:6">LeetCode</li><li style="--o:7">Hindi</li></ul>
+      <div class="shelf" data-reveal="fade">
+        <a class="spine" href="/work/ferrobid/" style="--n:0; --tint:#E8431E" data-cursor="Open">
+          <span class="spine-title">FerroBid</span>
+          <span class="spine-body">
+            <span class="caps">Side project · in progress</span>
+            <span class="spine-text">An auction platform for scrap and metals I am building on my own time: thirteen roles, an inspection-to-settlement lifecycle, a React marketplace so far.</span>
+            <span class="link-arrow">Read the case <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+        <a class="spine" href="/lab/" style="--n:1; --tint:#C9A96A" data-cursor="Play">
+          <span class="spine-title">The Lab</span>
+          <span class="spine-body">
+            <span class="caps">Three games · no libraries</span>
+            <span class="spine-text">Stack, Compile and Keystroke: a memory game, an engineering-recall gauntlet and a typing lane, built for this site with vanilla JavaScript and a record board.</span>
+            <span class="link-arrow">Play <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </span>
+        </a>
+        <a class="spine" href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank" style="--n:2; --tint:#FFA116" data-cursor="Open">
+          <span class="spine-title">LeetCode</span>
+          <span class="spine-body">
+            <span class="caps">Practice · most days</span>
+            <span class="spine-text">The daily problem. Not for the count: for the habit of thinking a problem through before typing.</span>
+            <span class="link-arrow">leetcode.com/u/Shafwan3 <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> (opens in new tab)</span></span>
+          </span>
+        </a>
+        <a class="spine" href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank" style="--n:3; --tint:#EDE8DF" data-cursor="Open">
+          <span class="spine-title">GitHub</span>
+          <span class="spine-body">
+            <span class="caps">Code · public and private</span>
+            <span class="spine-text">Where this site, FerroBid and the smaller experiments live. The portfolio is hand-written HTML, CSS and a little JavaScript, no framework.</span>
+            <span class="link-arrow">github.com/Shafwan23 <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only"> (opens in new tab)</span></span>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -300,5 +409,6 @@
   <script type="module" src="/src/js/app.js"></script>
   <script type="module" src="/src/js/scene.js"></script>
   <script type="module" src="/src/js/portrait.js"></script>
+  <script type="module" src="/src/js/about.js"></script>
 </body>
 </html>

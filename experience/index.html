@@ -192,12 +192,12 @@
 
   <main id="main" tabindex="-1" class="page-pad">
 
-    <!-- ═══ HERO — the headline lifts line by line beside a live year axis ═══ -->
+    <!-- ═══ HERO — the headline lifts from behind a mask; the record drawn as a tenure chart ═══ -->
     <section class="xp-top" aria-labelledby="xp-hero-title">
-      <div>
+      <div class="xp-lead">
         <p class="caps" data-reveal="fade">Experience — the professional record</p>
         <h1 class="xp-head" id="xp-hero-title" data-mask>
-          <span class="sr-only">The record</span>
+          <span class="sr-only">Intern to engineer, on purpose.</span>
           <span aria-hidden="true">
             <span class="mask-line" style="--i:0"><i>Intern</i></span>
             <span class="mask-line" style="--i:1"><i>to engineer,</i></span>
@@ -210,94 +210,220 @@
           <a class="btn" href="/Shafwan-Ahmed-Resume.pdf" download data-magnet>Download résumé <span class="sr-only">(PDF)</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3.5 13h9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
-      <div class="axis" aria-hidden="true">
-        <span class="axis-line"><i></i></span>
-        <ol class="axis-years">
-          <li>2026</li><li>2025</li><li>2024</li><li>2023</li><li>2022</li><li>2021</li><li>2020</li>
+      <dl class="xp-glance" data-reveal-group>
+        <div data-reveal style="--i:1"><dt class="caps">Companies</dt><dd><span data-count="3">0</span></dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Months since the first commit</dt><dd><span data-count="34" data-since="2024-01">0</span></dd></div>
+        <div data-reveal style="--i:3"><dt class="caps">Products shipped at Famysys</dt><dd><span data-count="7">0</span></dd></div>
+      </dl>
+
+      <!-- the tenure chart: Sep 2020 → today, one row per entry, each bar a link to its chapter -->
+      <figure class="tenure" data-reveal="fade" aria-labelledby="tenure-cap">
+        <figcaption class="tenure-cap"><span class="caps" id="tenure-cap">The record as a chart</span><span class="caps tenure-key"><i class="is-work"></i>Work <i class="is-intern"></i>Internship <i class="is-edu"></i>Study</span></figcaption>
+        <div class="tn-plot">
+        <ol class="tn-ticks" aria-hidden="true">
+          <li style="--t:4">2021</li><li style="--t:16">2022</li><li style="--t:28">2023</li><li style="--t:40">2024</li><li style="--t:52">2025</li><li style="--t:64">2026</li>
         </ol>
+        <ol class="tn-rows">
+          <li class="tn-row is-work" style="--r:0">
+            <a class="tn-label" href="#ch-famysys">Famysys</a>
+            <span class="tn-track"><a class="tn-bar is-now" href="#ch-famysys" style="--s:62" aria-label="Software Engineer at Famysys, November 2025 to now"><span class="tn-span">Nov 2025 — now</span></a></span>
+          </li>
+          <li class="tn-row is-work" style="--r:1">
+            <a class="tn-label" href="#ch-sumz">SUMZ Technologies</a>
+            <span class="tn-track"><a class="tn-bar" href="#ch-sumz" style="--s:48; --e:63" aria-label="ServiceNow Developer at SUMZ Technologies, September 2024 to November 2025"><span class="tn-span">Sep 2024 — Nov 2025</span></a></span>
+          </li>
+          <li class="tn-row is-intern" style="--r:2">
+            <a class="tn-label" href="#ch-myfundbox">MYFUNDBOX</a>
+            <span class="tn-track"><a class="tn-bar" href="#ch-myfundbox" style="--s:40; --e:46" aria-label="Full Stack Developer Intern at MYFUNDBOX, January to June 2024"><span class="tn-span">Jan — Jun 2024</span></a></span>
+          </li>
+          <li class="tn-row is-edu" style="--r:3">
+            <a class="tn-label" href="#foundations">B.E., CAHCET</a>
+            <span class="tn-track"><a class="tn-bar" href="#foundations" style="--s:0; --e:46" aria-label="B.E. Computer Engineering at C. Abdul Hakeem College of Engineering and Technology, September 2020 to June 2024"><span class="tn-span">Sep 2020 — Jun 2024</span></a></span>
+          </li>
+        </ol>
+        <span class="tn-now" aria-hidden="true"><i></i><b>now</b></span>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ═══ 01 ROLES — three dossiers; a sticky period column, a spine that fills as you read, a glass peek into the proof ═══ -->
+    <section class="section" aria-labelledby="roles-title">
+      <div class="kicker-row" data-rule>
+        <h2 class="h-display" id="roles-title" data-reveal>Three <em>roles</em></h2>
+        <p class="caps" data-reveal style="--i:2">01 — Most recent first</p>
+      </div>
+      <div class="dossier">
+
+        <article class="rl" id="ch-famysys" style="--tint:#8FB3FF" data-reveal-group>
+          <div class="rl-side">
+            <p class="rl-year"><b>2025</b><span>— now</span></p>
+            <p class="rl-months"><b data-count="12" data-since="2025-11">0</b><span class="caps">months</span></p>
+            <p class="caps rl-kind">Full-time · Chennai, on-site</p>
+          </div>
+          <div class="rl-spine" aria-hidden="true"><i></i></div>
+          <div class="rl-body">
+            <p class="caps rl-folio" data-reveal="fade"><i aria-hidden="true"></i>Chapter 01 — Nov 2025 to now</p>
+            <h3 class="rl-role" data-split>Software Engineer</h3>
+            <p class="rl-org" data-reveal="fade" style="--i:1">Famysys</p>
+            <p class="rl-lede" data-reveal style="--i:2">Full stack software engineer building production web applications end to end, from interface design through backend services, database and deployment. Seven products in a year: five live on the web and the company's own employee platform.</p>
+            <ul class="rl-points">
+              <li data-reveal style="--i:3">Build modern web applications in Next.js, React and TypeScript, focused on performance, reusability and maintainable component structure</li>
+              <li data-reveal style="--i:4">Develop RESTful APIs and backend services in Node.js and Express.js, connected to MySQL through Prisma</li>
+              <li data-reveal style="--i:5">Design and optimise database schemas and queries for reliability and response time</li>
+              <li data-reveal style="--i:6">Implement secure authentication and authorisation, third-party API integrations and server-side validation</li>
+              <li data-reveal style="--i:7">Own delivery across the full cycle: development, testing, Git workflows, deployment, debugging and production support</li>
+              <li data-reveal style="--i:8">Translate business requirements into technical solutions with cross-functional teams</li>
+            </ul>
+            <div class="rl-tags" data-reveal="fade" style="--i:9"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Express.js</span><span>MySQL</span><span>Prisma</span></div>
+          </div>
+        <a class="rl-peek" href="/work/famysys-ems/" data-reveal="img" data-cursor="Open">
+          <span class="dev dev--desk rl-dev">
+            <span class="dev-bar" aria-hidden="true"><i></i><i></i><i></i><span class="dev-url"><b>ems.famysys.com</b></span></span>
+            <span class="dev-screen"><img src="/img/ems-portal-desk.webp" alt="Famysys EMS portal home with the four apps a signed-in employee can open, shown with demo data" width="1280" height="800" loading="lazy" decoding="async" /></span>
+          </span>
+          <span class="rl-peek-cap"><span class="caps">Case study — Famysys EMS</span><span class="link-arrow">Open <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+        </a>
+        </article>
+
+        <article class="rl" id="ch-sumz" style="--tint:#7BD48A" data-reveal-group>
+          <div class="rl-side">
+            <p class="rl-year"><b>2024</b><span>— 2025</span></p>
+            <p class="rl-months"><b data-count="15">0</b><span class="caps">months</span></p>
+            <p class="caps rl-kind">Full-time · Chennai, on-site</p>
+          </div>
+          <div class="rl-spine" aria-hidden="true"><i></i></div>
+          <div class="rl-body">
+            <p class="caps rl-folio" data-reveal="fade"><i aria-hidden="true"></i>Chapter 02 — Sep 2024 to Nov 2025</p>
+            <h3 class="rl-role" data-split>ServiceNow Developer</h3>
+            <p class="rl-org" data-reveal="fade" style="--i:1">SUMZ Technologies</p>
+            <p class="rl-lede" data-reveal style="--i:2">ServiceNow platform development across ITSM and HR Service Delivery: building and customising modules to fit business processes, and the governance to keep them honest.</p>
+            <ul class="rl-points">
+              <li data-reveal style="--i:3">Configured and customised Incident, Problem and Change Management to align with client workflows</li>
+              <li data-reveal style="--i:4">Built HR Service Delivery solutions, extending case management and service delivery for HR processes</li>
+              <li data-reveal style="--i:5">Developed Client Scripts, Business Rules, Script Includes, UI Policies and ACLs for business logic and platform security</li>
+              <li data-reveal style="--i:6">Automated service request workflows with Flow Designer and Workflow Editor, reducing manual intervention and turnaround time</li>
+              <li data-reveal style="--i:7">Built Service Catalog items and Service Portal pages; implemented SLAs and scheduled jobs</li>
+              <li data-reveal style="--i:8">Integrated ServiceNow with external systems via REST APIs and JDBC; validated releases with ATF</li>
+            </ul>
+            <div class="rl-tags" data-reveal="fade" style="--i:9"><span>ServiceNow</span><span>JavaScript</span><span>Glide API</span><span>Flow Designer</span><span>ATF</span></div>
+          </div>
+        <a class="rl-peek" href="/work/servicenow/" data-reveal="img" data-cursor="Open">
+          <span class="dev dev--desk rl-dev">
+            <span class="dev-bar" aria-hidden="true"><i></i><i></i><i></i><span class="dev-url"><b>itsm · hrsd</b></span></span>
+            <span class="dev-screen"><img src="/img/snow-queue.webp" alt="Drawn illustration of an ITSM incident queue sorted by SLA, not a client instance" width="1280" height="800" loading="lazy" decoding="async" /></span>
+          </span>
+          <span class="rl-peek-cap"><span class="caps">Case study — ServiceNow at SUMZ</span><span class="link-arrow">Open <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+        </a>
+        </article>
+
+        <article class="rl" id="ch-myfundbox" style="--tint:#5CC8D0" data-reveal-group>
+          <div class="rl-side">
+            <p class="rl-year"><b>2024</b><span>Jan — Jun</span></p>
+            <p class="rl-months"><b data-count="6">0</b><span class="caps">months</span></p>
+            <p class="caps rl-kind">Internship · remote</p>
+          </div>
+          <div class="rl-spine" aria-hidden="true"><i></i></div>
+          <div class="rl-body">
+            <p class="caps rl-folio" data-reveal="fade"><i aria-hidden="true"></i>Chapter 03 — Jan to Jun 2024</p>
+            <h3 class="rl-role" data-split>Full Stack Developer Intern</h3>
+            <p class="rl-org" data-reveal="fade" style="--i:1">MYFUNDBOX</p>
+            <p class="rl-lede" data-reveal style="--i:2">Rebuilt core pages of the company website for a global subscription billing platform, working across the full stack for the first time in production.</p>
+            <ul class="rl-points">
+              <li data-reveal style="--i:3">Built the login and signup flow end to end: form validation, error states and session handling</li>
+              <li data-reveal style="--i:4">Developed the customer dashboard as responsive, reusable React components</li>
+              <li data-reveal style="--i:5">Connected front-end views to Spring Boot REST endpoints, handling data flow, loading and error states</li>
+              <li data-reveal style="--i:6">Worked in a React, TypeScript and Vite codebase focused on type safety and clean component structure</li>
+            </ul>
+            <div class="rl-tags" data-reveal="fade" style="--i:7"><span>React</span><span>TypeScript</span><span>Vite</span><span>Spring Boot</span><span>Java</span></div>
+          </div>
+        <a class="rl-peek" href="/work/myfundbox/" data-reveal="img" data-cursor="Open">
+          <span class="dev dev--desk rl-dev">
+            <span class="dev-bar" aria-hidden="true"><i></i><i></i><i></i><span class="dev-url"><b>myfundbox.com</b></span></span>
+            <span class="dev-screen"><img src="/img/mfb-login-desk.webp" alt="The MYFUNDBOX sign-in page as it is live today" width="1280" height="800" loading="lazy" decoding="async" /></span>
+          </span>
+          <span class="rl-peek-cap"><span class="caps">Case study — MYFUNDBOX</span><span class="link-arrow">Open <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+        </a>
+        </article>
+
       </div>
     </section>
 
-    <!-- ═══ CHAPTERS — alternating bands, each drawing its own rule ═══ -->
-    <section class="section" aria-labelledby="chapters-title" data-ghost="01">
+    <!-- ═══ 02 FOUNDATIONS — two framed panels whose borders draw themselves; the honours inside ═══ -->
+    <section class="section" aria-labelledby="foundations-title" id="foundations">
       <div class="kicker-row" data-rule>
-        <h2 class="h-display" id="chapters-title" data-reveal>Chap<em>ters</em></h2>
-        <p class="caps" data-reveal style="--i:2">01 — Most recent first, then the foundations</p>
+        <h2 class="h-display" id="foundations-title" data-reveal>Found<em>ations</em></h2>
+        <p class="caps" data-reveal style="--i:2">02 — Where it started</p>
       </div>
-      <div class="bands">
-        <article class="band">
-          <div class="band-rule" aria-hidden="true"></div>
-          <p class="band-no" aria-hidden="true">01</p>
-          <div class="band-body">
-            <p class="caps band-kind">Chapter 01 — Nov 2025 to now</p>
-            <h3 class="band-role">Software Engineer</h3>
-            <p class="band-org">Famysys · Full-time · Chennai, on-site</p>
-            <p class="band-lede">Full stack software engineer building production web applications end to end, from interface design through backend services, database and deployment.</p>
-            <ul class="band-points"><li>Build modern web applications in Next.js, React and TypeScript, focused on performance, reusability and maintainable component structure</li><li>Develop RESTful APIs and backend services in Node.js and Express.js, connected to MySQL</li><li>Design and optimise database schemas and queries for reliability and response time</li><li>Implement secure authentication and authorisation, third-party API integrations and server-side validation</li><li>Own delivery across the full cycle: development, testing, Git workflows, deployment, debugging and production support</li><li>Translate business requirements into technical solutions with cross-functional teams</li></ul>
-            <div class="band-tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>Express.js</span><span>MySQL</span></div>
-          </div>
-        </article>
-        <article class="band">
-          <div class="band-rule" aria-hidden="true"></div>
-          <p class="band-no" aria-hidden="true">02</p>
-          <div class="band-body">
-            <p class="caps band-kind">Chapter 02 — Sep 2024 to Nov 2025</p>
-            <h3 class="band-role">ServiceNow Developer</h3>
-            <p class="band-org">SUMZ Technologies · Full-time · Chennai, on-site</p>
-            <p class="band-lede">ServiceNow platform development across ITSM and HR Service Delivery, building and customising modules to fit business processes and enforce governance.</p>
-            <ul class="band-points"><li>Configured and customised Incident, Problem and Change Management to align with client workflows</li><li>Built HR Service Delivery solutions, extending case management and service delivery for HR processes</li><li>Developed Client Scripts, Business Rules, Script Includes, UI Policies and ACLs for business logic and platform security</li><li>Automated service request workflows with Flow Designer and Workflow Editor, reducing manual intervention and turnaround time</li><li>Built Service Catalog items and Service Portal pages; implemented SLAs and scheduled jobs</li><li>Integrated ServiceNow with external systems via REST APIs and JDBC; validated releases with ATF</li></ul>
-            <div class="band-tags"><span>ServiceNow</span><span>JavaScript</span><span>Glide API</span><span>Flow Designer</span><span>ATF</span></div>
-          </div>
-        </article>
-        <article class="band">
-          <div class="band-rule" aria-hidden="true"></div>
-          <p class="band-no" aria-hidden="true">03</p>
-          <div class="band-body">
-            <p class="caps band-kind">Chapter 03 — Jan to Jun 2024</p>
-            <h3 class="band-role">Full Stack Developer Intern</h3>
-            <p class="band-org">MYFUNDBOX · Internship · Remote</p>
-            <p class="band-lede">Rebuilt core pages of the company website for a global subscription billing platform, working across the full stack.</p>
-            <ul class="band-points"><li>Built the login and signup flow end to end: form validation, error states and session handling</li><li>Developed the customer dashboard as responsive, reusable React components</li><li>Connected front-end views to Spring Boot REST endpoints, handling data flow, loading and error states</li><li>Worked in a React, TypeScript and Vite codebase focused on type safety and clean component structure</li></ul>
-            <div class="band-tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Spring Boot</span><span>Java</span></div>
-          </div>
-        </article>
-        <article class="band">
-          <div class="band-rule" aria-hidden="true"></div>
-          <p class="band-no" aria-hidden="true">04</p>
-          <div class="band-body">
-            <p class="caps band-kind">Chapter 04 — Nov 2023 to Apr 2025</p>
-            <h3 class="band-role">Education Volunteer</h3>
-            <p class="band-org">U&amp;I Trust</p>
-            <p class="band-lede">Volunteered with U&amp;I&rsquo;s after-school education programme, teaching English and foundational learning.</p>
-            <ul class="band-points"><li>After-school teaching in English and foundational learning</li><li>A year and a half, alongside the last year of college and the first year of work</li></ul>
-            <div class="band-tags"><span>Teaching</span><span>Volunteering</span></div>
-          </div>
-        </article>
-        <article class="band">
-          <div class="band-rule" aria-hidden="true"></div>
-          <p class="band-no" aria-hidden="true">05</p>
-          <div class="band-body">
-            <p class="caps band-kind">Chapter 05 — Sep 2020 to Jun 2024</p>
-            <h3 class="band-role">B.E., Computer Engineering</h3>
-            <p class="band-org">C. Abdul Hakeem College of Engineering &amp; Technology</p>
-            <p class="band-lede">Bachelor of Engineering in Computer Engineering, graduating with a grade of 8.4.</p>
-            <ul class="band-points"><li>Smart India Hackathon 2023 Grand Finalist, issued by ISRO, Department of Space</li><li>Innovation, Design and Entrepreneurship (IDE) Bootcamp Phase-II, Ministry of Education, Government of India (Feb 2024)</li></ul>
-            <div class="band-tags"><span>Grade 8.4</span><span>SIH 2023</span><span>IDE Bootcamp</span></div>
+      <div class="found">
+        <article class="fnd fnd--wide" style="--tint:#C9A96A" data-reveal="fade">
+          <svg class="fnd-frame" aria-hidden="true"><rect pathLength="1" rx="2" /></svg>
+          <div class="fnd-in">
+            <div>
+            <p class="caps fnd-kind">Study — Sep 2020 to Jun 2024</p>
+            <h3 class="fnd-title">B.E., Computer Engineering</h3>
+            <p class="fnd-org">C. Abdul Hakeem College of Engineering &amp; Technology</p>
+            <p class="fnd-grade"><b>8.4</b><span class="caps">grade, out of 10</span></p>
+            </div>
+            <div>
+            <p class="caps fnd-kind">Honours</p>
+            <ul class="honours">
+              <li><span class="hon-mark" aria-hidden="true"></span><div><b>Smart India Hackathon 2023 — Grand Finalist</b><span>Problem statement by ISRO, Department of Space. <a href="/work/sih-2023/">Read the case</a></span></div></li>
+              <li><span class="hon-mark" aria-hidden="true"></span><div><b>IDE Bootcamp Phase-II</b><span>Innovation, Design and Entrepreneurship — Ministry of Education, Government of India, Feb 2024</span></div></li>
+            </ul>
+            </div>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- ═══ TOOLBOX — a grid that lights in a diagonal wave ═══ -->
-    <section class="section" aria-labelledby="xp-tools-title" data-ghost="02">
+    <!-- ═══ 03 THE KIT — tiles that flip up in a wave; dots mark which role each tool was used in ═══ -->
+    <section class="section" aria-labelledby="kit-title">
       <div class="kicker-row" data-rule>
-        <h2 class="h-display" id="xp-tools-title" data-reveal>Tool<em>box</em></h2>
-        <p class="caps" data-reveal style="--i:2">02 — Daily drivers</p>
+        <h2 class="h-display" id="kit-title" data-reveal>The <em>kit</em></h2>
+        <p class="caps" data-reveal style="--i:2">03 — Daily drivers, marked by where they were used</p>
       </div>
-      <div class="wave-grid" data-reveal="fade" data-spot>
-        <div class="wave-row"><p class="caps wave-label">Front-End</p><ul class="wave-cells"><li style="--w:0">Next.js</li><li style="--w:1">React</li><li style="--w:2">TypeScript</li><li style="--w:3">JavaScript</li><li style="--w:4">HTML</li><li style="--w:5">CSS</li><li style="--w:6">Vite</li><li style="--w:7">Responsive UI</li></ul></div>
-        <div class="wave-row"><p class="caps wave-label">Back-End</p><ul class="wave-cells"><li style="--w:1">Node.js</li><li style="--w:2">Express.js</li><li style="--w:3">MySQL</li><li style="--w:4">REST APIs</li><li style="--w:5">Java</li><li style="--w:6">Spring Boot</li><li style="--w:7">JDBC</li><li style="--w:8">Git</li></ul></div>
-        <div class="wave-row"><p class="caps wave-label">ServiceNow</p><ul class="wave-cells"><li style="--w:2">ITSM</li><li style="--w:3">HRSD</li><li style="--w:4">Flow Designer</li><li style="--w:5">Glide API</li><li style="--w:6">Service Catalog</li><li style="--w:7">Service Portal</li><li style="--w:8">SLAs</li><li style="--w:9">ATF</li></ul></div>
+      <p class="kit-legend caps" data-reveal="fade"><span><i style="--c:#8FB3FF"></i>Famysys</span><span><i style="--c:#7BD48A"></i>SUMZ</span><span><i style="--c:#5CC8D0"></i>MYFUNDBOX</span></p>
+      <div class="kit" data-reveal="fade">
+        <div class="kit-group">
+          <p class="caps kit-label">Front-end</p>
+          <ul class="kit-cells">
+            <li style="--w:0"><b>Next.js</b><span class="kit-dots"><i style="--c:#8FB3FF"></i></span><span class="sr-only">Used at Famysys</span></li>
+            <li style="--w:1"><b>React</b><span class="kit-dots"><i style="--c:#8FB3FF"></i><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at Famysys and MYFUNDBOX</span></li>
+            <li style="--w:2"><b>TypeScript</b><span class="kit-dots"><i style="--c:#8FB3FF"></i><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at Famysys and MYFUNDBOX</span></li>
+            <li style="--w:3"><b>JavaScript</b><span class="kit-dots"><i style="--c:#8FB3FF"></i><i style="--c:#7BD48A"></i><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at Famysys, SUMZ and MYFUNDBOX</span></li>
+            <li style="--w:4"><b>HTML &amp; CSS</b><span class="kit-dots"><i style="--c:#8FB3FF"></i><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at Famysys and MYFUNDBOX</span></li>
+            <li style="--w:5"><b>Tailwind</b><span class="kit-dots"><i style="--c:#8FB3FF"></i></span><span class="sr-only">Used at Famysys</span></li>
+            <li style="--w:6"><b>Vite</b><span class="kit-dots"><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at MYFUNDBOX</span></li>
+            <li style="--w:7"><b>Responsive UI</b><span class="kit-dots"><i style="--c:#8FB3FF"></i><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at Famysys and MYFUNDBOX</span></li>
+          </ul>
+        </div>
+        <div class="kit-group">
+          <p class="caps kit-label">Back-end</p>
+          <ul class="kit-cells">
+            <li style="--w:2"><b>Node.js</b><span class="kit-dots"><i style="--c:#8FB3FF"></i></span><span class="sr-only">Used at Famysys</span></li>
+            <li style="--w:3"><b>Express.js</b><span class="kit-dots"><i style="--c:#8FB3FF"></i></span><span class="sr-only">Used at Famysys</span></li>
+            <li style="--w:4"><b>MySQL</b><span class="kit-dots"><i style="--c:#8FB3FF"></i></span><span class="sr-only">Used at Famysys</span></li>
+            <li style="--w:5"><b>Prisma</b><span class="kit-dots"><i style="--c:#8FB3FF"></i></span><span class="sr-only">Used at Famysys</span></li>
+            <li style="--w:6"><b>REST APIs</b><span class="kit-dots"><i style="--c:#8FB3FF"></i><i style="--c:#7BD48A"></i><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at Famysys, SUMZ and MYFUNDBOX</span></li>
+            <li style="--w:7"><b>Java</b><span class="kit-dots"><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at MYFUNDBOX</span></li>
+            <li style="--w:8"><b>Spring Boot</b><span class="kit-dots"><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at MYFUNDBOX</span></li>
+            <li style="--w:9"><b>JDBC</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:10"><b>Git</b><span class="kit-dots"><i style="--c:#8FB3FF"></i><i style="--c:#7BD48A"></i><i style="--c:#5CC8D0"></i></span><span class="sr-only">Used at Famysys, SUMZ and MYFUNDBOX</span></li>
+          </ul>
+        </div>
+        <div class="kit-group">
+          <p class="caps kit-label">ServiceNow</p>
+          <ul class="kit-cells">
+            <li style="--w:4"><b>ITSM</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:5"><b>HRSD</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:6"><b>Flow Designer</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:7"><b>Glide API</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:8"><b>Service Catalog</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:9"><b>Service Portal</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:10"><b>SLAs</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+            <li style="--w:11"><b>ATF</b><span class="kit-dots"><i style="--c:#7BD48A"></i></span><span class="sr-only">Used at SUMZ</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -307,7 +433,7 @@
       <span class="doorway-title"><span class="ghost" aria-hidden="true">See the Work</span><span class="base">See the Work</span><span class="fill" aria-hidden="true">See the Work</span></span>
       <span class="doorway-rule" aria-hidden="true"></span>
       <span class="doorway-foot">
-        <span class="caps">05 live products — a studio, a bookshop, a catalogue, a store, a dashboard</span>
+        <span class="caps">07 products — two private platforms and five live sites</span>
         <span class="link-arrow">Enter <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </span>
     </a>
@@ -367,5 +493,6 @@
 
   <script type="module" src="/src/js/app.js"></script>
   <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/xp.js"></script>
 </body>
 </html>
