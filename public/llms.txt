@@ -27,10 +27,20 @@ Official website: https://shafwan.in/ (the only official site of this Shafwan Ah
 
 ## Case studies
 
+- [Famysys EMS](https://shafwan.in/work/famysys-ems/): the Famysys employee management platform (Hiring, Console, HRMS, PMS) behind one identity and a role-based access engine; Next.js 16, React 19, TypeScript, four Express services with Prisma on MySQL 8; built solo in October 2026; private, shown with demo data
+- [FerroBid](https://shafwan.in/work/ferrobid/): his own project, a national auction platform for scrap and metals with thirteen roles and a full inspection-to-settlement lifecycle; React 19, Vite, Tailwind 4, Framer Motion, Playwright; the public marketplace is built, role dashboards and the bidding backend are next; shown with demo data
 - [Full Stack at Famysys](https://shafwan.in/work/famysys/): production web apps, interface to database
 - [ServiceNow ITSM](https://shafwan.in/work/servicenow/): ITSM and HR Service Delivery on ServiceNow
 - [MYFUNDBOX](https://shafwan.in/work/myfundbox/): auth flows and customer dashboard for a subscription billing platform
 - [SIH 2023](https://shafwan.in/work/sih-2023/): explainable AI for heavy-rain prediction from INSAT-3DR satellite data, on an ISRO problem statement
+
+## Live products built at Famysys (the two above are private and not listed here)
+
+- [Famysys Studio](https://studio.famysys.com/): creative production studio site (Next.js)
+- [Mini Minds](https://studiominiminds.com/): store for children's puzzle and activity books (React, Three.js, Framer Motion)
+- [Fajr International](https://fajr-international.famysys.com/): uniform maker's catalogue with 3D garment views and quote requests (Next.js)
+- [Saliah Foods](https://shopzy.famysys.com/): e-commerce store with accounts, orders and Razorpay checkout (React, REST API)
+- [GoHighLevel Dashboards](https://ghl-dashboard.famysys.com/): sales dashboards built on the GoHighLevel API and webhooks
 
 ## Optional
 

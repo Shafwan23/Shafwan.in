@@ -3,14 +3,16 @@ import path from 'path';
 import { pathToFileURL } from 'url';
 
 const pw = await import(
-  pathToFileURL('C:/Users/91807/Desktop/Shafwan/FerroBid/node_modules/playwright/index.mjs')
+  pathToFileURL('S:/Shafwan/FerroBid/node_modules/playwright/index.mjs')
 );
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
 const PAGES = [
   { file: "og-home.png", label: "Software Engineer — Chennai", folio: "", title: "SHAFWAN<em>.</em>", sub: "Shafwan Ahmed — full stack software engineer" },
-  { file: "og-work.png", label: "Selected Work", folio: "01 — 04", title: "The <em>Work</em>", sub: "Famysys · ServiceNow ITSM · MYFUNDBOX · SIH 2023" },
+  { file: "og-work.png", label: "The Work", folio: "07 products", title: "Built <em>&amp;</em> Live", sub: "Famysys EMS · FerroBid · Studio · Mini Minds · Fajr · Saliah · GHL" },
+  { file: "og-famysys-ems.png", label: "Case Study — private build", folio: "Hiring · Console · HRMS · PMS", title: "Famysys <em>EMS</em>", sub: "One identity, four apps, one access engine — built solo" },
+  { file: "og-ferrobid.png", label: "Case Study — own project", folio: "13 roles", title: "Ferro<em>Bid</em>", sub: "A national auction platform for scrap and metals" },
   { file: "og-famysys.png", label: "Case Study", folio: "01 / 04", title: "Famysys", sub: "Production web apps, end to end — Next.js, Node.js, MySQL" },
   { file: "og-servicenow.png", label: "Case Study", folio: "02 / 04", title: "ServiceNow", sub: "ITSM & HR Service Delivery at SUMZ Technologies" },
   { file: "og-myfundbox.png", label: "Case Study", folio: "03 / 04", title: "MYFUNDBOX", sub: "Auth flows & dashboard for subscription billing" },
@@ -21,12 +23,15 @@ const PAGES = [
   { file: "og-lab.png", label: "The Lab", folio: "03 games", title: "Play<em>able</em>", sub: "Stack, Compile & Keystroke" },
 ];
 
-const browser = await pw.chromium.launch();
+/* ONLY=og-work.png,og-ferrobid.png renders just those cards and leaves the icons alone */
+const only = process.env.ONLY ? process.env.ONLY.split(',') : null;
+const browser = await pw.chromium.launch({ channel: 'chrome' });
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(path.join(ROOT, 'tools/og-template.html')).href);
 await page.evaluate(() => document.fonts.ready);
 
 for (const p of PAGES) {
+  if (only && !only.includes(p.file)) continue;
   await page.evaluate((cfg) => {
     document.getElementById('ogLabel').textContent = cfg.label;
     document.getElementById('ogFolio').textContent = cfg.folio;
@@ -39,6 +44,7 @@ for (const p of PAGES) {
 }
 
 // icons
+if (only) { await browser.close(); process.exit(0); }
 await page.setViewportSize({ width: 180, height: 180 });
 await page.goto(pathToFileURL(path.join(ROOT, 'tools/icon-template.html')).href);
 await page.evaluate(() => document.fonts.ready);

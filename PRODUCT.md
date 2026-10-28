@@ -22,7 +22,8 @@ All content mirrors the LinkedIn profile. When LinkedIn changes, this section an
 - Certification: Innovation, Design and Entrepreneurship (IDE) Bootcamp Phase-II, Ministry of Education (Feb 2024).
 - Volunteering: Education Volunteer, U&I Trust (Nov 2023–Apr 2025). Languages: Urdu (native or bilingual), English (full professional), Tamil and Hindi (professional working).
 - Case studies (/work/): famysys, servicenow, myfundbox, sih-2023. Their plates are drawn illustrations (tools/case-art.html), not product screenshots, and are labelled as such in alt text. No invented metrics.
-- FerroBid is a separate project; never mix it in.
+- Live products (/work/ showroom, 2026-10-29): Famysys Studio (studio.famysys.com), Mini Minds (studiominiminds.com), Fajr International (fajr-international.famysys.com), Saliah Foods (shopzy.famysys.com), GoHighLevel sales dashboards (ghl-dashboard.famysys.com). All five were built at Famysys and are live. Their plates are real screenshots (`tools/live-shots.mjs`); the stacks shown are read from each product's shipped code; the page does not say which parts the owner built alone.
+- Private products (2026-10-29), each with a case page: Famysys EMS (/work/famysys-ems/, repo S:/FamySys/famysys_hrms, the owner's employer's internal platform, built solo) and FerroBid (/work/ferrobid/, repo S:/Shafwan/FerroBid, the owner's own project, in progress). Neither is public, so their screenshots come from the apps running locally on demo data (`tools/case-shots.mjs`), the pages say so, and real company names seeded in FerroBid's mock data are swapped for invented ones before the shot. The old rule "never mix FerroBid in" was lifted by the owner on 2026-10-29.
 - Photo: src/assets/me.jpg (real).
 
 ## Hard constraints

@@ -11,3 +11,4 @@ src/assets/projects/
 .wrangler/
 !.env.development
 !.env.production
+.shots-live/

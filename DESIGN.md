@@ -27,9 +27,10 @@ The site's organising constraint: **every section on every page owns a medium th
 | `/` | the record | scroll-lit ledger, drawn spine, rows open on approach |
 | `/` | doorway | extruded outline double + pointer light |
 | `/` | the lab | arcade cabinet, scanlines, linked menu |
-| `/work/` | hero | a champagne bar sweeps across; the word is behind it |
-| `/work/` | index | a technical table, rule scrubbing, inline image peek |
-| `/work/` | reel | pinned filmstrip travelling sideways on a named timeline |
+| `/work/` | hero | a champagne bar sweeps across; the word is behind it; a status board of five live lights under it |
+| `/work/` | **showroom** (v16) | five sticky plates, each rising over the last, which sinks and dims on the newcomer's timeline; a real screenshot behind browser glass whose address bar types the domain; the product's own brand colour glowing behind |
+| `/work/` | under the hood | a matrix of what runs where, dots lighting column by column in each product's colour |
+| `/work/` | also on record | the technical table of the four case studies, rule scrubbing, inline image peek |
 | case | hero media | a curtain of six slats lifting in sequence |
 | case | spec | numbered sheet with dotted leaders that draw |
 | case | **instrument** | one per project — release path / ITSM queue / handset / rain band |
@@ -220,6 +221,26 @@ Gotchas: the sampling canvas must be same-origin (it is: `/img/`); sharp cannot 
 ## Search (v14)
 
 On-page SEO was already in place (canonicals, per-page JSON-LD, sitemap, robots.txt with the AI crawlers allowed, llms.txt). v14 adds **IndexNow**: `public/<key>.txt` is the key file and `npm run indexnow` (`tools/indexnow.mjs`) posts every sitemap URL to api.indexnow.org after a deploy, which reaches Bing, Yandex, Naver, Seznam and Yep. Google ignores IndexNow: the owner submits the sitemap in Search Console and requests indexing of the home page there. The sitemap's `lastmod` must be bumped for every page that changes, or Google has no reason to recrawl it.
+
+## The showroom (v16, /work/)
+
+The work page was rebuilt around the five products shipped at Famysys, all live (2026-10-29): Famysys Studio, Mini Minds, Fajr International, Saliah Foods (shopzy.famysys.com) and the GoHighLevel sales dashboards. The filmstrip reel is gone. The page runs *sweep hero + status board → showroom → under the hood → also on record (the four case studies) → doorway*.
+
+- **Real screenshots, not illustrations.** `tools/live-shots.mjs` captures each product at 1440×900 and 390×844 (Playwright, system Chrome) into `.shots-live/` and writes `public/img/live-{key}-{desk,mob}.webp` (1280 and 520 wide, 27–64KB each). Re-run it when a product's home page changes. The alt text describes what is actually on the screenshot.
+- **The plates.** Each `.plate` carries the product's own colour in `--tint`: it glows behind the glass (`::before`, two radial gradients through `color-mix`), colours the fact diamonds, and becomes the product's tile and dots in the matrix. Tints are read from each site: Studio `#B5405F` (its button), Mini Minds `#FF7A1A` (its theme colour), Fajr `#4C6BE0` (its navy, lifted to read on charcoal), Saliah `#C1813F` (its shop button), GHL `#1E6FFF` (its accent). This is the one place the site lets foreign colours in, and only behind glass.
+- **The stacking.** On wide screens with scroll-driven animations the plates are `position: sticky; top: 0; min-height: 100svh`. `.show-track` declares `timeline-scope: --p1 … --p5` and each plate names its own view timeline, so plate *n* can animate `plate-sink` (translate, scale 0.93, brightness 0.3) on plate *n+1*'s `entry 0% → entry 100%`: the newcomer rises and the old plate recedes under it. Under 901px, without `animation-timeline`, under reduced motion or with the Motion toggle off, they are plain stacked blocks. Each plate is a `data-reveal-group` so `.plate.in` exists; the copy inside rises in six steps.
+- **The glass.** `.dev--desk` is a browser frame: three dots, a pill holding the real domain, a 16:10 screen. The domain's inner `<b>` is `clip-path: inset(0 100% 0 0)` and unclips in 22 steps once the plate is in, then a gold caret blinks four times and stays off. `.dev--mob` is a phone (390:844, a notch pill) overlapping the bottom-right corner. Screenshots carry `data-distort` so the liquid hover and film-bend from `gl-hover.js` apply; the distortion canvas lands inside `.dev-screen`, which positions it over the image.
+- **Under the hood** is a real `<table>`: products as columns (initial tiles in their tint), capabilities as rows, a tinted dot where a product has it, `.sr-only` "Yes" for readers. Dots scale in from 0 with a delay of `--c × 110ms + --r × 70ms` once the table is in view. On phones the column names become sr-only and the tiles stand alone; the table never scrolls sideways.
+- **What the page does not claim.** The stacks are read from each product's shipped code (framework markers, bundle strings, API routes), not from memory. The four older case studies stay as a quiet table at the bottom.
+
+## The private builds (v16, /work/famysys-ems/ and /work/ferrobid/)
+
+Two products are not public, so the showroom carries them first with a grey (still) board light, a `Read the case` button instead of a link out, and a pill that says *Private · demo data* / *Personal · demo data* where the others show a domain. Each has a case page built on the case template plus a few blocks the first four never needed (`CASE EXTRAS` in the stylesheet): a `.case-note` under the hero that says every screenshot is demo data, `.case-figures` (counted facts with the count-up), one `.app-sec` per app or topic (an `app-head` kicker, an `app-built` list, a `.bento` of one wide shot and pairs), `.phone-pair`, and for FerroBid the `.roles` hairline grid in three tiers and the `.flows` numbered workflows.
+
+- **Screenshots** come from the apps running locally on seeded demo data: `tools/case-shots.mjs` signs into the EMS as the demo accounts (any 8+ character password; the one-click demo panel), walks the routes, and shoots FerroBid's pages. Every person, company, salary and number is fictional. FerroBid's mock lots name real steel companies as sellers; the tool swaps them for invented ones in the DOM (and the header's visitor IP for a private one) before the shot, so nothing on shafwan.in implies a client.
+- **The two instruments**, one per page, keeping the one-medium rule: Famysys EMS gets **the access check**, a role chip and four app tiles that answer open or locked, four roles taking turns on one 16s clock (every label and bar is a layer with its own `--k` phase, so it needs no script); FerroBid gets **the lifecycle tape**, ten stations from the seller's first call to the closed ledger, a bead running the rail on a 14s loop (`translateX(100cqw)`, the rail is a container) and each station lighting as it passes (`animation-delay: var(--i) × 1.4s`). Both reduce to a static first state under reduced motion and the Motion toggle.
+- **Facts come from the repos**, not memory: the EMS figures (103 page routes, 103 Prisma models, 86 test files, 247 commits in three weeks, all by the owner) were counted on 2026-10-29 from `S:/FamySys/famysys_hrms` on `phase/p5-backend`; its README still says "mock data only", which is out of date, the backend lives on that branch. FerroBid's thirteen roles and workflows are its own planning documents (`User Ecosystem.txt`, `BUSINESS WORKFLOW & USER FLOWS.txt`), and the page says plainly that only the public marketplace is built so far.
+- Showroom order is now EMS, FerroBid, Studio, Mini Minds, Fajr, Saliah, GHL (the owner's priority); the hero reads *Built & Live* with Products 07 · Live 05 · Private 02, the board is a hairline grid that wraps (`auto-fit`, 11rem), the matrix has seven columns and thirteen rows, and the case pages have their own OG cards (`ONLY=… node tools/render-og.mjs` renders just the named cards).
 
 ## The 404 page (v14)
 

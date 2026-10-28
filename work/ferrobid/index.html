@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>FerroBid — Case Study — Shafwan Ahmed</title>
+  <meta name="description" content="Case study: FerroBid, a personal project — a national auction platform for scrap and metals. Thirteen roles, the full auction lifecycle from site inspection to settlement, and a React marketplace built so far. By Shafwan Ahmed." />
+  <link rel="canonical" href="https://shafwan.in/work/ferrobid/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Shafwan Ahmed" />
+  <meta name="theme-color" content="#0F0E0C" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Shafwan Ahmed" />
+  <meta property="og:title" content="FerroBid — Case Study" />
+  <meta property="og:description" content="A national auction platform for scrap and metals: thirteen roles, one lifecycle from inspection to settlement. Personal project, in progress." />
+  <meta property="og:url" content="https://shafwan.in/work/ferrobid/" />
+  <meta property="og:image" content="https://shafwan.in/og-ferrobid.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="FerroBid case study — Shafwan Ahmed" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FerroBid — Case Study" />
+  <meta name="twitter:description" content="A national auction platform for scrap and metals: thirteen roles, one lifecycle from inspection to settlement." />
+  <meta name="twitter:image" content="https://shafwan.in/og-ferrobid.png" />
+  <meta name="twitter:image:alt" content="FerroBid case study — Shafwan Ahmed" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" href="/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/italiana-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/styles.css" />
+
+  <script type="speculationrules">
+  { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebSite", "@id": "https://shafwan.in/#website", "url": "https://shafwan.in/", "name": "Shafwan Ahmed" },
+      {
+        "@type": "Article",
+        "headline": "FerroBid — Case Study",
+        "description": "A national auction platform for scrap and metals: thirteen roles, one lifecycle from inspection to settlement, and the marketplace built so far.",
+        "url": "https://shafwan.in/work/ferrobid/",
+        "image": "https://shafwan.in/og-ferrobid.png",
+        "author": { "@type": "Person", "name": "Shafwan Ahmed", "url": "https://shafwan.in/" },
+        "isPartOf": { "@id": "https://shafwan.in/#website" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shafwan.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://shafwan.in/work/" },
+          { "@type": "ListItem", "position": 3, "name": "FerroBid", "item": "https://shafwan.in/work/ferrobid/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <span class="head-progress" aria-hidden="true"></span>
+    <div class="head-inner">
+      <a class="brand" href="/" aria-label="Shafwan — home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span><span class="brand-word">SHAFWAN<sup>®</sup></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="head-end">
+        <a class="status-pill" href="/contact/" data-magnet><i aria-hidden="true"></i>Open to roles — <span data-year>2026</span></a>
+        <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="siteMenu">
+          <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="siteMenu" hidden>
+    <nav class="menu-nav" aria-label="Site">
+      <a href="/"><span class="menu-no" aria-hidden="true">01</span><span class="menu-word">Home</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/work/"><span class="menu-no" aria-hidden="true">02</span><span class="menu-word">Work</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/experience/"><span class="menu-no" aria-hidden="true">03</span><span class="menu-word">Experience</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/about/"><span class="menu-no" aria-hidden="true">04</span><span class="menu-word">About</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/lab/"><span class="menu-no" aria-hidden="true">05</span><span class="menu-word">Lab</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/contact/"><span class="menu-no" aria-hidden="true">06</span><span class="menu-word">Contact</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+    <div class="menu-foot">
+      <a class="menu-mail" href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+      <div class="menu-social">
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <section class="case-hero" aria-labelledby="case-title">
+      <div class="case-folio-row">
+        <p class="folio" aria-hidden="true">Personal · in progress</p>
+        <p class="caps">Case Study — own project</p>
+      </div>
+      <h1 class="case-title" id="case-title">
+        <span class="sr-only">FerroBid</span>
+        <span aria-hidden="true" data-split>FerroBid</span>
+      </h1>
+      <dl class="case-meta" data-reveal-group>
+        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>National auction platform for scrap and metals</dd></div>
+        <div data-reveal style="--i:1"><dt class="caps">Role</dt><dd>Founder-builder: research, product, design and code · 2026</dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>React 19 · Vite · Tailwind 4 · Framer Motion · React Router 7 · Playwright</dd></div>
+      </dl>
+      <figure class="case-hero-media case-hero-media--slat" data-reveal>
+        <img src="/img/ferrobid-home-desk.webp" alt="FerroBid home page: 'India trades metal. Transparent. Trusted. Live.' with an auction search, a 3D still of copper coils and a steel container, and a stats bar" width="1200" height="750" fetchpriority="high" decoding="async" data-distort />
+        <span class="slats" aria-hidden="true"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></span>
+      </figure>
+    </section>
+
+    <aside class="case-note" aria-label="About the screenshots">
+      <i aria-hidden="true"></i>
+      <p><strong>Every screenshot on this page shows demo data.</strong> FerroBid is not public yet. The lots, sellers, prices, bidders and statistics are placeholders written for the design; seller names are invented, and no real company is a client.</p>
+    </aside>
+
+    <div class="case-body">
+      <aside class="case-side">
+        <p class="folio" aria-hidden="true">01</p>
+        <p class="caps">Specification</p>
+        <ul class="case-spec">
+          <li style="--i:0"><span class="spec-no">01</span><span class="spec-text">Thirteen roles, from Super Admin to Transporter</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:1"><span class="spec-no">02</span><span class="spec-text">One lifecycle: inspection, approval, auction, settlement</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:2"><span class="spec-no">03</span><span class="spec-text">A public marketplace with filters, live and upcoming lots</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:3"><span class="spec-no">04</span><span class="spec-text">Sign-in, registration and a calendar of auctions</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:4"><span class="spec-no">05</span><span class="spec-text">Accessibility tests at twelve screen sizes</span><span class="spec-leader" aria-hidden="true"></span></li>
+        </ul>
+      </aside>
+      <div class="case-prose">
+        <h2 data-reveal>The idea</h2>
+        <p data-reveal>Industrial scrap in India is still sold by phone call and handshake. FerroBid is my own attempt at the alternative: <strong>a national auction platform</strong> where a seller's material is inspected on site, approved, catalogued, auctioned live to verified buyers, paid for, collected and settled, with every step recorded and every role seeing only its part.</p>
+        <h2 data-reveal>The research</h2>
+        <p data-reveal>Before any code I wrote the business down: who the users are and what each may do, and how an auction actually moves from the first call to the closed ledger. That became thirteen roles and thirteen workflows, from seller onboarding to complaint resolution, and it is the spec the product is built against. Both are on this page.</p>
+        <h2 data-reveal>What exists today</h2>
+        <p data-reveal>The public side is built: the home page with a live ticker and market insight, a marketplace that filters lots by category, seller, state and status, how it works, the role blueprint, an auction calendar, pricing, sign-in and registration, and the support pages a platform like this needs. It is React 19 on Vite with Tailwind 4 and Framer Motion, and a Playwright suite runs axe across twelve viewports from 320px to desktop. <strong>Next: the role dashboards and the bidding backend.</strong></p>
+      </div>
+    </div>
+
+    <!-- ═══ INSTRUMENT — the lifecycle tape ═══ -->
+    <section class="instrument inst-tape" aria-labelledby="inst-title" data-reveal="fade">
+      <div class="inst-head">
+        <h2 class="inst-title" id="inst-title">The auction lifecycle</h2>
+        <p class="caps"><i class="live-dot" aria-hidden="true"></i>From the seller's first call to the closed ledger</p>
+      </div>
+      <div class="tape-wrap" tabindex="0" role="region" aria-label="The auction lifecycle, scrolls sideways on small screens">
+        <ol class="tape" aria-label="The ten stations of an auction">
+          <span class="tape-bead" aria-hidden="true"></span>
+          <li class="tape-step" style="--i:0"><i aria-hidden="true"></i><span class="caps">Sub Admin</span><b>Seller registered</b><span>Documents collected</span></li>
+          <li class="tape-step" style="--i:1"><i aria-hidden="true"></i><span class="caps">Site Officer</span><b>Site inspection</b><span>Photos, video, quantity, condition, value</span></li>
+          <li class="tape-step" style="--i:2"><i aria-hidden="true"></i><span class="caps">Executive Officer</span><b>Report approved</b><span>Or sent back for corrections</span></li>
+          <li class="tape-step" style="--i:3"><i aria-hidden="true"></i><span class="caps">Sub Admin</span><b>Lots and catalogue</b><span>Categories, images, catalogue PDF</span></li>
+          <li class="tape-step" style="--i:4"><i aria-hidden="true"></i><span class="caps">Executive Officer</span><b>Auction published</b><span>Final approval, schedule set</span></li>
+          <li class="tape-step" style="--i:5"><i aria-hidden="true"></i><span class="caps">Buyer</span><b>KYC and EMD</b><span>Verified, deposit paid</span></li>
+          <li class="tape-step" style="--i:6"><i aria-hidden="true"></i><span class="caps">Buyers</span><b>Live auction</b><span>Bids tracked, winner declared</span></li>
+          <li class="tape-step" style="--i:7"><i aria-hidden="true"></i><span class="caps">Finance</span><b>Sale confirmed</b><span>Balance paid, invoice issued</span></li>
+          <li class="tape-step" style="--i:8"><i aria-hidden="true"></i><span class="caps">Transporter</span><b>Delivery</b><span>Pickup, proof of delivery, both sides confirm</span></li>
+          <li class="tape-step" style="--i:9"><i aria-hidden="true"></i><span class="caps">Finance · CEO</span><b>Closed and settled</b><span>Commission, seller settlement, reports</span></li>
+        </ol>
+      </div>
+      <p class="inst-note">Every hand-off is an approval someone owns. The Executive Officer gates twice, before the catalogue and before publishing; Finance verifies before any document is generated; the auction is closed only after both the seller and the buyer confirm delivery.</p>
+    </section>
+
+    <!-- ═══ THE ROLES ═══ -->
+    <section class="app-sec" aria-labelledby="roles-title">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="roles-title" data-reveal><small>01 — The roles</small>Thirteen roles, three tiers</h2>
+        <p data-reveal style="--i:1">Access on FerroBid is a matter of role. The platform tier sees everything and changes nothing or everything; the operations tier runs the auction; the external tier sells, buys and moves the material. Each role below is what the product is being built to serve.</p>
+      </div>
+      <div class="roles-tier" data-reveal-group>
+        <span class="caps">Platform</span>
+        <div class="roles">
+          <article class="role" data-reveal style="--i:0"><span class="folio" aria-hidden="true">01</span><b>Super Admin</b><p>Owns the platform: users, roles, permissions, branches, settings, audit logs, overrides, delete and restore.</p></article>
+          <article class="role" data-reveal style="--i:1"><span class="folio" aria-hidden="true">02</span><b>CEO</b><p>Revenue, commission, profit, auction performance, buyer and seller growth, branch comparison. Views everything, edits nothing.</p></article>
+          <article class="role" data-reveal style="--i:2"><span class="folio" aria-hidden="true">03</span><b>Investor / Board</b><p>Read-only KPIs, growth charts and company performance for directors and external auditors.</p></article>
+        </div>
+      </div>
+      <div class="roles-tier" data-reveal-group>
+        <span class="caps">Operations</span>
+        <div class="roles">
+          <article class="role" data-reveal style="--i:0"><span class="folio" aria-hidden="true">04</span><b>Executive Officer</b><p>The operations manager. Approves or rejects seller onboarding, inspection reports, lots, auction requests and high-value sales; assigns work; approves publishing.</p></article>
+          <article class="role" data-reveal style="--i:1"><span class="folio" aria-hidden="true">05</span><b>Sub Admin</b><p>The busiest seat. Creates sellers, buyers, lots, catalogues and schedules; manages EMD verification, letters, work orders and bid documents; closes auctions and sends final documents.</p></article>
+          <article class="role" data-reveal style="--i:2"><span class="folio" aria-hidden="true">06</span><b>Site Officer</b><p>Works in the field: visits the seller, inspects scrap, machinery, vehicles and assets, uploads photos, video, GPS, quantity, condition and an estimate, recommends approve or reject.</p></article>
+          <article class="role" data-reveal style="--i:3"><span class="folio" aria-hidden="true">07</span><b>Finance Officer</b><p>EMD, refunds, invoices, GST, commission, buyer payments, seller settlements and reconciliation.</p></article>
+          <article class="role" data-reveal style="--i:4"><span class="folio" aria-hidden="true">08</span><b>Customer Support</b><p>Buyer and seller support, registration help, auction queries, complaints and tickets. No auction editing.</p></article>
+          <article class="role" data-reveal style="--i:5"><span class="folio" aria-hidden="true">09</span><b>Compliance / Legal</b><p>Agreements, terms, KYC verification, audit documents, blacklists and legal notices.</p></article>
+        </div>
+      </div>
+      <div class="roles-tier" data-reveal-group>
+        <span class="caps">External</span>
+        <div class="roles">
+          <article class="role" data-reveal style="--i:0"><span class="folio" aria-hidden="true">10</span><b>Seller</b><p>Submits auction requests, uploads documents, follows status, sees sold lots and payments. Cannot create auctions.</p></article>
+          <article class="role" data-reveal style="--i:1"><span class="folio" aria-hidden="true">11</span><b>Buyer</b><p>Registers, completes KYC, pays EMD, bids, downloads invoices and sale orders, tracks won lots and payments.</p></article>
+          <article class="role" data-reveal style="--i:2"><span class="folio" aria-hidden="true">12</span><b>Transporter</b><p>Receives delivery requests, updates transport status, uploads proof of delivery, confirms completion.</p></article>
+          <article class="role" data-reveal style="--i:3"><span class="folio" aria-hidden="true">13</span><b>Inspection Agency</b><p>An optional third party that uploads inspection and quality reports and verifies assets.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ THE WORKFLOWS ═══ -->
+    <section class="app-sec" aria-labelledby="flows-title">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="flows-title" data-reveal><small>02 — How it works</small>Six of the thirteen workflows</h2>
+        <p data-reveal style="--i:1">The lifecycle above is the long one. Underneath it, each stage is its own workflow with its own decision points. These six carry most of the product; the others cover finance, notifications, complaints, executive monitoring and administration.</p>
+      </div>
+      <div class="flows" data-reveal-group>
+        <div class="flow" data-reveal style="--i:0">
+          <h3>Seller onboarding</h3>
+          <ol><li>Inquiry and basic details</li><li>Registration, documents uploaded</li><li>Site Officer assigned</li><li>Physical inspection</li><li>Executive approval or rejection</li><li>Seller activated</li></ol>
+        </div>
+        <div class="flow" data-reveal style="--i:1">
+          <h3>Site inspection</h3>
+          <ol><li>Visit the seller's location</li><li>Inspect the assets</li><li>Photos and videos</li><li>Verify quantity and condition</li><li>Estimate value</li><li>Submit the report for review</li></ol>
+        </div>
+        <div class="flow" data-reveal style="--i:2">
+          <h3>Auction preparation</h3>
+          <ol><li>Create lots, assign categories</li><li>Upload images and documents</li><li>Build the catalogue, generate its PDF</li><li>Schedule the auction</li><li>Executive approval</li><li>Publish</li></ol>
+        </div>
+        <div class="flow" data-reveal style="--i:3">
+          <h3>Buyer registration</h3>
+          <ol><li>Register</li><li>Verify email and mobile</li><li>Submit KYC</li><li>Documents verified</li><li>Sub Admin approval</li><li>Account activated</li></ol>
+        </div>
+        <div class="flow" data-reveal style="--i:4">
+          <h3>Winner and payment</h3>
+          <ol><li>Winner selected and notified</li><li>Sale confirmation letter</li><li>Balance payment</li><li>Finance verification</li><li>Invoice generated</li><li>Delivery order generated</li></ol>
+        </div>
+        <div class="flow" data-reveal style="--i:5">
+          <h3>Material delivery</h3>
+          <ol><li>Delivery order</li><li>Transport arranged</li><li>Material picked up</li><li>Seller confirms</li><li>Buyer confirms</li><li>Delivery complete, auction closed</li></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ THE SCREENS ═══ -->
+    <section class="app-sec" aria-labelledby="screens-title">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="screens-title" data-reveal><small>03 — Built so far</small>The public marketplace</h2>
+        <p data-reveal style="--i:1">What a visitor can use today. The marketplace is the heart of it: live and upcoming lots, filters by category, seller, state and status, a search across material, lot ID, seller and location, and a bid button that asks you to subscribe first.</p>
+      </div>
+      <ul class="app-built" data-reveal-group>
+        <li data-reveal style="--i:0">Home: hero search, a live price ticker, announcements, market insight, testimonials</li>
+        <li data-reveal style="--i:1">Marketplace with faceted filters, status tabs and sort</li>
+        <li data-reveal style="--i:2">How it works and the full role blueprint</li>
+        <li data-reveal style="--i:3">Auction calendar with a day view</li>
+        <li data-reveal style="--i:4">Pricing, sign-in and registration with inline validation</li>
+        <li data-reveal style="--i:5">Help centre, FAQs, grievance, blog, knowledge centre, market reports, careers, policies</li>
+      </ul>
+      <div class="bento">
+        <figure class="wide" data-reveal="img"><img src="/img/ferrobid-marketplace-desk.webp" alt="Industrial Metal Marketplace: filters for category, seller and location on the left; tabs for all lots, live now and upcoming; cards for aluminium extrusion scrap, CR coil secondary stock and zinc dross with lot IDs, tonnage, invented seller names, locations and a bid button" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Marketplace — demo lots</figcaption></figure>
+        <figure data-reveal="img"><img src="/img/ferrobid-roles-desk.webp" alt="User Ecosystem Blueprint page with a card per role: Super Admin, CEO, Executive Officer, Sub Admin, Site Officer, Finance Officer and more, each with key responsibilities" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Role blueprint</figcaption></figure>
+        <figure data-reveal="img" style="--i:1"><img src="/img/ferrobid-how-desk.webp" alt="How it works page: the steps from registration to settlement" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>How it works</figcaption></figure>
+        <figure data-reveal="img"><img src="/img/ferrobid-calendar-desk.webp" alt="Auction calendar with a month grid and the day's scheduled auctions" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Auction calendar</figcaption></figure>
+        <figure data-reveal="img" style="--i:1"><img src="/img/ferrobid-auth-desk.webp" alt="Sign-in and register page with tabs, inline validation and a password visibility toggle" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Register</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="app-sec" aria-labelledby="phone-title">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="phone-title" data-reveal><small>04 — On a phone</small>Twelve viewports, one suite</h2>
+        <p data-reveal style="--i:1">The Playwright config runs the same accessibility checks on six phones from 320px to 430px, tablets and desktops. A buyer in a scrapyard is on a phone, so the marketplace was built there first.</p>
+      </div>
+      <div class="phone-pair" data-reveal-group>
+        <figure class="dev dev--mob" data-reveal="img"><img src="/img/ferrobid-home-mob.webp" alt="FerroBid home on a phone" width="520" height="1125" loading="lazy" decoding="async" /></figure>
+        <figure class="dev dev--mob" data-reveal="img" style="--i:1"><img src="/img/ferrobid-marketplace-mob.webp" alt="FerroBid marketplace on a phone" width="520" height="1125" loading="lazy" decoding="async" /></figure>
+      </div>
+    </section>
+
+    <a class="case-next" href="/work/famysys/" data-cursor="Next">
+      <span class="caps">Next case — Full Stack at Famysys</span>
+      <span class="case-next-title">Full Stack at Famysys</span>
+      <span class="case-next-media" aria-hidden="true"><img src="/img/famysys-1280.webp" alt="" width="1024" height="1024" loading="lazy" decoding="async" /></span>
+    </a>
+
+  </main>
+
+  <footer class="site-foot">
+    <a class="foot-cta" href="/contact/" data-cursor="Talk" data-spot>
+      <span class="caps foot-cta-kicker">The inbox is open — <span data-year>2026</span></span>
+      <span class="foot-cta-word">Let's Talk<span class="fill" aria-hidden="true">Let's Talk</span></span>
+      <span class="foot-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M11 29 29 11M13 11h16v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <div class="foot-body">
+      <div class="foot-brand">
+        <p class="foot-mark"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span>SHAFWAN<sup>®</sup></p>
+        <p class="foot-line">Full stack software engineer in Chennai. The interface people use, the services behind it, and the systems that keep both running.</p>
+        <p class="foot-clock"><i class="live-dot" aria-hidden="true"></i><span class="caps">Chennai</span><b data-clock>—</b></p>
+      </div>
+
+      <nav class="foot-col" aria-label="Sitemap">
+        <span class="caps">Sitemap</span>
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+
+      <nav class="foot-col" aria-label="Elsewhere">
+        <span class="caps">Elsewhere</span>
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+        <a href="/Shafwan-Ahmed-Resume.pdf" download>Résumé (PDF)</a>
+      </nav>
+
+      <div class="foot-col" data-foot-settings>
+        <span class="caps">Settings</span>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <p class="foot-note">© <span data-year>2026</span> Shafwan Ahmed · designed &amp; built by hand. HTML, CSS and a little vanilla JavaScript. No frameworks.</p>
+      <a class="foot-top" href="#top">
+        <span class="caps">Back to top</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <p class="foot-water" aria-hidden="true">SHAFWAN</p>
+  </footer>
+
+  <script type="module" src="/src/js/app.js"></script>
+  <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/gl-hover.js"></script>
+</body>
+</html>

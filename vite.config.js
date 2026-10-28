@@ -44,6 +44,8 @@ export default defineConfig({
         home: resolve(__dirname, 'index.html'),
         work: resolve(__dirname, 'work/index.html'),
         famysys: resolve(__dirname, 'work/famysys/index.html'),
+        famysysEms: resolve(__dirname, 'work/famysys-ems/index.html'),
+        ferrobid: resolve(__dirname, 'work/ferrobid/index.html'),
         servicenow: resolve(__dirname, 'work/servicenow/index.html'),
         myfundbox: resolve(__dirname, 'work/myfundbox/index.html'),
         sih2023: resolve(__dirname, 'work/sih-2023/index.html'),

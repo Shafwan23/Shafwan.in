@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Famysys EMS — Case Study — Shafwan Ahmed</title>
+  <meta name="description" content="Case study: the Famysys employee management platform, built solo in October 2026. One identity, four apps (Hiring, Console, HRMS, PMS), a role-based access engine, four Express services on MySQL, 103 screens. By Shafwan Ahmed." />
+  <link rel="canonical" href="https://shafwan.in/work/famysys-ems/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Shafwan Ahmed" />
+  <meta name="theme-color" content="#0F0E0C" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Shafwan Ahmed" />
+  <meta property="og:title" content="Famysys EMS — Case Study" />
+  <meta property="og:description" content="One identity, four apps, one access engine. The Famysys employee platform: Hiring, Console, HRMS and PMS, built solo." />
+  <meta property="og:url" content="https://shafwan.in/work/famysys-ems/" />
+  <meta property="og:image" content="https://shafwan.in/og-famysys-ems.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Famysys EMS case study — Shafwan Ahmed" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Famysys EMS — Case Study" />
+  <meta name="twitter:description" content="One identity, four apps, one access engine. The Famysys employee platform, built solo." />
+  <meta name="twitter:image" content="https://shafwan.in/og-famysys-ems.png" />
+  <meta name="twitter:image:alt" content="Famysys EMS case study — Shafwan Ahmed" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preload" href="/fonts/archivo-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/italiana-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/src/styles.css" />
+
+  <script type="speculationrules">
+  { "prerender": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }] }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebSite", "@id": "https://shafwan.in/#website", "url": "https://shafwan.in/", "name": "Shafwan Ahmed" },
+      {
+        "@type": "Article",
+        "headline": "Famysys EMS — Case Study",
+        "description": "The Famysys employee management platform: Hiring, Console, HRMS and PMS behind one identity and one access engine.",
+        "url": "https://shafwan.in/work/famysys-ems/",
+        "image": "https://shafwan.in/og-famysys-ems.png",
+        "author": { "@type": "Person", "name": "Shafwan Ahmed", "url": "https://shafwan.in/" },
+        "isPartOf": { "@id": "https://shafwan.in/#website" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shafwan.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://shafwan.in/work/" },
+          { "@type": "ListItem", "position": 3, "name": "Famysys EMS", "item": "https://shafwan.in/work/famysys-ems/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <span class="head-progress" aria-hidden="true"></span>
+    <div class="head-inner">
+      <a class="brand" href="/" aria-label="Shafwan — home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span><span class="brand-word">SHAFWAN<sup>®</sup></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="head-end">
+        <a class="status-pill" href="/contact/" data-magnet><i aria-hidden="true"></i>Open to roles — <span data-year>2026</span></a>
+        <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="siteMenu">
+          <span class="menu-bars" aria-hidden="true"><i></i><i></i></span>
+          <span class="sr-only">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="siteMenu" hidden>
+    <nav class="menu-nav" aria-label="Site">
+      <a href="/"><span class="menu-no" aria-hidden="true">01</span><span class="menu-word">Home</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/work/"><span class="menu-no" aria-hidden="true">02</span><span class="menu-word">Work</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/experience/"><span class="menu-no" aria-hidden="true">03</span><span class="menu-word">Experience</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/about/"><span class="menu-no" aria-hidden="true">04</span><span class="menu-word">About</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/lab/"><span class="menu-no" aria-hidden="true">05</span><span class="menu-word">Lab</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="/contact/"><span class="menu-no" aria-hidden="true">06</span><span class="menu-word">Contact</span><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11 5M5.5 4.5H11.5V10.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+    <div class="menu-foot">
+      <a class="menu-mail" href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+      <div class="menu-social">
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub</a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <section class="case-hero" aria-labelledby="case-title">
+      <div class="case-folio-row">
+        <p class="folio" aria-hidden="true">Private build</p>
+        <p class="caps">Case Study — Famysys</p>
+      </div>
+      <h1 class="case-title" id="case-title">
+        <span class="sr-only">Famysys EMS</span>
+        <span aria-hidden="true" data-split>Famysys EMS</span>
+      </h1>
+      <dl class="case-meta" data-reveal-group>
+        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>Internal employee platform · Hiring, Console, HRMS, PMS</dd></div>
+        <div data-reveal style="--i:1"><dt class="caps">Role</dt><dd>Sole engineer, design to deployment · Oct 2026</dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>Next.js 16 · React 19 · TypeScript · Express · Prisma · MySQL 8</dd></div>
+      </dl>
+      <figure class="case-hero-media case-hero-media--slat" data-reveal>
+        <img src="/img/ems-console-access-desk.webp" alt="The Console's access matrix: roles down the side, the apps HRMS, PMS, Hiring, Console and RFP Portal across the top, and each cell saying always on, all, a module count, none or in progress" width="1200" height="750" fetchpriority="high" decoding="async" data-distort />
+        <span class="slats" aria-hidden="true"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></span>
+      </figure>
+    </section>
+
+    <aside class="case-note" aria-label="About the screenshots">
+      <i aria-hidden="true"></i>
+      <p><strong>Every screenshot on this page shows demo data.</strong> The platform is private to Famysys, so it was run locally on its seeded demo set for these pictures: every person, salary, candidate, project and number is fictional, and no real employee record appears anywhere.</p>
+    </aside>
+
+    <div class="case-body">
+      <aside class="case-side">
+        <p class="folio" aria-hidden="true">01</p>
+        <p class="caps">Specification</p>
+        <ul class="case-spec">
+          <li style="--i:0"><span class="spec-no">01</span><span class="spec-text">One identity for four apps</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:1"><span class="spec-no">02</span><span class="spec-text">An access engine: roles, modules, overrides</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:2"><span class="spec-no">03</span><span class="spec-text">Four Express services behind one gateway</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:3"><span class="spec-no">04</span><span class="spec-text">Prisma on MySQL, audit written in the transaction</span><span class="spec-leader" aria-hidden="true"></span></li>
+          <li style="--i:4"><span class="spec-no">05</span><span class="spec-text">86 test files, 14 browser journeys, an a11y suite</span><span class="spec-leader" aria-hidden="true"></span></li>
+        </ul>
+      </aside>
+      <div class="case-prose">
+        <h2 data-reveal>The brief</h2>
+        <p data-reveal>Famysys ran its people work across spreadsheets, chat and goodwill. The brief was one platform for the whole company: <strong>recruit, administer, pay, and run projects</strong>, with one sign-in, and with each person seeing only what their role allows. I designed and built it alone, from the first wireframe to the deploy scripts.</p>
+        <h2 data-reveal>The build</h2>
+        <p data-reveal>It is an npm monorepo. The web app is Next.js 16 with React 19, split into four sites that share one shell: the employee portal with HRMS and PMS, the Hiring app, the admin Console and a public careers page. A proxy maps <code>employee.</code>, <code>hiring.</code> and <code>console.</code> subdomains onto those routes.</p>
+        <p data-reveal>Behind it sit four Express services, identity, hiring, hrms and pms, each with its own Prisma schema and its own MySQL database, mounted together in a single gateway process so the whole backend fits on shared hosting. Sign-in issues an RS256 access token that lives only in memory and a rotating refresh token in an httpOnly cookie; every write also lands in an audit table inside the same transaction. Shared packages hold the pure rules: the access engine, leave and payroll maths, task and timesheet logic, zod contracts.</p>
+        <h2 data-reveal>The practice</h2>
+        <p data-reveal>Every workspace type-checks and lints. Unit tests run on Vitest, service tests run against real test databases with the checked-in migrations, and Playwright drives Chrome, Firefox, WebKit and a phone through fourteen journeys, with axe on every page. <strong>247 commits in three weeks, all mine.</strong></p>
+      </div>
+    </div>
+
+    <dl class="case-figures" data-reveal-group>
+      <div data-reveal style="--i:0"><dt class="caps">Screens</dt><dd><span data-count="103">0</span></dd></div>
+      <div data-reveal style="--i:1"><dt class="caps">Data models</dt><dd><span data-count="103">0</span></dd></div>
+      <div data-reveal style="--i:2"><dt class="caps">Test files</dt><dd><span data-count="86">0</span></dd></div>
+      <div data-reveal style="--i:3"><dt class="caps">Commits in 3 weeks</dt><dd><span data-count="247">0</span></dd></div>
+    </dl>
+
+    <!-- ═══ INSTRUMENT — the access check ═══ -->
+    <section class="instrument inst-access" aria-labelledby="inst-title" data-reveal="fade">
+      <div class="inst-head">
+        <h2 class="inst-title" id="inst-title">The access check</h2>
+        <p class="caps"><i class="live-dot" aria-hidden="true"></i>Checked after every sign-in</p>
+      </div>
+      <div class="acc-grid" aria-hidden="true">
+        <div class="acc-role">
+          <span class="caps">Signed in as</span>
+          <b class="acc-name" style="--k: 0">Suresh Menon<small>Admin</small></b>
+          <b class="acc-name" style="--k: 1">Anita Kurian<small>HR Admin</small></b>
+          <b class="acc-name" style="--k: 2">Arun Pillai<small>Project Manager</small></b>
+          <b class="acc-name" style="--k: 3">Vikram Raj<small>Developer</small></b>
+        </div>
+        <div class="acc-apps">
+          <div class="acc-app"><b>HRMS</b><div class="acc-state">
+            <span class="acc-st" style="--k: 0" data-on="1"><span>Self-service</span><i></i></span>
+            <span class="acc-st" style="--k: 1" data-on="1"><span>Admin, records, reports</span><i></i></span>
+            <span class="acc-st" style="--k: 2" data-on="1"><span>Self-service + team</span><i></i></span>
+            <span class="acc-st" style="--k: 3" data-on="1"><span>Self-service</span><i></i></span>
+          </div></div>
+          <div class="acc-app"><b>PMS</b><div class="acc-state">
+            <span class="acc-st" style="--k: 0" data-on="0"><span>Locked</span><i></i></span>
+            <span class="acc-st" style="--k: 1" data-on="0"><span>Locked</span><i></i></span>
+            <span class="acc-st" style="--k: 2" data-on="1"><span>All 7 modules</span><i></i></span>
+            <span class="acc-st" style="--k: 3" data-on="2"><span>6 of 7 modules</span><i></i></span>
+          </div></div>
+          <div class="acc-app"><b>Hiring</b><div class="acc-state">
+            <span class="acc-st" style="--k: 0" data-on="0"><span>Locked</span><i></i></span>
+            <span class="acc-st" style="--k: 1" data-on="1"><span>All 7 modules</span><i></i></span>
+            <span class="acc-st" style="--k: 2" data-on="2"><span>3 of 7 modules</span><i></i></span>
+            <span class="acc-st" style="--k: 3" data-on="0"><span>Locked</span><i></i></span>
+          </div></div>
+          <div class="acc-app"><b>Console</b><div class="acc-state">
+            <span class="acc-st" style="--k: 0" data-on="1"><span>All 10 modules</span><i></i></span>
+            <span class="acc-st" style="--k: 1" data-on="0"><span>Locked</span><i></i></span>
+            <span class="acc-st" style="--k: 2" data-on="0"><span>Locked</span><i></i></span>
+            <span class="acc-st" style="--k: 3" data-on="0"><span>Locked</span><i></i></span>
+          </div></div>
+        </div>
+      </div>
+      <p class="sr-only">Four demo roles and what each can open: an Admin opens HRMS self-service and all ten Console modules; an HR Admin opens HR administration, records and reports plus all of Hiring; a Project Manager opens HRMS with team views, all of PMS and three Hiring modules; a Developer opens HRMS self-service and six of the seven PMS modules.</p>
+      <p class="inst-note">The session stores only who you are, never a role. Access is worked out on every render from the roles on your record, then per-person overrides, each of which needs a written reason. Revoke something in the Console and it is gone on the next click. The last Console admin cannot be demoted, not even by themself.</p>
+    </section>
+
+    <!-- ═══ THE APPS ═══ -->
+    <section class="app-sec" aria-labelledby="app-hiring">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="app-hiring" data-reveal><small>01 — Hiring</small>Recruitment, from careers page to offer letter</h2>
+        <p data-reveal style="--i:1">A public careers site feeds candidates into a pipeline board. HR moves them through stages, schedules interviews, scores them against a job description, issues an offer with a CTC breakdown, and converts the accepted one into an employee record.</p>
+      </div>
+      <ul class="app-built" data-reveal-group>
+        <li data-reveal style="--i:0">Jobs: draft, publish, edit; the careers page and apply form read from them</li>
+        <li data-reveal style="--i:1">Candidates with filters, tags, notes, résumé preview and a journey timeline</li>
+        <li data-reveal style="--i:2">Pipeline board: drag or "Move to", with a reasoned reject dialog</li>
+        <li data-reveal style="--i:3">Interviews on a week calendar, with scheduling and feedback</li>
+        <li data-reveal style="--i:4">Offers: CTC breakdown, offer letter PDF, convert to employee</li>
+        <li data-reveal style="--i:5">JD Match: a transparent keyword score with run history, blind to personal attributes</li>
+      </ul>
+      <div class="bento">
+        <figure class="wide" data-reveal="img"><img src="/img/ems-hiring-dashboard-desk.webp" alt="Hiring dashboard with open roles, candidates by stage, upcoming interviews and recent activity" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Dashboard — HR Admin view</figcaption></figure>
+        <figure data-reveal="img"><img src="/img/ems-hiring-pipeline-desk.webp" alt="Pipeline board with six columns, Applied 31, Shortlisted 6, Interview 3, Offer 2, Joined 1, Rejected 1, each card showing a candidate, role, experience, city and a match score" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Pipeline board</figcaption></figure>
+        <figure data-reveal="img" style="--i:1"><img src="/img/ems-hiring-candidate-desk.webp" alt="A candidate profile with tabs, a journey timeline and one action bar" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Candidate profile</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="app-sec" aria-labelledby="app-console">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="app-console" data-reveal><small>02 — Console</small>People, roles and who may open what</h2>
+        <p data-reveal style="--i:1">The admin site. Employees, departments and designations are set up here, roles are defined, and the access matrix decides which apps and modules each role can open. Every change is audited, and an admin can preview the platform as any employee before saving.</p>
+      </div>
+      <ul class="app-built" data-reveal-group>
+        <li data-reveal style="--i:0">Employees: detail, form, CSV import, temporary passwords, invite and deactivate</li>
+        <li data-reveal style="--i:1">Roles and the access matrix, with a card view on phones</li>
+        <li data-reveal style="--i:2">Applications registry: apps and modules are data, not code</li>
+        <li data-reveal style="--i:3">Audit log of every change, with the reason behind each override</li>
+        <li data-reveal style="--i:4">"Preview as employee" and a go-live setup checklist</li>
+        <li data-reveal style="--i:5">Last-admin protection: the final admin cannot be locked out</li>
+      </ul>
+      <div class="bento">
+        <figure class="wide" data-reveal="img"><img src="/img/ems-console-employees-desk.webp" alt="Console employees list with departments, designations, roles and status for each person" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Employees</figcaption></figure>
+        <figure data-reveal="img"><img src="/img/ems-console-roles-desk.webp" alt="Console roles page listing each role with its employee count and the apps it opens" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Roles</figcaption></figure>
+        <figure data-reveal="img" style="--i:1"><img src="/img/ems-console-audit-desk.webp" alt="Console audit log: who changed what, when, and why" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Audit log</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="app-sec" aria-labelledby="app-hrms">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="app-hrms" data-reveal><small>03 — HRMS</small>Attendance, leave, payroll, people</h2>
+        <p data-reveal style="--i:1">The app every employee opens. Check in, apply for leave, read a payslip, keep your profile current. Managers see their team; HR runs records, policies and reports; Finance runs payroll and generates the payslip PDFs on the server.</p>
+      </div>
+      <ul class="app-built" data-reveal-group>
+        <li data-reveal style="--i:0">Home with today's hours, leave balance, pending requests and holidays</li>
+        <li data-reveal style="--i:1">Attendance check-in, work mode and corrections; team views of who is in or out</li>
+        <li data-reveal style="--i:2">Leave: apply, history, holidays, policy; admin rules, adjustments and balances</li>
+        <li data-reveal style="--i:3">Approvals, pending and decided, for managers and HR</li>
+        <li data-reveal style="--i:4">Payroll months, salary structures, imports, and payslip PDFs</li>
+        <li data-reveal style="--i:5">Records: onboarding, exits, documents, change requests; reports on all of it</li>
+      </ul>
+      <div class="bento">
+        <figure class="wide" data-reveal="img"><img src="/img/ems-portal-desk.webp" alt="HRMS home: Welcome back, Suresh; hours today 9h 26m with check-in and check-out times on a timeline; leave available 40.5 days; one pending request; the next holiday; team today; requests waiting on you" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Home — one employee's day</figcaption></figure>
+        <figure data-reveal="img"><img src="/img/ems-hrms-attendance-desk.webp" alt="Attendance page with the month's check-ins, hours and corrections" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Attendance</figcaption></figure>
+        <figure data-reveal="img" style="--i:1"><img src="/img/ems-hrms-payroll-desk.webp" alt="Payroll administration as seen by Finance: payroll months, salaries and structures" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Payroll — Finance view</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="app-sec" aria-labelledby="app-pms">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="app-pms" data-reveal><small>04 — PMS</small>Projects, tasks, timesheets, allocation</h2>
+        <p data-reveal style="--i:1">Project managers plan work, developers log it. Projects carry milestones and members, tasks live on a board, hours go into a weekly grid, allocation shows who has room, and approvals and reports close the loop. PMS has no always-on module: access needs both a role and project membership.</p>
+      </div>
+      <ul class="app-built" data-reveal-group>
+        <li data-reveal style="--i:0">Projects: create, edit, reopen; milestones, members, progress, client</li>
+        <li data-reveal style="--i:1">Tasks on a board with a detail panel</li>
+        <li data-reveal style="--i:2">Weekly timesheet grid, submitted for approval</li>
+        <li data-reveal style="--i:3">Team allocation across projects</li>
+        <li data-reveal style="--i:4">Clients and approvals</li>
+        <li data-reveal style="--i:5">Reports for the director, read-only</li>
+      </ul>
+      <div class="bento">
+        <figure class="wide" data-reveal="img"><img src="/img/ems-pms-projects-desk.webp" alt="PMS projects list with status, health, manager and progress for each project" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Projects</figcaption></figure>
+        <figure data-reveal="img"><img src="/img/ems-pms-project-desk.webp" alt="A project page: Acme Retail storefront rebuild, active and on track, with overview, dates, billable flag, progress 55 of 100 and three milestones" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Project detail</figcaption></figure>
+        <figure data-reveal="img" style="--i:1"><img src="/img/ems-pms-timesheet-desk.webp" alt="Weekly timesheet grid: projects down the side, days across, hours in each cell" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Timesheet</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="app-sec" aria-labelledby="app-access">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="app-access" data-reveal><small>05 — Role-based access</small>One sign-in, and a door that knows you</h2>
+        <p data-reveal style="--i:1">Signing in on one site signs you into all of them. Each site then checks access after sign-in: someone who may not open it sees a clear refusal and a way back, not an error. The demo panel on the login page lists only the accounts that can open that site, so the panel itself demonstrates the rules.</p>
+      </div>
+      <div class="bento">
+        <figure data-reveal="img"><img src="/img/ems-login-desk.webp" alt="Employee portal sign-in page: 'Everything you need, in one place', the apps one sign-in opens, and the demo accounts panel listing fictional employees with their roles" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>Sign in — demo accounts by role</figcaption></figure>
+        <figure data-reveal="img" style="--i:1"><img src="/img/ems-no-access-desk.webp" alt="A developer opening the Console sees 'You don't have access' with a link back to the portal" width="1200" height="750" loading="lazy" decoding="async" /><figcaption>A developer at the Console door</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="app-sec" aria-labelledby="app-phone">
+      <div class="app-head" data-rule>
+        <h2 class="app-title" id="app-phone" data-reveal><small>06 — On a phone</small>The same platform, installable</h2>
+        <p data-reveal style="--i:1">It is a PWA: a manifest, a service worker that caches only static assets and never the API, an offline page, and a logout that wipes the caches. Every screen was shot at 390px as well as 1440px before it was called done.</p>
+      </div>
+      <div class="phone-pair" data-reveal-group>
+        <figure class="dev dev--mob" data-reveal="img"><img src="/img/ems-portal-mob.webp" alt="HRMS home on a phone" width="520" height="1125" loading="lazy" decoding="async" /></figure>
+        <figure class="dev dev--mob" data-reveal="img" style="--i:1"><img src="/img/ems-hiring-dashboard-mob.webp" alt="Hiring dashboard on a phone" width="520" height="1125" loading="lazy" decoding="async" /></figure>
+      </div>
+    </section>
+
+    <a class="case-next" href="/work/ferrobid/" data-cursor="Next">
+      <span class="caps">Next case — FerroBid</span>
+      <span class="case-next-title">FerroBid</span>
+      <span class="case-next-media" aria-hidden="true"><img src="/img/ferrobid-home-desk.webp" alt="" width="1200" height="750" loading="lazy" decoding="async" /></span>
+    </a>
+
+  </main>
+
+  <footer class="site-foot">
+    <a class="foot-cta" href="/contact/" data-cursor="Talk" data-spot>
+      <span class="caps foot-cta-kicker">The inbox is open — <span data-year>2026</span></span>
+      <span class="foot-cta-word">Let's Talk<span class="fill" aria-hidden="true">Let's Talk</span></span>
+      <span class="foot-cta-arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M11 29 29 11M13 11h16v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+
+    <div class="foot-body">
+      <div class="foot-brand">
+        <p class="foot-mark"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M39.25 20.62A8 8 0 1 0 32 32A8 8 0 1 1 24.75 43.38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/></svg></span>SHAFWAN<sup>®</sup></p>
+        <p class="foot-line">Full stack software engineer in Chennai. The interface people use, the services behind it, and the systems that keep both running.</p>
+        <p class="foot-clock"><i class="live-dot" aria-hidden="true"></i><span class="caps">Chennai</span><b data-clock>—</b></p>
+      </div>
+
+      <nav class="foot-col" aria-label="Sitemap">
+        <span class="caps">Sitemap</span>
+        <a href="/">Home</a>
+        <a href="/work/">Work</a>
+        <a href="/experience/">Experience</a>
+        <a href="/about/">About</a>
+        <a href="/lab/">Lab</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+
+      <nav class="foot-col" aria-label="Elsewhere">
+        <span class="caps">Elsewhere</span>
+        <a href="https://www.linkedin.com/in/shafwan23/" rel="me noopener noreferrer" target="_blank">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://github.com/Shafwan23" rel="me noopener noreferrer" target="_blank">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="https://leetcode.com/u/Shafwan3/" rel="me noopener noreferrer" target="_blank">LeetCode<span class="sr-only"> (opens in new tab)</span></a>
+        <a href="mailto:tshafwan23@gmail.com">tshafwan23@gmail.com</a>
+        <a href="/Shafwan-Ahmed-Resume.pdf" download>Résumé (PDF)</a>
+      </nav>
+
+      <div class="foot-col" data-foot-settings>
+        <span class="caps">Settings</span>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <p class="foot-note">© <span data-year>2026</span> Shafwan Ahmed · designed &amp; built by hand. HTML, CSS and a little vanilla JavaScript. No frameworks.</p>
+      <a class="foot-top" href="#top">
+        <span class="caps">Back to top</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <p class="foot-water" aria-hidden="true">SHAFWAN</p>
+  </footer>
+
+  <script type="module" src="/src/js/app.js"></script>
+  <script type="module" src="/src/js/scene.js"></script>
+  <script type="module" src="/src/js/gl-hover.js"></script>
+</body>
+</html>
