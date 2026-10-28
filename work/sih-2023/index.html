@@ -147,47 +147,47 @@
 
     <section class="case-hero" aria-labelledby="case-title">
       <div class="case-folio-row">
-        <p class="folio" aria-hidden="true">04 / 04</p>
-        <p class="caps">Case Study</p>
+        <p class="folio" aria-hidden="true">04 / 06</p>
+        <p class="caps">Case Study — Smart India Hackathon</p>
       </div>
       <h1 class="case-title" id="case-title">
         <span class="sr-only">SIH 2023</span>
         <span aria-hidden="true" data-split>SIH 2023</span>
       </h1>
       <dl class="case-meta" data-reveal-group>
-        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>Smart India Hackathon 2023, Grand Finalist</dd></div>
-        <div data-reveal style="--i:1"><dt class="caps">Problem</dt><dd>ISRO · PS 1521 · Space Technology</dd></div>
-        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>Python · JavaScript · Random Forest · SVM · CNN · SHAP · LIME</dd></div>
+        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>Hackathon · explainable AI on satellite data</dd></div>
+        <div data-reveal style="--i:1"><dt class="caps">Role</dt><dd>Team member, model and web app · Grand Finalist, Dec 2023</dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>Python · Random Forest · SVM · CNN · SHAP · LIME · JavaScript</dd></div>
       </dl>
-      <figure class="case-hero-media case-hero-media--slat" data-reveal>
-        <img src="/img/sih-2023-1280.webp" alt="Illustration: a satellite precipitation grid with a scan line marking high-impact rain" width="1024" height="1024" fetchpriority="high" decoding="async" data-distort />
-        <span class="slats" aria-hidden="true"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></span>
+      <figure class="case-hero-media radar" data-reveal>
+        <img src="/img/sih-field.webp" alt="Illustration drawn for this page: a satellite precipitation field over a 0.1° grid, a monsoon band in blue rising through champagne to white where rain is heaviest, a legend from 0 to 204 millimetres, and one cell tagged high-impact at probability 0.91" width="1280" height="800" fetchpriority="high" decoding="async" />
+        <span class="radar-line" aria-hidden="true"></span>
+        <figcaption class="caps">Drawn for this page from the problem's own numbers: the field is simulated, the thresholds are ISRO's.</figcaption>
       </figure>
     </section>
 
-    <div class="case-body">
-      <aside class="case-side">
-        <p class="folio" aria-hidden="true">04</p>
-        <p class="caps">Specification</p>
-        <ul class="case-spec">
-          <li style="--i:0"><span class="spec-no">01</span><span class="spec-text">ISRO problem statement 1521</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:1"><span class="spec-no">02</span><span class="spec-text">INSAT-3DR precipitation data</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:2"><span class="spec-no">03</span><span class="spec-text">Random Forest, SVM &amp; deep CNN</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:3"><span class="spec-no">04</span><span class="spec-text">SHAP &amp; LIME explanations</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:4"><span class="spec-no">05</span><span class="spec-text">Grand Finalist, December 2023</span><span class="spec-leader" aria-hidden="true"></span></li>
-        </ul>
-      </aside>
+    <div class="case-body case-body--pipe">
       <div class="case-prose">
         <h2 data-reveal>The brief</h2>
-        <p data-reveal>The Smart India Hackathon is a national-level competition where student teams build solutions to real problems posed by government ministries and industry. Our college team took on an <strong>ISRO problem statement</strong>: develop an Explainable AI (XAI) based model to predict heavy and high-impact rain events using satellite data.</p>
+        <p data-reveal>The Smart India Hackathon is a national competition where student teams build solutions to problems posed by ministries and industry. Our college team took <strong>ISRO problem statement 1521</strong>: an explainable AI model that predicts heavy and high-impact rain events from INSAT-3DR satellite data, so that a forecast comes with its reasons.</p>
         <h2 data-reveal>The approach</h2>
-        <p data-reveal>The plan: take precipitation data from the INSAT-3DR satellite, clean and pre-process it for learning, and combine it with weather forecasts and historical data to raise accuracy. A multi-model approach (Random Forest, Support Vector Machine and a deep Convolutional Neural Network) would classify each event as high impact (1) or low impact (0).</p>
-        <p data-reveal>The point was trust. Each prediction would carry an explanation from SHAP (Shapley Additive Explanations) and LIME, so the people acting on it can see <em>why</em> the model called a storm, delivered through a web application in Python and JavaScript. By submission the product was about 60% built, with testing and validation next.</p>
+        <p data-reveal>Precipitation estimates from INSAT-3DR, cleaned and pre-processed for learning, combined with weather forecasts and historical data. Three models, Random Forest, Support Vector Machine and a deep Convolutional Neural Network, classify each cell and window as high-impact or not, and vote.</p>
+        <p data-reveal>The point was trust. Each prediction carries an explanation from SHAP and LIME, which signals pushed it over the line and by how much, delivered through a web application in Python and JavaScript. By submission the product was about 60% built, with testing and the interface still ahead.</p>
         <h2 data-reveal>The result</h2>
         <p data-reveal><strong>Grand Finalist, Smart India Hackathon 2023</strong>, issued by ISRO, Department of Space, in December 2023, with a certificate and memento from the Grand Finale.</p>
       </div>
+      <aside class="pipe" aria-label="The pipeline">
+        <p class="caps">The pipeline</p>
+        <ol class="pipe-rail" data-reveal-group>
+          <li data-reveal style="--i:0"><i aria-hidden="true"></i><b>Observe</b><span>INSAT-3DR precipitation on a 0.1° grid</span></li>
+          <li data-reveal style="--i:1"><i aria-hidden="true"></i><b>Prepare</b><span>Clean, window, join forecasts and history</span></li>
+          <li data-reveal style="--i:2"><i aria-hidden="true"></i><b>Model</b><span class="pipe-chips"><em>Random Forest</em><em>SVM</em><em>CNN</em></span></li>
+          <li data-reveal style="--i:3"><i aria-hidden="true"></i><b>Decide</b><span>High-impact or not, by vote</span></li>
+          <li data-reveal style="--i:4"><i aria-hidden="true"></i><b>Explain</b><span class="pipe-chips"><em>SHAP</em><em>LIME</em></span></li>
+          <li data-reveal style="--i:5"><i aria-hidden="true"></i><b>Deliver</b><span>A web app in Python and JavaScript</span></li>
+        </ol>
+      </aside>
     </div>
-
 
     <!-- ═══ INSTRUMENT — the rain band ═══ -->
     <section class="instrument inst-wave" aria-labelledby="inst-title" data-reveal="fade">
@@ -206,15 +206,15 @@
       </div>
       <p class="inst-note">A forecast nobody trusts is a forecast nobody acts on. The explanation, which signals pushed a prediction over the line, was the product, not an extra.</p>
     </section>
-    <div class="case-gallery case-gallery--drift" aria-label="Details">
-      <figure data-reveal="img"><img src="/img/sih-2023-d1.webp" alt="Illustration: SHAP-style feature contributions explaining a high-impact rain prediction" width="640" height="440" loading="lazy" decoding="async" /></figure>
-      <figure data-reveal="img" style="--i:1"><img src="/img/sih-2023-d2.webp" alt="Illustration: Random Forest, SVM and CNN combined into a multi-model classifier with SHAP and LIME" width="640" height="440" loading="lazy" decoding="async" /></figure>
-    </div>
+    <figure class="plate-wide" data-reveal="img">
+      <img src="/img/sih-shap.webp" alt="Illustration drawn for this page: 'Why the model called it', six SHAP bars for one cell, cloud-top brightness temperature, prior 3-hour accumulation, column humidity and neighbouring cells pushing toward high-impact, low-level wind shear and climatology pushing away, with the verdict high-impact rain at probability 0.91" width="1280" height="800" loading="lazy" decoding="async" />
+      <figcaption class="caps">One prediction, explained — the feature list and weights are illustrative</figcaption>
+    </figure>
 
     <a class="case-next" href="/work/famysys/" data-cursor="Next">
       <span class="caps">Next case — 01</span>
       <span class="case-next-title">Full Stack at Famysys</span>
-      <span class="case-next-media" aria-hidden="true"><img src="/img/famysys-1280.webp" alt="" width="1024" height="1024" loading="lazy" decoding="async" /></span>
+      <span class="case-next-media" aria-hidden="true"><img src="/img/live-studio-desk.webp" alt="" width="1280" height="800" loading="lazy" decoding="async" /></span>
     </a>
 
   </main>

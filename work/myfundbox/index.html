@@ -147,47 +147,48 @@
 
     <section class="case-hero" aria-labelledby="case-title">
       <div class="case-folio-row">
-        <p class="folio" aria-hidden="true">03 / 04</p>
-        <p class="caps">Case Study</p>
+        <p class="folio" aria-hidden="true">03 / 06</p>
+        <p class="caps">Case Study — MYFUNDBOX</p>
       </div>
       <h1 class="case-title" id="case-title">
         <span class="sr-only">MYFUNDBOX</span>
         <span aria-hidden="true" data-split>MYFUNDBOX</span>
       </h1>
       <dl class="case-meta" data-reveal-group>
-        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>Global subscription billing platform</dd></div>
-        <div data-reveal style="--i:1"><dt class="caps">Role</dt><dd>Full Stack Developer Intern · remote, Jan to Jun 2024</dd></div>
-        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>React · TypeScript · Vite · Spring Boot · Java</dd></div>
+        <div data-reveal style="--i:0"><dt class="caps">Category</dt><dd>Subscription billing · auth flows and dashboard</dd></div>
+        <div data-reveal style="--i:1"><dt class="caps">Role</dt><dd>Full Stack Developer Intern, remote · Jan to Jun 2024</dd></div>
+        <div data-reveal style="--i:2"><dt class="caps">Stack</dt><dd>React · TypeScript · Vite · Spring Boot REST</dd></div>
       </dl>
-      <figure class="case-hero-media case-hero-media--slat" data-reveal>
-        <img src="/img/myfundbox-1280.webp" alt="Illustration: a sign-in screen showing an inline email validation error" width="1024" height="1024" fetchpriority="high" decoding="async" data-distort />
-        <span class="slats" aria-hidden="true"><i style="--s:0"></i><i style="--s:1"></i><i style="--s:2"></i><i style="--s:3"></i><i style="--s:4"></i><i style="--s:5"></i></span>
-      </figure>
+      <div class="glass-hero" data-reveal>
+        <figure class="dev dev--desk">
+          <span class="dev-bar" aria-hidden="true"><i></i><i></i><i></i><span class="dev-url"><b>myfundbox.com</b></span></span>
+          <span class="dev-screen"><img src="/img/mfb-login-desk.webp" alt="myfundbox.com sign-in page today: 'Choose product to sign in', with Subscription Billing, Donorfit and Affiliate Program cards" width="1280" height="800" fetchpriority="high" decoding="async" /></span>
+        </figure>
+        <figure class="dev dev--mob"><img src="/img/mfb-signup-mob.webp" alt="" width="520" height="1125" loading="lazy" decoding="async" /></figure>
+        <p class="caps glass-note">The public sign-in and sign-up pages of myfundbox.com, as they are today</p>
+      </div>
     </section>
 
-    <div class="case-body">
-      <aside class="case-side">
-        <p class="folio" aria-hidden="true">03</p>
-        <p class="caps">Specification</p>
-        <ul class="case-spec">
-          <li style="--i:0"><span class="spec-no">01</span><span class="spec-text">Login &amp; signup flow, end to end</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:1"><span class="spec-no">02</span><span class="spec-text">Form validation, error states, sessions</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:2"><span class="spec-no">03</span><span class="spec-text">Customer dashboard in React components</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:3"><span class="spec-no">04</span><span class="spec-text">Spring Boot REST integration</span><span class="spec-leader" aria-hidden="true"></span></li>
-          <li style="--i:4"><span class="spec-no">05</span><span class="spec-text">Type-safe React, TypeScript &amp; Vite</span><span class="spec-leader" aria-hidden="true"></span></li>
-        </ul>
-      </aside>
+    <div class="case-body case-body--form">
       <div class="case-prose">
         <h2 data-reveal>The brief</h2>
-        <p data-reveal>MYFUNDBOX is a global subscription billing platform. As a remote Full Stack Developer Intern, the job was to <strong>rebuild core pages of the company website</strong>, working across the full stack.</p>
+        <p data-reveal>MYFUNDBOX is a global subscription billing platform: recurring invoices, failed-payment retries, tax rules across regions. As a remote Full Stack Developer Intern, the job was to <strong>rebuild core pages of the company website</strong>, working across the full stack.</p>
         <h2 data-reveal>The build</h2>
-        <p data-reveal>The login and signup flow, built end to end: form validation, error states and session handling. The customer dashboard, developed as responsive, reusable React components.</p>
-        <p data-reveal>Front-end views were connected to Spring Boot REST endpoints, handling the data flow and the loading and error states of every call, in a React, TypeScript and Vite codebase with a focus on type safety and clean component structure.</p>
+        <p data-reveal>The login and signup flow, built end to end: form validation, error states and session handling. The customer dashboard, developed as responsive, reusable React components. Front-end views connected to Spring Boot REST endpoints, with the loading and error states of every call handled, in a React, TypeScript and Vite codebase with a focus on type safety and clean component structure.</p>
         <h2 data-reveal>The start</h2>
         <p data-reveal>This is where the record begins: authentication flows and dashboard interfaces in React and Spring Boot, and the first taste of <strong>owning a feature from the form field to the endpoint.</strong></p>
       </div>
+      <form class="formsheet" aria-label="What was built, field by field" onsubmit="return false">
+        <p class="caps">The work, field by field</p>
+        <div class="fs-row" data-reveal style="--i:0"><label class="caps" for="fs-1">Flow</label><output id="fs-1">Login and signup, end to end</output></div>
+        <div class="fs-row" data-reveal style="--i:1"><label class="caps" for="fs-2">Validation</label><output id="fs-2">Inline, with error states that say what to fix</output></div>
+        <div class="fs-row" data-reveal style="--i:2"><label class="caps" for="fs-3">Session</label><output id="fs-3">Kept, restored, and ended cleanly</output></div>
+        <div class="fs-row" data-reveal style="--i:3"><label class="caps" for="fs-4">Dashboard</label><output id="fs-4">Responsive, reusable React components</output></div>
+        <div class="fs-row" data-reveal style="--i:4"><label class="caps" for="fs-5">Data</label><output id="fs-5">Spring Boot REST, a loading and an error state per call</output></div>
+        <div class="fs-row" data-reveal style="--i:5"><label class="caps" for="fs-6">Types</label><output id="fs-6">TypeScript throughout, Vite for the build</output></div>
+        <p class="fs-foot caps"><i class="live-dot" aria-hidden="true"></i>All fields valid</p>
+      </form>
     </div>
-
 
     <!-- ═══ INSTRUMENT — the handset ═══ -->
     <section class="instrument inst-device" aria-labelledby="inst-title" data-reveal="fade">
@@ -214,15 +215,18 @@
       </div>
       <p class="inst-note">Authentication is the first screen of a billing product and the one nobody forgives. It has to be right before anything else matters.</p>
     </section>
-    <div class="case-gallery case-gallery--drift" aria-label="Details">
-      <figure data-reveal="img"><img src="/img/myfundbox-d1.webp" alt="Illustration: a customer dashboard with loading, error and retry states" width="640" height="440" loading="lazy" decoding="async" /></figure>
-      <figure data-reveal="img" style="--i:1"><img src="/img/myfundbox-d2.webp" alt="Illustration: front-end requests to Spring Boot REST endpoints and their responses" width="640" height="440" loading="lazy" decoding="async" /></figure>
-    </div>
+    <ol class="chain" aria-label="The request path" data-reveal-group>
+      <li data-reveal style="--i:0"><span class="caps">Field</span><b>React form</b></li>
+      <li data-reveal style="--i:1"><span class="caps">Check</span><b>TypeScript types</b></li>
+      <li data-reveal style="--i:2"><span class="caps">Call</span><b>REST request</b></li>
+      <li data-reveal style="--i:3"><span class="caps">Serve</span><b>Spring Boot</b></li>
+      <li data-reveal style="--i:4"><span class="caps">Show</span><b>Loading · error · data</b></li>
+    </ol>
 
     <a class="case-next" href="/work/sih-2023/" data-cursor="Next">
       <span class="caps">Next case — 04</span>
       <span class="case-next-title">SIH 2023</span>
-      <span class="case-next-media" aria-hidden="true"><img src="/img/sih-2023-1280.webp" alt="" width="1024" height="1024" loading="lazy" decoding="async" /></span>
+      <span class="case-next-media" aria-hidden="true"><img src="/img/sih-field.webp" alt="" width="1280" height="800" loading="lazy" decoding="async" /></span>
     </a>
 
   </main>
